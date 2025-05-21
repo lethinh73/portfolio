@@ -12,12 +12,13 @@ jobs:
   build-and-deploy:
     runs-on: self-hosted
     steps:
-      # Checkout the latest code
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          path: /var/www/portfolio
-          fetch-depth: 1
+      # Update code with git pull
+      - name: Pull latest code
+        run: |
+          cd /var/www/portfolio
+          git fetch origin
+          git checkout main
+          git pull origin main
 
       # Install Composer dependencies
       - name: Install Composer dependencies
