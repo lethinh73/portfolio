@@ -13,12 +13,11 @@ jobs:
     runs-on: self-hosted
     steps:
       # Update code with git pull
-      - name: Pull latest code
+      - name: Pull latest code and reset changes
         run: |
           cd /var/www/portfolio
-          git fetch origin
-          git checkout main
-          git pull origin main
+          git reset --hard
+          git clean -fd
 
       # Install Composer dependencies
       - name: Install Composer dependencies
@@ -26,10 +25,24 @@ jobs:
           cd /var/www/portfolio
           composer install --optimize-autoloader --no-dev
 
+      # Install NPM dependencies
+      - name: Install NPM dependencies
+        run: |
+          cd /var/www/portfolio
+          npm ci
+
+      # Build frontend assets
+      - name: Build frontend assets
+        run: |
+          cd /var/www/portfolio
+          npm run build
+
       # Cache Laravel configuration
       - name: Cache Laravel configuration
         run: |
           cd /var/www/portfolio
+          php artisan config:clear
+          php artisan cache:clear
           php artisan config:cache
           php artisan route:cache
           php artisan view:cache
