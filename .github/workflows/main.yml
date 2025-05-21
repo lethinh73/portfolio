@@ -53,13 +53,6 @@ jobs:
           cd /var/www/portfolio
           php artisan migrate --force
 
-      # Set permissions
-      - name: Set permissions
-        run: |
-          cd /var/www/portfolio
-          chown -R www-data:www-data storage bootstrap/cache
-          chmod -R 775 storage bootstrap/cache
-
       # Restart web server (optional, depending on your setup)
       - name: Restart web server
         run: |
