@@ -43,6 +43,7 @@ jobs:
           cd /var/www/portfolio
           php artisan config:clear
           php artisan cache:clear
+          php artisan view:clear
           php artisan config:cache
           php artisan route:cache
           php artisan view:cache
@@ -52,6 +53,13 @@ jobs:
         run: |
           cd /var/www/portfolio
           php artisan migrate --force
+
+      # Set permissions
+      - name: Set permissions
+        run: |
+          cd /var/www/portfolio
+          sudo chown -R www-data:www-data storage bootstrap/cache
+          sudo chmod -R 775 storage bootstrap/cache
 
       # Restart web server (optional, depending on your setup)
       - name: Restart web server
