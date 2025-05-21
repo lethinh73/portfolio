@@ -1,0 +1,52 @@
+name: Deploy App
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: self-hosted
+    steps:
+      # Checkout the latest code
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          path: /var/www/portfolio
+          fetch-depth: 1
+
+      # Install Composer dependencies
+      - name: Install Composer dependencies
+        run: |
+          cd /var/www/portfolio
+          composer install --optimize-autoloader --no-dev
+
+      # Cache Laravel configuration
+      - name: Cache Laravel configuration
+        run: |
+          cd /var/www/portfolio
+          php artisan config:cache
+          php artisan route:cache
+          php artisan view:cache
+
+      # Run database migrations
+      - name: Run migrations
+        run: |
+          cd /var/www/portfolio
+          php artisan migrate --force
+
+      # Set permissions
+      - name: Set permissions
+        run: |
+          cd /var/www/portfolio
+          chown -R www-data:www-data storage bootstrap/cache
+          chmod -R 775 storage bootstrap/cache
+
+      # Restart web server (optional, depending on your setup)
+      - name: Restart web server
+        run: |
+          sudo systemctl restart nginx
