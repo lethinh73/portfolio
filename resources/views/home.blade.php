@@ -24,7 +24,7 @@
 <body class="bg-gray-950 text-gray-200 antialiased">
   <nav class="sticky top-0 z-50 p-4 bg-gray-900 shadow-xl border-b border-gray-800">
     <div class="container flex items-center justify-between mx-auto">
-      <a href="#" class="text-3xl font-extrabold text-cyan-400 tracking-wide font-lexend">Thinh Le</a>
+      <a href="#hero" class="text-3xl font-extrabold text-cyan-400 tracking-wide font-lexend">Thinh Le</a>
       <div class="space-x-6 text-lg hidden md:flex" id="nav-links">
         <a href="#about"
           class="text-gray-300 hover:text-cyan-400 transition duration-300 ease-in-out relative nav-link-underline">About</a>
@@ -338,7 +338,7 @@
         </div>
 
         <div class="bg-gray-800 rounded-lg shadow-lg border border-gray-700 card-hover-effect group">
-          <img src="{{ asset('images/project2.png') }}" alt="Form Prefill Configuration UI Screenshot"
+          <img src="{{ asset('images/project2.png') }}" alt="Unit Converter UI Screenshot"
             class="w-full h-48 object-cover" loading="lazy" />
           <div class="p-5">
             <h3 class="mb-2 text-xl font-semibold text-gray-100">
@@ -362,7 +362,7 @@
         </div>
 
         <div class="bg-gray-800 rounded-lg shadow-lg border border-gray-700 card-hover-effect group">
-          <img src="{{ asset('images/project3.png') }}" alt="Form Prefill Configuration UI Screenshot"
+          <img src="{{ asset('images/project3.png') }}" alt="Grab Easy UI Screenshot"
             class="w-full h-48 object-cover" loading="lazy" />
           <div class="p-5">
             <h3 class="mb-2 text-xl font-semibold text-gray-100">
