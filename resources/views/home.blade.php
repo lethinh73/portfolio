@@ -19,27 +19,6 @@
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="{{ asset('css/home.css') }}" />
-  <style>
-    /* Custom CSS for accordion and mobile menu */
-    details > summary {
-      cursor: pointer;
-      list-style: none;
-    }
-    details > summary::-webkit-details-marker {
-      display: none;
-    }
-    details[open] > summary .accordion-icon {
-      transform: rotate(90deg);
-    }
-    .mobile-nav {
-      transition: max-height 0.3s ease-in-out;
-      max-height: 0;
-      overflow: hidden;
-    }
-    .mobile-nav.open {
-      max-height: 500px; /* Adjust based on content */
-    }
-  </style>
 </head>
 
 <body class="bg-gray-950 text-gray-200 antialiased">
@@ -157,15 +136,16 @@
             <li><span class="font-medium"><i class="fab fa-css3-alt mr-2 text-blue-400"></i>CSS</span></li>
             <li><span class="font-medium"><i class="fas fa-database mr-2 text-indigo-400"></i>MySQL</span></li>
             <li><span class="font-medium"><i class="fab fa-laravel mr-2 text-red-400"></i>Laravel</span></li>
-            <li><span class="font-medium"><i class="fab fa-react mr-2 text-cyan-400"></i>React, <i class="fab fa-vuejs mr-2 text-green-400"></i>Vue.js</span></li>
-            <li><span class="font-medium"><i class="fas fa-exchange-alt mr-2 text-gray-400"></i>REST, REST APIs</span></li>
+            <li><span class="font-medium"><i class="fab fa-react mr-2 text-cyan-400"></i>React</span></li>
+            <li><span class="font-medium"><i class="fab fa-vuejs mr-2 text-green-400"></i>Vue.js</span></li>
+            <li><span class="font-medium"><i class="fas fa-exchange-alt mr-2 text-gray-400"></i>RESTful APIs</span></li>
           </ul>
         </div>
         <div class="p-5 bg-gray-800 rounded-lg shadow-md border border-gray-700 card-hover-effect">
           <h3 class="mb-3 text-xl font-semibold text-teal-400"><i class="fas fa-project-diagram mr-2"></i>Design & Methodologies</h3>
           <ul class="space-y-1 text-gray-300 text-sm">
             <li><span class="font-medium"><i class="fas fa-users-cog mr-2 text-pink-400"></i>Agile Methodology</span></li>
-            <li><span class="font-medium"><i class="fas fa-sprint mr-2 text-orange-400"></i>Scrum Methodology</span></li>
+            <li><span class="font-medium"><i class="fas fa-people-group mr-2 text-orange-400"></i>Scrum Methodology</span></li>
             <li><span class="font-medium"><i class="fas fa-cogs mr-2 text-gray-400"></i>DevOps</span></li>
             <li><span class="font-medium"><i class="fas fa-sync-alt mr-2 text-blue-400"></i>CI/CD</span></li>
             <li><span class="font-medium"><i class="fas fa-vial mr-2 text-green-400"></i>Unit Testing</span></li>
@@ -287,44 +267,6 @@
         <details class="bg-gray-800 rounded-lg shadow-md border-l-4 border-blue-600 card-hover-effect">
           <summary class="flex items-center justify-between w-full p-5 text-gray-100 focus:outline-none">
             <div class="flex items-center">
-              <i class="fas fa-user-tie text-xl text-cyan-400 mr-3"></i>
-              <div class="flex flex-col items-start">
-                <h3 class="text-2xl font-bold">Administrative Assistant</h3>
-                <p class="text-lg text-blue-500">Accredo Packaging, Inc.</p>
-              </div>
-            </div>
-            <p class="text-gray-400 text-md ml-4 hidden md:block">
-              Apr 2020 - Mar 2021 | Sugar Land, Texas, United States
-            </p>
-            <svg class="w-6 h-6 text-cyan-400 transition-transform duration-300 accordion-icon ml-4" fill="none"
-              stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-            </svg>
-          </summary>
-          <div class="px-5 pb-5">
-            <ul class="list-disc list-inside space-y-1 text-gray-300 text-sm">
-              <li>
-                Provided technical support and translation services,
-                facilitating communication within the management team,
-                improving cross-functional collaboration.
-              </li>
-              <li>
-                Managed ERP tasks, including label issues and job status
-                monitoring, ensuring smooth production workflows and enhancing
-                operational efficiency.
-              </li>
-              <li>
-                Coordinated safety supplies and handled HR-related projects,
-                contributing to a safe and efficient workplace, reducing
-                safety incidents.
-              </li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="bg-gray-800 rounded-lg shadow-md border-l-4 border-blue-600 card-hover-effect">
-          <summary class="flex items-center justify-between w-full p-5 text-gray-100 focus:outline-none">
-            <div class="flex items-center">
               <i class="fas fa-desktop text-xl text-cyan-400 mr-3"></i>
               <div class="flex flex-col items-start">
                 <h3 class="text-2xl font-bold">ERP Support Specialist</h3>
@@ -332,7 +274,7 @@
               </div>
             </div>
             <p class="text-gray-400 text-md ml-4 hidden md:block">
-              Jun 2019 - Dec 2019 | Sugar Land, Texas, United States
+              Jun 2019 - Mar 2021 | Sugar Land, Texas, United States
             </p>
             <svg class="w-6 h-6 text-cyan-400 transition-transform duration-300 accordion-icon ml-4" fill="none"
               stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -367,11 +309,9 @@
         My Projects
       </h2>
       <p class="text-center text-gray-400 text-lg max-w-2xl mx-auto mb-8">
-        This section is where you will showcase your impressive projects. For
-        each project, you can include an image, a brief description, the
-        technologies used, and links to a live demo and/or GitHub repository.
+        Here are some of the projects I've worked on, showcasing my skills and experience in full-stack web development.
       </p>
-      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">  <!-- This is the main grid container for all projects -->
         <div class="bg-gray-800 rounded-lg shadow-lg border border-gray-700 card-hover-effect group">
           <img src="{{ asset('images/project1.png') }}" alt="Form Prefill Configuration UI Screenshot"
             class="w-full h-48 object-cover" loading="lazy" />
@@ -384,16 +324,60 @@
             </p>
             <div class="flex flex-wrap gap-2 mb-4">
               <span class="px-2 py-1 text-xs font-semibold text-blue-200 bg-blue-700 rounded-full">React</span>
-              <span class="px-2 py-1 text-xs font-semibold text-green-200 bg-green-700 rounded-full">Node.js</span>
-              <span class="px-2 py-1 text-xs font-semibold text-purple-200 bg-purple-700 rounded-full">MongoDB</span>
+              <span class="px-2 py-1 text-xs font-semibold text-green-200 bg-green-700 rounded-full">HTML5</span>
+              <span class="px-2 py-1 text-xs font-semibold text-purple-200 bg-purple-700 rounded-full">ReactFlow</span>
+              <span class="px-2 py-1 text-xs font-semibold text-red-200 bg-red-700 rounded-full">Tailwind CSS</span>
             </div>
             <div class="flex justify-between items-center mt-4">
-              <a href="#"
+              <a href="https://github.com/lethinh73/0dc41e"
                 class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-semibold transition duration-300">
-                Live Demo
-                <i class="fas fa-external-link-alt ml-2 text-sm"></i>
+                GitHub <i class="fab fa-github ml-2 text-sm"></i>
               </a>
-              <a href="#"
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-800 rounded-lg shadow-lg border border-gray-700 card-hover-effect group">
+          <img src="{{ asset('images/project2.png') }}" alt="Form Prefill Configuration UI Screenshot"
+            class="w-full h-48 object-cover" loading="lazy" />
+          <div class="p-5">
+            <h3 class="mb-2 text-xl font-semibold text-gray-100">
+              Unit Converter
+            </h3>
+            <p class="mb-4 text-gray-300 text-sm">
+              This is a project that combines a number converter and a calculator, supporting Decimal, Binary (IEEE-754 Floating Point), and Hexadecimal formats.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2 py-1 text-xs font-semibold text-blue-200 bg-blue-700 rounded-full">Python3</span>
+              <span class="px-2 py-1 text-xs font-semibold text-green-200 bg-green-700 rounded-full">PyQt5</span>
+              <span class="px-2 py-1 text-xs font-semibold text-purple-200 bg-purple-700 rounded-full">IEEE-754 Standard</span>
+            </div>
+            <div class="flex justify-between items-center mt-4">
+              <a href="https://github.com/lethinh73/unit-converter"
+                class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-semibold transition duration-300">
+                GitHub <i class="fab fa-github ml-2 text-sm"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-800 rounded-lg shadow-lg border border-gray-700 card-hover-effect group">
+          <img src="{{ asset('images/project3.png') }}" alt="Form Prefill Configuration UI Screenshot"
+            class="w-full h-48 object-cover" loading="lazy" />
+          <div class="p-5">
+            <h3 class="mb-2 text-xl font-semibold text-gray-100">
+              Grab Easy
+            </h3>
+            <p class="mb-4 text-gray-300 text-sm">
+              A modern, responsive front-end web application designed to simulate a seamless mobile food ordering experience
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2 py-1 text-xs font-semibold text-blue-200 bg-blue-700 rounded-full">Vue.js</span>
+              <span class="px-2 py-1 text-xs font-semibold text-green-200 bg-green-700 rounded-full">Javascript</span>
+              <span class="px-2 py-1 text-xs font-semibold text-purple-200 bg-purple-700 rounded-full">CSS</span>
+            </div>
+            <div class="flex justify-between items-center mt-4">
+              <a href="https://github.com/lethinh73/grab-easy"
                 class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-semibold transition duration-300">
                 GitHub <i class="fab fa-github ml-2 text-sm"></i>
               </a>
@@ -477,8 +461,7 @@
                 <h3 class="text-xl font-bold">Certifications</h3>
               </div>
             </div>
-            <svg class="w-6 h-6 text-cyan-400 transition-transform duration-300 accordion-icon ml-4" fill="none"
-              stroke="currentColor" viewBox="0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <svg class="w-6 h-6 text-cyan-400 transition-transform duration-300 accordion-icon ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
             </svg>
           </summary>
@@ -510,15 +493,15 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div class="bg-gray-800 rounded-lg shadow-xl border-4 border-cyan-400 card-hover-effect">
-          <img src="{{ asset('images/family1.jpg') }}" alt="Thinh Le with family at a gathering" class="w-full h-48 object-cover" loading="lazy" />
+          <img src="{{ asset('images/family1.jpg') }}" alt="Thinh Le with family at a gathering" class="w-full" loading="lazy" />
         </div>
 
         <div class="bg-gray-800 rounded-lg shadow-xl border-4 border-cyan-400 card-hover-effect">
-          <img src="{{ asset('images/family2.jpg') }}" alt="Thinh Le with family at a celebration" class="w-full h-48 object-cover" loading="lazy" />
+          <img src="{{ asset('images/family2.jpg') }}" alt="Thinh Le with family at a celebration" class="w-full" loading="lazy" />
         </div>
 
         <div class="bg-gray-800 rounded-lg shadow-xl border-4 border-cyan-400 card-hover-effect">
-          <img src="{{ asset('images/family3.jpg') }}" alt="Thinh Le with family at an event" class="w-full h-48 object-cover" loading="lazy" />
+          <img src="{{ asset('images/family3.jpg') }}" alt="Thinh Le with family at an event" class="w-full" loading="lazy" />
         </div>
       </div>
     </div>
@@ -593,7 +576,7 @@
 
   <footer class="p-6 text-center bg-gray-950 text-gray-400 border-t border-gray-800">
     <div class="container mx-auto">
-      <p>© 2025 Thinh Le. All rights reserved.</p>
+      <p>© {{ date('Y') }} Thinh Le. All rights reserved.</p>
     </div>
   </footer>
 
@@ -604,8 +587,8 @@
       const menuIcon = document.getElementById('menu-icon');
 
       toggleButton.addEventListener('click', () => {
-        mobileNav.classList.toggle('open');
-        const isOpen = mobileNav.classList.contains('open');
+        mobileNav.classList.toggle('hidden'); // Toggle Tailwind's 'hidden' class
+        const isOpen = !mobileNav.classList.contains('hidden'); // Check if 'hidden' is NOT present
         toggleButton.setAttribute('aria-expanded', isOpen);
         menuIcon.className = isOpen ? 'fas fa-times' : 'fas fa-bars';
       });

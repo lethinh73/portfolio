@@ -1,14 +1,11 @@
-/* Apply Lexend font to headings for a modern look */
 .font-lexend {
     font-family: "Lexend", sans-serif;
 }
 
-/* Apply Inter font to body for readability */
 body {
     font-family: "Inter", sans-serif;
 }
 
-/* Darker, subtle grid pattern for backgrounds */
 .bg-dark-grid {
     background-image: linear-gradient(
             to right,
@@ -23,7 +20,6 @@ body {
     background-size: 30px 30px;
 }
 
-/* Keyframe animation for a subtle float effect on headshot */
 @keyframes float {
     0% {
         transform: translateY(0px);
@@ -42,7 +38,6 @@ body {
     animation: float 3s ease-in-out infinite;
 }
 
-/* Keyframe animation for a subtle pulse on buttons */
 @keyframes pulse-btn {
     0% {
         box-shadow: 0 0 0 0 rgba(103, 232, 249, 0.7);
@@ -61,7 +56,6 @@ body {
     animation: pulse-btn 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-/* More dynamic hero background gradient animation */
 @keyframes gradient-shift {
     0% {
         background-position: 0% 50%;
@@ -89,7 +83,6 @@ body {
     animation: gradient-shift 15s ease infinite;
 }
 
-/* Section divider shapes with subtle angles */
 .section-divider-top {
     clip-path: polygon(0 0, 100% 0, 100% 98%, 0 100%);
 }
@@ -98,14 +91,12 @@ body {
     clip-path: polygon(0 2%, 100% 0, 100% 100%, 0 100%);
 }
 
-/* Custom hover underline for navigation links */
 .nav-link-underline::after {
     content: "";
     display: block;
     width: 0;
     height: 2px;
     background: #67e8f9;
-    /* cyan-400 */
     transition: width 0.3s ease-in-out;
     position: absolute;
     left: 0;
@@ -116,7 +107,6 @@ body {
     width: 100%;
 }
 
-/* Card hover effect: lift and subtle border glow */
 .card-hover-effect {
     transition: all 0.3s ease-in-out;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -129,4 +119,18 @@ body {
     /* Cyan glow */
     border-color: #67e8f9;
     /* Cyan border */
+}
+
+details > summary {
+    cursor: pointer;
+    list-style: none;
+}
+
+details > summary::-webkit-details-marker {
+    display: none;
+}
+
+details[open] > summary .accordion-icon {
+   
+    transform: rotate(90deg);
 }
