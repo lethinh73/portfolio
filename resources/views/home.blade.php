@@ -8,21 +8,21 @@
   <title>Thinh Le - Web Developer</title>
 
   @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-  @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
   @endif
 
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lexend:wght@400;600;700&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/167adbfcdc.js" crossorigin="anonymous"></script>
+
   <link rel="stylesheet" href="{{ asset('css/home.css') }}" />
 </head>
 
-<body class="bg-gray-950 text-gray-200 antialiased">
+<body class="bg-gray-950 text-gray-200 antialiased font-inter">
   <nav class="sticky top-0 z-50 p-4 bg-gray-900 shadow-xl border-b border-gray-800">
     <div class="container flex items-center justify-between mx-auto">
       <a href="#hero" class="text-3xl font-extrabold text-cyan-400 tracking-wide font-lexend">Thinh Le</a>
@@ -166,8 +166,12 @@
       </h2>
 
       <div class="max-w-4xl mx-auto space-y-4">
-        <x-home.education-card title="Software Developer" subtitle="SOURCE Web Solutions, Inc."
-          dates="May 2022 - Feb 2025" location="Friendswood, Texas, United States" icon-class="fas fa-briefcase"
+        <x-home.collapse-card
+          title="Software Developer"
+          subtitle="SOURCE Web Solutions, Inc."
+          dates="May 2022 - Feb 2025" 
+          location="Friendswood, Texas, United States"
+          icon-class="fas fa-briefcase"
           border-color="border-blue-600">
           <li>Collaborated with clients and developers to strategize and implement 75+ feature requests, meeting strict
             timelines and budgets.</li>
@@ -180,25 +184,34 @@
           <li>Designed user-friendly front-end interfaces paired with robust backends, boosting user engagement.</li>
           <li>Documented code comprehensively, which increased team productivity by 15%.</li>
           <li>Deployed applications on AWS and Digital Ocean, resolving bugs to ensure 99.9% uptime.</li>
-        </x-home.education-card>
+        </x-home.collapse-card>
 
-        <x-home.education-card title="Technology Intern" subtitle="Labs196" dates="Aug 2021 - Nov 2021"
-          location="Sugar Land, Texas, United States" icon-class="fas fa-flask" border-color="border-blue-600">
+        <x-home.collapse-card
+          title="Technology Intern"
+          subtitle="Labs196"
+          dates="Aug 2021 - Nov 2021"
+          location="Sugar Land, Texas, United States"
+          icon-class="fas fa-flask"
+          border-color="border-blue-600">
           <li>Built and deployed websites using ReactJS, React Native, and VueJS, improving user experience.</li>
           <li>Collaborated with the Tech Intern Team to troubleshoot coding and deployment issues, improving web
             application stability and performance.</li>
           <li>Assisted in database management, ensuring data integrity and smooth operational workflows, reducing data
             retrieval times by 50%.</li>
-        </x-home.education-card>
+        </x-home.collapse-card>
 
-        <x-home.education-card title="ERP Support Specialist" subtitle="Accredo Packaging, Inc."
-          dates="Jun 2019 - Mar 2021" location="Sugar Land, Texas, United States" icon-class="fas fa-desktop"
+        <x-home.collapse-card
+          title="ERP Support Specialist"
+          subtitle="Accredo Packaging, Inc."
+          dates="Jun 2019 - Mar 2021"
+          location="Sugar Land, Texas, United States"
+          icon-class="fas fa-desktop"
           border-color="border-blue-600">
           <li>Provided technical and functional support for ERP systems, including system administration, problem
             resolution, and process mapping, improving operational efficiency.</li>
           <li>Designed and implemented data processing solutions, boosting ERP performance by 10%.</li>
           <li>Implemented best practices for ERP systems, ensuring scalability and reliability, reducing downtime.</li>
-        </x-home.education-card>
+        </x-home.collapse-card>
       </div>
     </div>
   </section>
@@ -294,88 +307,52 @@
         Education & Certifications
       </h2>
       <div class="max-w-4xl mx-auto space-y-4">
-        <details class="bg-gray-800 rounded-lg shadow-md border-l-4 border-orange-600 card-hover-effect">
-          <summary class="flex items-center justify-between w-full p-5 text-gray-100 focus:outline-none">
-            <div class="flex items-center">
-              <i class="fas fa-university text-xl text-cyan-400 mr-3"></i>
-              <div class="flex flex-col items-start">
-                <h3 class="text-xl font-bold">
-                  University of Houston-Clear Lake
-                </h3>
-                <p class="text-lg text-orange-400">
-                  Bachelor of Science - BS, Computer Science
-                </p>
-              </div>
-            </div>
-            <p class="text-gray-400 text-sm ml-4 hidden md:block">
-              Houston, TX
-            </p>
-            <svg class="w-6 h-6 text-cyan-400 transition-transform duration-300 accordion-icon ml-4" fill="none"
-              stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-            </svg>
-          </summary>
-          <div class="px-5 pb-5">
+        <x-home.collapse-card
+          title="University of Houston - Clear Lake"
+          subtitle="Bachelor of Science - Computer Science"
+          location="Houston, TX"
+          icon-class="fas fa-graduation-cap"
+          border-color="border-orange-600">
             <ul class="list-disc list-inside space-y-1 text-gray-300 text-sm">
               <li>
-                Relevant coursework in Data Structures, Algorithms, Web
-                Development.
-              </li>
-              <li>Graduated with Honors.</li>
-            </ul>
-          </div>
-        </details>
-        <details class="bg-gray-800 rounded-lg shadow-md border-l-4 border-orange-600 card-hover-effect">
-          <summary class="flex items-center justify-between w-full p-5 text-gray-100 focus:outline-none">
-            <div class="flex items-center">
-              <i class="fas fa-graduation-cap text-xl text-cyan-400 mr-3"></i>
-              <div class="flex flex-col items-start">
-                <h3 class="text-xl font-bold">San Jacinto College</h3>
-                <p class="text-lg text-orange-400">
-                  Associate of Science - AS, Computer Science
-                </p>
-              </div>
-            </div>
-            <p class="text-gray-400 text-sm ml-4 hidden md:block">
-              Houston, TX
-            </p>
-            <svg class="w-6 h-6 text-cyan-400 transition-transform duration-300 accordion-icon ml-4" fill="none"
-              stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-            </svg>
-          </summary>
-          <div class="px-5 pb-5">
-            <ul class="list-disc list-inside space-y-1 text-gray-300 text-sm">
-              <li>Focused on foundational computer science principles.</li>
-              <li>
-                Transferred credits to University of Houston-Clear Lake.
+                Relevant coursework in Data Structures, Software Engineer
               </li>
             </ul>
-          </div>
-        </details>
-        <details class="bg-gray-800 rounded-lg shadow-md border-l-4 border-orange-600 card-hover-effect">
-          <summary class="flex items-center justify-between w-full p-5 text-gray-100 focus:outline-none">
-            <div class="flex items-center">
-              <i class="fas fa-certificate text-xl text-cyan-400 mr-3"></i>
-              <div class="flex flex-col items-start">
-                <h3 class="text-xl font-bold">Certifications</h3>
-              </div>
-            </div>
-            <svg class="w-6 h-6 text-cyan-400 transition-transform duration-300 accordion-icon ml-4" fill="none"
-              stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-            </svg>
-          </summary>
-          <div class="px-5 pb-5">
-            <ul class="list-disc list-inside space-y-1 text-gray-300 text-sm">
-              <li>
-                Building Full-Stack Apps with React and Spring: LinkedIn, 2023
-              </li>
-              <li>Software Engineer: HackerRank, 2025</li>
-              <li>Programming Foundations: Fundamentals: LinkedIn, 2021</li>
-            </ul>
-          </div>
-        </details>
+        </x-home.collapse-card>
+
+        <x-home.collapse-card
+          title="San Jacinto College - South"
+          subtitle="Associate of Science - Computer Science"
+          location="Houston, TX"
+          icon-class="fas fa-graduation-cap"
+          border-color="border-orange-600">
+          <ul class="list-disc list-inside space-y-1 text-gray-300 text-sm">
+            <li>
+              Focused on foundational computer science principles.
+            </li>
+            <li>
+              Transferred credits to University of Houston-Clear Lake.
+            </li>
+          </ul>
+        </x-home.collapse-card>
+
+
+        <x-home.collapse-card
+          title="Cetifications"
+          icon-class="fas fa-certificate"
+          border-color="border-orange-600">
+          <ul class="list-disc list-inside space-y-1 text-gray-300 text-sm">
+            <li>
+              Building Full-Stack Apps with React and Spring: LinkedIn, 2023
+            </li>
+            <li>
+              Software Engineer: HackerRank, 2025
+            </li>
+            <li>
+              Programming Foundations: Fundamentals: LinkedIn, 2021
+            </li>
+          </ul>
+        </x-home.collapse-card>
       </div>
     </div>
   </section>
@@ -451,15 +428,37 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
+      // Mobile menu toggle
       const toggleButton = document.getElementById('mobile-toggle');
       const mobileNav = document.getElementById('mobile-nav');
       const menuIcon = document.getElementById('menu-icon');
 
       toggleButton.addEventListener('click', () => {
-        mobileNav.classList.toggle('hidden'); // Toggle Tailwind's 'hidden' class
-        const isOpen = !mobileNav.classList.contains('hidden'); // Check if 'hidden' is NOT present
+        mobileNav.classList.toggle('hidden');
+        const isOpen = !mobileNav.classList.contains('hidden');
         toggleButton.setAttribute('aria-expanded', isOpen);
         menuIcon.className = isOpen ? 'fas fa-times' : 'fas fa-bars';
+      });
+
+      // Accordion icon rotation
+      const detailsElements = document.querySelectorAll('details');
+
+      detailsElements.forEach(detailElement => {
+        const summaryElement = detailElement.querySelector('summary');
+        if (!summaryElement) return;
+
+        const icon = summaryElement.querySelector('.accordion-icon');
+
+        if (icon) {
+          detailElement.addEventListener('toggle', function() {
+            console.log('toggle');
+            if (this.open) {
+              icon.classList.add('rotate-90');
+            } else {
+              icon.classList.remove('rotate-90');
+            }
+          });
+        }
       });
     });
   </script>

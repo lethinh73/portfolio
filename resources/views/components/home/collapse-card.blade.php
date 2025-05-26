@@ -13,17 +13,17 @@
                 @endif
             </div>
         </div>
-        @if ($dates || $location)
-            <p class="text-gray-400 text-sm ml-4 hidden md:block">
-                @if ($dates) {{ $dates }} @endif
-                @if ($dates && $location) | @endif
-                @if ($location) {{ $location }} @endif
-            </p>
-        @endif
-        <svg class="w-6 h-6 text-cyan-400 transition-transform duration-300 accordion-icon ml-4" fill="none"
-            stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-        </svg>
+        <div class="flex items-center">
+            @if ($dates || $location)
+                <p class="text-gray-400 text-sm ml-4 hidden md:block">
+                    @if ($dates) {{ $dates }} @endif
+                    @if ($dates && $location) | @endif
+                    @if ($location) {{ $location }} @endif
+                </p>
+            @endif
+
+            <i class="fa-solid fa-chevron-right accordion-icon ml-2"></i>
+        </div>
     </summary>
     <div class="px-5 pb-5">
         <ul class="list-disc list-inside space-y-1 text-gray-300 text-sm">
