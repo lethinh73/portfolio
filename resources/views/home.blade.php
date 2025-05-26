@@ -26,20 +26,12 @@
     <div class="container flex items-center justify-between mx-auto">
       <a href="#hero" class="text-3xl font-extrabold text-cyan-400 tracking-wide font-lexend">Thinh Le</a>
       <div class="space-x-6 text-lg hidden md:flex" id="nav-links">
-        <a href="#about"
-          class="text-gray-300 hover:text-cyan-400 transition duration-300 ease-in-out relative nav-link-underline">About</a>
-        <a href="#skills"
-          class="text-gray-300 hover:text-cyan-400 transition duration-300 ease-in-out relative nav-link-underline">Skills</a>
-        <a href="#experience"
-          class="text-gray-300 hover:text-cyan-400 transition duration-300 ease-in-out relative nav-link-underline">Experience</a>
-        <a href="#projects"
-          class="text-gray-300 hover:text-cyan-400 transition duration-300 ease-in-out relative nav-link-underline">Projects</a>
-        <a href="#education"
-          class="text-gray-300 hover:text-cyan-400 transition duration-300 ease-in-out relative nav-link-underline">Education</a>
-        <a href="#family"
-          class="text-gray-300 hover:text-cyan-400 transition duration-300 ease-in-out relative nav-link-underline">Family</a>
-        <a href="#contact"
-          class="text-gray-300 hover:text-cyan-400 transition duration-300 ease-in-out relative nav-link-underline">Contact</a>
+        <x-home.nav-link href="#about">About</x-home.nav-link>
+        <x-home.nav-link href="#skills">Skills</x-home.nav-link>
+        <x-home.nav-link href="#experience">Experience</x-home.nav-link>
+        <x-home.nav-link href="#projects">Projects</x-home.nav-link>
+        <x-home.nav-link href="#education">Education</x-home.nav-link>
+        <x-home.nav-link href="#family">Family</x-home.nav-link>
       </div>
       <button id="mobile-toggle" class="md:hidden text-gray-300 text-2xl hover:text-cyan-400 focus:outline-none" aria-label="Toggle navigation menu" aria-expanded="false">
         <i class="fas fa-bars" id="menu-icon"></i>
@@ -47,13 +39,13 @@
     </div>
     <div class="mobile-nav hidden md:hidden" id="mobile-nav">
       <div class="flex flex-col space-y-4 p-4 text-lg">
-        <a href="#about" class="text-gray-300 hover:text-cyan-400 transition duration-300 ease-in-out">About</a>
-        <a href="#skills" class="text-gray-300 hover:text-cyan-400 transition duration-300 ease-in-out">Skills</a>
-        <a href="#experience" class="text-gray-300 hover:text-cyan-400 transition duration-300 ease-in-out">Experience</a>
-        <a href="#projects" class="text-gray-300 hover:text-cyan-400 transition duration-300 ease-in-out">Projects</a>
-        <a href="#education" class="text-gray-300 hover:text-cyan-400 transition duration-300 ease-in-out">Education</a>
-        <a href="#family" class="text-gray-300 hover:text-cyan-400 transition duration-300 ease-in-out">Family</a>
-        <a href="#contact" class="text-gray-300 hover:text-cyan-400 transition duration-300 ease-in-out">Contact</a>
+        <x-home.mobile-nav-link href="#about">About</x-home.mobile-nav-link>
+        <x-home.mobile-nav-link href="#skills">Skills</x-home.mobile-nav-link>
+        <x-home.mobile-nav-link href="#experience">Experience</x-home.mobile-nav-link>
+        <x-home.mobile-nav-link href="#projects">Projects</x-home.mobile-nav-link>
+        <x-home.mobile-nav-link href="#education">Education</x-home.mobile-nav-link>
+        <x-home.mobile-nav-link href="#family">Family</x-home.mobile-nav-link>
+        <x-home.mobile-nav-link href="#contact">Contact</x-home.mobile-nav-link>
       </div>
     </div>
   </nav>
@@ -127,8 +119,7 @@
     <div class="container px-4 mx-auto">
       <h2 class="mb-8 md:mb-10 text-4xl font-bold text-center text-cyan-400 font-lexend">Top Skills</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
-        <div class="p-5 bg-gray-800 rounded-lg shadow-md border border-gray-700 card-hover-effect">
-          <h3 class="mb-3 text-xl font-semibold text-teal-400"><i class="fas fa-code mr-2"></i>Programming Languages & Frameworks</h3>
+        <x-home.skill-card title="Programming Languages & Frameworks">
           <ul class="space-y-1 text-gray-300 text-sm">
             <li><span class="font-medium"><i class="fab fa-js mr-2 text-yellow-400"></i>JavaScript</span></li>
             <li><span class="font-medium"><i class="fab fa-php mr-2 text-purple-400"></i>PHP</span></li>
@@ -140,9 +131,8 @@
             <li><span class="font-medium"><i class="fab fa-vuejs mr-2 text-green-400"></i>Vue.js</span></li>
             <li><span class="font-medium"><i class="fas fa-exchange-alt mr-2 text-gray-400"></i>RESTful APIs</span></li>
           </ul>
-        </div>
-        <div class="p-5 bg-gray-800 rounded-lg shadow-md border border-gray-700 card-hover-effect">
-          <h3 class="mb-3 text-xl font-semibold text-teal-400"><i class="fas fa-project-diagram mr-2"></i>Design & Methodologies</h3>
+        </x-home.skill-card>
+        <x-home.skill-card title="Design & Methodologies">
           <ul class="space-y-1 text-gray-300 text-sm">
             <li><span class="font-medium"><i class="fas fa-users-cog mr-2 text-pink-400"></i>Agile Methodology</span></li>
             <li><span class="font-medium"><i class="fas fa-people-group mr-2 text-orange-400"></i>Scrum Methodology</span></li>
@@ -150,16 +140,15 @@
             <li><span class="font-medium"><i class="fas fa-sync-alt mr-2 text-blue-400"></i>CI/CD</span></li>
             <li><span class="font-medium"><i class="fas fa-vial mr-2 text-green-400"></i>Unit Testing</span></li>
           </ul>
-        </div>
-        <div class="p-5 bg-gray-800 rounded-lg shadow-md border border-gray-700 card-hover-effect">
-          <h3 class="mb-3 text-xl font-semibold text-teal-400"><i class="fas fa-tools mr-2"></i>Tools & Platforms</h3>
+        </x-home.skill-card>
+        <x-home.skill-card title="Tools & Platforms">
           <ul class="space-y-1 text-gray-300 text-sm">
             <li><span class="font-medium"><i class="fab fa-aws mr-2 text-orange-500"></i>AWS</span></li>
             <li><span class="font-medium"><i class="fab fa-linux mr-2 text-yellow-500"></i>Linux Administration (Ubuntu, Debian, Amazon Linux)</span></li>
             <li><span class="font-medium"><i class="fab fa-github mr-2 text-white"></i>GitHub</span></li>
             <li><span class="font-medium"><i class="fab fa-docker mr-2 text-blue-500"></i>Docker</span></li>
           </ul>
-        </div>
+        </x-home.skill-card>
       </div>
     </div>
   </section>
@@ -171,134 +160,48 @@
       </h2>
 
       <div class="max-w-4xl mx-auto space-y-4">
-        <details class="bg-gray-800 rounded-lg shadow-md border-l-4 border-blue-600 card-hover-effect">
-          <summary class="flex items-center justify-between w-full p-5 text-gray-100 focus:outline-none">
-            <div class="flex items-center">
-              <i class="fas fa-briefcase text-xl text-cyan-400 mr-3"></i>
-              <div class="flex flex-col items-start">
-                <h3 class="text-2xl font-bold">Software Developer</h3>
-                <p class="text-lg text-blue-500">
-                  SOURCE Web Solutions, Inc.
-                </p>
-              </div>
-            </div>
-            <p class="text-gray-400 text-md ml-4 hidden md:block">
-              May 2022 - Feb 2025 | Friendswood, Texas, United States
-            </p>
-            <svg class="w-6 h-6 text-cyan-400 transition-transform duration-300 accordion-icon ml-4" fill="none"
-              stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-            </svg>
-          </summary>
-          <div class="px-5 pb-5">
-            <ul class="list-disc list-inside space-y-1 text-gray-300 text-sm">
-              <li>
-                Collaborated with clients and developers to strategize and
-                implement 75+ feature requests, meeting strict timelines and
-                budgets.
-              </li>
-              <li>
-                Deployed features and patches with detailed patch notes,
-                enhancing application reliability, reducing post-deployment
-                issues by 15%.
-              </li>
-              <li>
-                Developed web applications for real estate, education,
-                finance, and logistics using PHP 7 and 8, MySQL 8, and
-                JavaScript (ES6), improving client workflows.
-              </li>
-              <li>
-                Integrated APIs (Twilio, Stripe, Mailgun) for automated
-                communication and payment processing, streamlining operations.
-              </li>
-              <li>
-                Designed user-friendly front-end interfaces paired with robust
-                backends, boosting user engagement.
-              </li>
-              <li>
-                Documented code comprehensively, which increased team
-                productivity by 15%.
-              </li>
-              <li>
-                Deployed applications on AWS and Digital Ocean, resolving bugs
-                to ensure 99.9% uptime.
-              </li>
-            </ul>
-          </div>
-        </details>
+          <x-home.education-card
+              title="Software Developer"
+              subtitle="SOURCE Web Solutions, Inc."
+              dates="May 2022 - Feb 2025"
+              location="Friendswood, Texas, United States"
+              icon-class="fas fa-briefcase"
+              border-color="border-blue-600"
+          >
+              <li>Collaborated with clients and developers to strategize and implement 75+ feature requests, meeting strict timelines and budgets.</li>
+              <li>Deployed features and patches with detailed patch notes, enhancing application reliability, reducing post-deployment issues by 15%.</li>
+              <li>Developed web applications for real estate, education, finance, and logistics using PHP 7 and 8, MySQL 8, and JavaScript (ES6), improving client workflows.</li>
+              <li>Integrated APIs (Twilio, Stripe, Mailgun) for automated communication and payment processing, streamlining operations.</li>
+              <li>Designed user-friendly front-end interfaces paired with robust backends, boosting user engagement.</li>
+              <li>Documented code comprehensively, which increased team productivity by 15%.</li>
+              <li>Deployed applications on AWS and Digital Ocean, resolving bugs to ensure 99.9% uptime.</li>
+          </x-home.education-card>
 
-        <details class="bg-gray-800 rounded-lg shadow-md border-l-4 border-blue-600 card-hover-effect">
-          <summary class="flex items-center justify-between w-full p-5 text-gray-100 focus:outline-none">
-            <div class="flex items-center">
-              <i class="fas fa-flask text-xl text-cyan-400 mr-3"></i>
-              <div class="flex flex-col items-start">
-                <h3 class="text-2xl font-bold">Technology Intern</h3>
-                <p class="text-lg text-blue-500">Labs196</p>
-              </div>
-            </div>
-            <p class="text-gray-400 text-md ml-4 hidden md:block">
-              Aug 2021 - Nov 2021 | Sugar Land, Texas, United States
-            </p>
-            <svg class="w-6 h-6 text-cyan-400 transition-transform duration-300 accordion-icon ml-4" fill="none"
-              stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-            </svg>
-          </summary>
-          <div class="px-5 pb-5">
-            <ul class="list-disc list-inside space-y-1 text-gray-300 text-sm">
-              <li>
-                Built and deployed websites using ReactJS, React Native, and
-                VueJS, improving user experience.
-              </li>
-              <li>
-                Collaborated with the Tech Intern Team to troubleshoot coding
-                and deployment issues, improving web application stability and
-                performance.
-              </li>
-              <li>
-                Assisted in database management, ensuring data integrity and
-                smooth operational workflows, reducing data retrieval times by
-                50%.
-              </li>
-            </ul>
-          </div>
-        </details>
+          <x-home.education-card
+              title="Technology Intern"
+              subtitle="Labs196"
+              dates="Aug 2021 - Nov 2021"
+              location="Sugar Land, Texas, United States"
+              icon-class="fas fa-flask"
+              border-color="border-blue-600"
+          >
+              <li>Built and deployed websites using ReactJS, React Native, and VueJS, improving user experience.</li>
+              <li>Collaborated with the Tech Intern Team to troubleshoot coding and deployment issues, improving web application stability and performance.</li>
+              <li>Assisted in database management, ensuring data integrity and smooth operational workflows, reducing data retrieval times by 50%.</li>
+          </x-home.education-card>
 
-        <details class="bg-gray-800 rounded-lg shadow-md border-l-4 border-blue-600 card-hover-effect">
-          <summary class="flex items-center justify-between w-full p-5 text-gray-100 focus:outline-none">
-            <div class="flex items-center">
-              <i class="fas fa-desktop text-xl text-cyan-400 mr-3"></i>
-              <div class="flex flex-col items-start">
-                <h3 class="text-2xl font-bold">ERP Support Specialist</h3>
-                <p class="text-lg text-blue-500">Accredo Packaging, Inc.</p>
-              </div>
-            </div>
-            <p class="text-gray-400 text-md ml-4 hidden md:block">
-              Jun 2019 - Mar 2021 | Sugar Land, Texas, United States
-            </p>
-            <svg class="w-6 h-6 text-cyan-400 transition-transform duration-300 accordion-icon ml-4" fill="none"
-              stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-            </svg>
-          </summary>
-          <div class="px-5 pb-5">
-            <ul class="list-disc list-inside space-y-1 text-gray-300 text-sm">
-              <li>
-                Provided technical and functional support for ERP systems,
-                including system administration, problem resolution, and
-                process mapping, improving operational efficiency.
-              </li>
-              <li>
-                Designed and implemented data processing solutions, boosting
-                ERP performance by 10%.
-              </li>
-              <li>
-                Implemented best practices for ERP systems, ensuring
-                scalability and reliability, reducing downtime.
-              </li>
-            </ul>
-          </div>
-        </details>
+          <x-home.education-card
+              title="ERP Support Specialist"
+              subtitle="Accredo Packaging, Inc."
+              dates="Jun 2019 - Mar 2021"
+              location="Sugar Land, Texas, United States"
+              icon-class="fas fa-desktop"
+              border-color="border-blue-600"
+          >
+              <li>Provided technical and functional support for ERP systems, including system administration, problem resolution, and process mapping, improving operational efficiency.</li>
+              <li>Designed and implemented data processing solutions, boosting ERP performance by 10%.</li>
+              <li>Implemented best practices for ERP systems, ensuring scalability and reliability, reducing downtime.</li>
+          </x-home.education-card>
       </div>
     </div>
   </section>
@@ -311,79 +214,67 @@
       <p class="text-center text-gray-400 text-lg max-w-2xl mx-auto mb-8">
         Here are some of the projects I've worked on, showcasing my skills and experience in full-stack web development.
       </p>
-      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">  <!-- This is the main grid container for all projects -->
-        <div class="bg-gray-800 rounded-lg shadow-lg border border-gray-700 card-hover-effect group">
-          <img src="{{ asset('images/project1.png') }}" alt="Form Prefill Configuration UI Screenshot"
-            class="w-full h-48 object-cover" loading="lazy" />
-          <div class="p-5">
-            <h3 class="mb-2 text-xl font-semibold text-gray-100">
-              Form Prefill Configuration UI
-            </h3>
-            <p class="mb-4 text-gray-300 text-sm">
-              This project provides a user interface to visualize a flow graph of forms and configure field prefill mappings.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="px-2 py-1 text-xs font-semibold text-blue-200 bg-blue-700 rounded-full">React</span>
-              <span class="px-2 py-1 text-xs font-semibold text-green-200 bg-green-700 rounded-full">HTML5</span>
-              <span class="px-2 py-1 text-xs font-semibold text-purple-200 bg-purple-700 rounded-full">ReactFlow</span>
-              <span class="px-2 py-1 text-xs font-semibold text-red-200 bg-red-700 rounded-full">Tailwind CSS</span>
-            </div>
-            <div class="flex justify-between items-center mt-4">
-              <a href="https://github.com/lethinh73/0dc41e"
-                class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-semibold transition duration-300">
-                GitHub <i class="fab fa-github ml-2 text-sm"></i>
-              </a>
-            </div>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <x-home.project-card imgSrc="{{ asset('images/project1.png') }}" imgAlt="Form Prefill UI Screenshot">
+          <h3 class="mb-2 text-xl font-semibold text-gray-100">
+            Form Prefill Configuration UI
+          </h3>
+          <p class="mb-4 text-gray-300 text-sm">
+            This project provides a user interface to visualize a flow graph of forms aånd configure field prefill mappings.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <x-home.project-skill-pill textColor="text-blue-200" bgColor="bg-blue-700">React</x-home.project-skill-pill>
+            <x-home.project-skill-pill textColor="text-green-200" bgColor="bg-green-700">HTML5</x-home.project-skill-pill>
+            <x-home.project-skill-pill textColor="text-purple-200" bgColor="bg-purple-700">ReactFlow</x-home.project-skill-pill>
+            <x-home.project-skill-pill textColor="text-red-200" bgColor="bg-red-700">Tailwind CSS</x-home.project-skill-pill>
           </div>
-        </div>
+          <div class="flex justify-between items-center mt-4">
+            <a href="https://github.com/lethinh73/0dc41e"
+              class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-semibold transition duration-300">
+              GitHub <i class="fab fa-github ml-2 text-sm"></i>
+            </a>
+          </div>
+        </x-home.project-card>
 
-        <div class="bg-gray-800 rounded-lg shadow-lg border border-gray-700 card-hover-effect group">
-          <img src="{{ asset('images/project2.png') }}" alt="Unit Converter UI Screenshot"
-            class="w-full h-48 object-cover" loading="lazy" />
-          <div class="p-5">
-            <h3 class="mb-2 text-xl font-semibold text-gray-100">
-              Unit Converter
-            </h3>
-            <p class="mb-4 text-gray-300 text-sm">
-              This is a project that combines a number converter and a calculator, supporting Decimal, Binary (IEEE-754 Floating Point), and Hexadecimal formats.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="px-2 py-1 text-xs font-semibold text-blue-200 bg-blue-700 rounded-full">Python3</span>
-              <span class="px-2 py-1 text-xs font-semibold text-green-200 bg-green-700 rounded-full">PyQt5</span>
-              <span class="px-2 py-1 text-xs font-semibold text-purple-200 bg-purple-700 rounded-full">IEEE-754 Standard</span>
-            </div>
-            <div class="flex justify-between items-center mt-4">
-              <a href="https://github.com/lethinh73/unit-converter"
-                class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-semibold transition duration-300">
-                GitHub <i class="fab fa-github ml-2 text-sm"></i>
-              </a>
-            </div>
+        <x-home.project-card imgSrc="{{ asset('images/project2.png') }}" imgAlt="Unit Converter Screenshot">
+          <h3 class="mb-2 text-xl font-semibold text-gray-100">
+            Unit Converter
+          </h3>
+          <p class="mb-4 text-gray-300 text-sm">
+            This is a project that combines a number converter and a calculator, supporting Decimal, Binary (IEEE-754 Floating Point), and Hexadecimal formats.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <x-home.project-skill-pill textColor="text-blue-200" bgColor="bg-blue-700">Python3</x-home.project-skill-pill>
+            <x-home.project-skill-pill textColor="text-green-200" bgColor="bg-green-700">PyQt5</x-home.project-skill-pill>
+            <x-home.project-skill-pill textColor="text-purple-200" bgColor="bg-purple-700">IEEE-754 Standard</x-home.project-skill-pill>
           </div>
-        </div>
+          <div class="flex justify-between items-center mt-4">
+            <a href="https://github.com/lethinh73/unit-converter"
+              class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-semibold transition duration-300">
+              GitHub <i class="fab fa-github ml-2 text-sm"></i>
+            </a>
+          </div>
+        </x-home.project-card>
 
-        <div class="bg-gray-800 rounded-lg shadow-lg border border-gray-700 card-hover-effect group">
-          <img src="{{ asset('images/project3.png') }}" alt="Grab Easy UI Screenshot"
-            class="w-full h-48 object-cover" loading="lazy" />
-          <div class="p-5">
-            <h3 class="mb-2 text-xl font-semibold text-gray-100">
-              Grab Easy
-            </h3>
-            <p class="mb-4 text-gray-300 text-sm">
-              A modern, responsive front-end web application designed to simulate a seamless mobile food ordering experience
-            </p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="px-2 py-1 text-xs font-semibold text-blue-200 bg-blue-700 rounded-full">Vue.js</span>
-              <span class="px-2 py-1 text-xs font-semibold text-green-200 bg-green-700 rounded-full">Javascript</span>
-              <span class="px-2 py-1 text-xs font-semibold text-purple-200 bg-purple-700 rounded-full">CSS</span>
-            </div>
-            <div class="flex justify-between items-center mt-4">
-              <a href="https://github.com/lethinh73/grab-easy"
-                class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-semibold transition duration-300">
-                GitHub <i class="fab fa-github ml-2 text-sm"></i>
-              </a>
-            </div>
+        <x-home.project-card imgSrc="{{ asset('images/project3.png') }}" imgAlt="Grab Easy Screenshot">
+          <h3 class="mb-2 text-xl font-semibold text-gray-100">
+            Grab Easy
+          </h3>
+          <p class="mb-4 text-gray-300 text-sm">
+            A modern, responsive front-end web application designed to simulate a seamless mobile food ordering experience
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <x-home.project-skill-pill textColor="text-blue-200" bgColor="text-blue-700">Vue.js</x-home.project-skill-pill>
+            <x-home.project-skill-pill textColor="text-green-200" bgColor="text-green-700">Javascript</x-home.project-skill-pill>
+            <x-home.project-skill-pill textColor="text-purple-200" bgColor="text-purple-700">CSS</x-home.project-skill-pill>
           </div>
-        </div>
+          <div class="flex justify-between items-center mt-4">
+            <a href="https://github.com/lethinh73/grab-easy"
+              class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-semibold transition duration-300">
+              GitHub <i class="fab fa-github ml-2 text-sm"></i>
+            </a>
+          </div>
+        </x-home.project-card>
       </div>
     </div>
   </section>
@@ -522,52 +413,42 @@
         {{-- action="{{ route('contact.submit') }}"  --}}
         <form method="POST" class="p-8 bg-gray-800 rounded-lg shadow-xl text-gray-800 border border-gray-700 card-hover-effect">
           @csrf
-          <div class="mb-4">
-            <label for="name" class="block mb-2 text-sm font-bold text-gray-300 text-left">Name</label>
-            <input type="text" id="name" name="name" required aria-describedby="name-desc"
-              class="w-full px-4 py-3 leading-tight text-gray-100 bg-gray-700 border border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition duration-300"
-              placeholder="Your Name" />
-            <p id="name-desc" class="sr-only">Enter your full name to get in touch.</p>
-          </div>
-          <div class="mb-4">
-            <label for="email" class="block mb-2 text-sm font-bold text-gray-300 text-left">Email</label>
-            <input type="email" id="email" name="email" required aria-describedby="email-desc"
-              class="w-full px-4 py-3 leading-tight text-gray-100 bg-gray-700 border border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition duration-300"
-              placeholder="your.email@example.com" />
-            <p id="email-desc" class="sr-only">Enter your email address for contact.</p>
-          </div>
-          <div class="mb-6">
-            <label for="message" class="block mb-2 text-sm font-bold text-gray-300 text-left">Message</label>
-            <textarea id="message" name="message" rows="4" required aria-describedby="message-desc"
-              class="w-full px-4 py-3 leading-tight text-gray-100 bg-gray-700 border border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition duration-300"
-              placeholder="Your message..."></textarea>
-            <p id="message-desc" class="sr-only">Enter your message or inquiry.</p>
-          </div>
+          <x-home.form-input
+              id="name"
+              name="name"
+              label="Name"
+              placeholder="Your Name"
+              aria-describedby="name-desc"
+          />
+          <x-home.form-input
+              id="email"
+              name="email"
+              type="email"
+              label="Email"
+              placeholder="your.email@example.com"
+              aria-describedby="email-desc"
+          />
+          <x-home.form-input
+              id="message"
+              name="message"
+              label="Message"
+              placeholder="Your message..."
+              aria-describedby="message-desc"
+              is-text-area
+          />
           <div class="flex items-center justify-center">
-            <button type="submit"
-              class="px-8 py-3 font-bold text-gray-900 bg-cyan-400 rounded-full hover:bg-cyan-300 focus:outline-none focus:shadow-outline transition duration-300 transform hover:scale-105 animate-pulse-btn">
-              Send Message <i class="fas fa-paper-plane ml-2"></i>
-            </button>
+              <button type="submit"
+                  class="px-8 py-3 font-bold text-gray-900 bg-cyan-400 rounded-full hover:bg-cyan-300 focus:outline-none focus:shadow-outline transition duration-300 transform hover:scale-105 animate-pulse-btn">
+                  Send Message <i class="fas fa-paper-plane ml-2"></i>
+              </button>
           </div>
         </form>
         <div class="mt-8 text-center">
           <p class="text-white text-lg mb-4">Or connect with me:</p>
           <div class="flex justify-center space-x-6">
-            <a href="https://www.linkedin.com/in/lethinh73/" target="_blank"
-              class="text-white hover:text-cyan-400 transition duration-300 transform hover:scale-125"
-              aria-label="LinkedIn">
-              <i class="fab fa-linkedin fa-2x"></i>
-            </a>
-            <a href="https://github.com/lethinh73" target="_blank"
-              class="text-white hover:text-cyan-400 transition duration-300 transform hover:scale-125"
-              aria-label="GitHub">
-              <i class="fab fa-github fa-2x"></i>
-            </a>
-            <a href="https://thinhsoft.com" target="_blank"
-              class="text-white hover:text-cyan-400 transition duration-300 transform hover:scale-125"
-              aria-label="Portfolio Website">
-              <i class="fas fa-globe fa-2x"></i>
-            </a>
+            <x-home.social-link href="https://www.linkedin.com/in/lethinh73/" icon-class="fab fa-linkedin" label="LinkedIn" />
+            <x-home.social-link href="https://github.com/lethinh73" icon-class="fab fa-github" label="GitHub" />
+            <x-home.social-link href="https://thinhsoft.com" icon-class="fas fa-globe" label="Portfolio Website" />
           </div>
         </div>
       </div>
