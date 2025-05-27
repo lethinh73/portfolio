@@ -3,11 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const weatherIconCurrent = document.getElementById('weather-icon-current');
     const weatherTempCurrent = document.getElementById('weather-temp-current');
     const weatherDescriptionCurrent = document.getElementById('weather-description-current');
-    const weatherFeelsLike = document.getElementById('weather-feels-like');
+    const weatherMoreInfo = document.getElementById('weather-more-info');
     const weatherForecastContainer = document.getElementById('weather-forecast-container');
 
-    // Make sure you have actual weather icon images in this path, e.g., 01d.png, 02n.png, etc.
-    // And a loading.svg or loading.png for the spinner placeholder.
     function getWeatherIconUrl(iconCode) {
         return `/images/weather/${iconCode}.png`;
     }
@@ -16,33 +14,51 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateWeatherUI(data) {
         if (!weatherWidget) return;
 
-        // Update Current Weather
-        weatherIconCurrent.classList.remove('animate-spin'); // Stop current icon spinner
-        weatherIconCurrent.src = getWeatherIconUrl(data.current_icon);
-        weatherIconCurrent.alt = `${data.current_description} icon`;
-        weatherIconCurrent.classList.add('w-16', 'h-16'); // Ensure correct size after loading, remove if already set by default
+        console.log("Updating weather widget with data:", data);
 
-        weatherTempCurrent.textContent = `${data.current_temp}°F`;
-        weatherDescriptionCurrent.textContent = data.current_description;
-        weatherFeelsLike.textContent = `Feels like: ${data.current_feels_like}°F`;
+        // Update Current Weather
+        const currentData = data.current;
+        const forecastToday = data.forecasts[0];
+        const currentWeather = data.current.weather[0];
+        weatherIconCurrent.classList.remove('animate-spin');
+        weatherIconCurrent.src = getWeatherIconUrl(currentWeather.icon);
+        weatherIconCurrent.alt = `${currentWeather.main} icon`;
+        weatherIconCurrent.classList.add('w-16', 'h-16');
+
+        weatherTempCurrent.textContent = `${currentData.temp}°F`;
+        weatherDescriptionCurrent.textContent = currentWeather.main;
+        weatherMoreInfo.innerHTML = `
+        <div class="text-start w-fit">
+            <div><i class="fa-solid fa-temperature-high"></i> Feels like: ${currentData.feels_like}°F</div>
+            <div><i class="fa-solid fa-water"></i> Humidity: ${currentData.humidity}%</div>
+            <div><i class="fa-solid fa-temperature-arrow-up"></i> High: ${forecastToday.temp.max}°F</div>
+            <div><i class="fa-solid fa-temperature-arrow-down"></i> Low: ${forecastToday.temp.min}°F</div>
+        </div>
+        `;
 
         // Clear previous forecast
         weatherForecastContainer.innerHTML = '';
 
         // Render 3-Day Forecast
-        data.forecasts.forEach((dayData, index) => {
+        data.forecasts.forEach((forecastData, index) => {
             if (index === 0) return; // Skip today, as it's handled by current weather display
 
-            const date = new Date(dayData.dt * 1000); // Convert Unix timestamp to Date object
+            const date = new Date(forecastData.dt * 1000); // Convert Unix timestamp to Date object
             const dayOfWeek = index === 1 ? 'Tomorrow' : date.toLocaleDateString('en-US', { weekday: 'short' });
+            const forecastWeather = forecastData.weather[0];
 
+            // Create forecast item
             const forecastItem = document.createElement('div');
-            forecastItem.className = 'text-center p-2 rounded-lg bg-gray-700 border border-gray-600 flex-grow'; // Added flex-grow
+            forecastItem.className = 'flex flex-col items-center p-2 rounded-lg bg-gray-500 border border-gray-900 flex-grow';
             forecastItem.innerHTML = `
                 <p class="text-sm font-semibold text-gray-200 mb-1">${dayOfWeek}</p>
-                <img src="${getWeatherIconUrl(dayData.icon)}" alt="${dayData.description} icon" class="w-12 h-12 mx-auto mb-1">
-                <p class="text-sm text-gray-300">${dayData.description}</p>
-                <p class="text-xs text-gray-400">H:${dayData.temp_max}°F / L:${dayData.temp_min}°F</p>
+                <img src="${getWeatherIconUrl(forecastWeather.icon)}" alt="${forecastWeather.main} icon" class="w-12 h-12 mx-auto mb-1">
+                <p class="text-sm text-gray-300">${forecastWeather.main}</p>
+                <div class="text-start w-fit">
+                    <p class="text-xs text-gray-400"><i class="fa-solid fa-temperature-arrow-up"></i>: ${forecastData.temp.max}°F</p>
+                    <p class="text-xs text-gray-400"><i class="fa-solid fa-temperature-arrow-down"></i>: ${forecastData.temp.min}°F</p>
+                    <p class="text-xs text-gray-400"><i class="fa-solid fa-water"></i>: ${forecastData.humidity}%</p>
+                </div>
             `;
             weatherForecastContainer.appendChild(forecastItem);
         });

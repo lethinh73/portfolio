@@ -36,7 +36,6 @@ class WeatherController extends Controller
                     'lat' => $lat,
                     'lon' => $lon,
                     'units' => $units,
-                    // We need 'daily' for multiple days, no longer excluding it
                     'exclude' => 'minutely,hourly,alerts', // Keep minutely, hourly, alerts out
                     'appid' => $apiKey,
                 ]);
@@ -47,14 +46,7 @@ class WeatherController extends Controller
                     $forecasts = [];
                     for ($i = 0; $i < 4; $i++) {
                         if (isset($data['daily'][$i])) {
-                            $day = $data['daily'][$i];
-                            $forecasts[] = [
-                                'dt' => $day['dt'], // Unix timestamp for the day
-                                'temp_min' => round($day['temp']['min']),
-                                'temp_max' => round($day['temp']['max']),
-                                'description' => ucfirst($day['weather'][0]['description']),
-                                'icon' => $day['weather'][0]['icon'],
-                            ];
+                            $forecasts[] = $data['daily'][$i];
                         }
                     }
 
@@ -64,10 +56,7 @@ class WeatherController extends Controller
                     return [
                         'city' => 'Houston',
                         'country' => 'US',
-                        'current_temp' => round($current['temp']),
-                        'current_feels_like' => round($current['feels_like']),
-                        'current_description' => ucfirst($current['weather'][0]['description']),
-                        'current_icon' => $current['weather'][0]['icon'],
+                        'current' => $current,
                         'forecasts' => $forecasts,
                     ];
                 } else {
