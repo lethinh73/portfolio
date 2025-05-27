@@ -114,6 +114,8 @@
           <a href="mailto:lethinh73@gmail.com" class="text-cyan-400 hover:underline transition duration-300"><i
               class="fas fa-envelope mr-1"></i>lethinh73@gmail.com</a>.
         </p>
+
+        <x-weather-widget class="mt-8 mx-auto max-w-xl" />
       </div>
     </div>
   </section>
@@ -122,7 +124,7 @@
     <div class="container px-4 mx-auto">
       <h2 class="mb-8 md:mb-10 text-4xl font-bold text-center text-cyan-400 font-lexend">Top Skills</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
-        <x-home.skill-card title="Programming Languages & Frameworks">
+        <x-home.skill-card title="Programming Languages & Frameworks" icon="fas fa-code">
           <ul class="space-y-1 text-gray-300 text-sm">
             <li><span class="font-medium"><i class="fab fa-js mr-2 text-yellow-400"></i>JavaScript</span></li>
             <li><span class="font-medium"><i class="fab fa-php mr-2 text-purple-400"></i>PHP</span></li>
@@ -135,7 +137,7 @@
             <li><span class="font-medium"><i class="fas fa-exchange-alt mr-2 text-gray-400"></i>RESTful APIs</span></li>
           </ul>
         </x-home.skill-card>
-        <x-home.skill-card title="Design & Methodologies">
+        <x-home.skill-card title="Design & Methodologies" icon="fas fa-palette">
           <ul class="space-y-1 text-gray-300 text-sm">
             <li><span class="font-medium"><i class="fas fa-users-cog mr-2 text-pink-400"></i>Agile Methodology</span>
             </li>
@@ -146,7 +148,7 @@
             <li><span class="font-medium"><i class="fas fa-vial mr-2 text-green-400"></i>Unit Testing</span></li>
           </ul>
         </x-home.skill-card>
-        <x-home.skill-card title="Tools & Platforms">
+        <x-home.skill-card title="Tools & Platforms" icon="fas fa-tools">
           <ul class="space-y-1 text-gray-300 text-sm">
             <li><span class="font-medium"><i class="fab fa-aws mr-2 text-orange-500"></i>AWS</span></li>
             <li><span class="font-medium"><i class="fab fa-linux mr-2 text-yellow-500"></i>Linux Administration (Ubuntu,
@@ -461,6 +463,24 @@
         }
       });
     });
+
+    async function fetchWeather() {
+      try {
+        // Call your Laravel proxy endpoint
+        const response = await fetch('/api/weather?city=Houston&units=metric'); // Hardcode Houston, Metric
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        updateWeatherUI(data);
+      } catch (error) {
+        console.error("Failed to fetch weather:", error);
+        if (weatherWidget) {
+            weatherWidget.innerHTML = '<p class="text-red-400 text-center text-sm">Weather N/A</p>';
+            weatherWidget.classList.remove('hidden');
+        }
+      }
+    }
   </script>
 </body>
 
