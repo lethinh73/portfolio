@@ -108,10 +108,10 @@
           business goals. I am continuously expanding my knowledge and
           embracing new challenges in the ever-evolving world of web
           development. You can reach me at
-          <a href="tel:+17138150775" class="text-cyan-400 hover:underline transition duration-300"><i
+          <a href="tel:+17138150775" class="text-cyan-400 hover:underline transition duration-300 text-nowrap"><i
               class="fas fa-phone mr-1"></i>(713) 815-0775</a>
           or
-          <a href="mailto:lethinh73@gmail.com" class="text-cyan-400 hover:underline transition duration-300"><i
+          <a href="mailto:lethinh73@gmail.com" class="text-cyan-400 hover:underline transition duration-300 text-nowrap"><i
               class="fas fa-envelope mr-1"></i>lethinh73@gmail.com</a>.
         </p>
 
@@ -453,7 +453,6 @@
 
         if (icon) {
           detailElement.addEventListener('toggle', function() {
-            console.log('toggle');
             if (this.open) {
               icon.classList.add('rotate-90');
             } else {
@@ -463,24 +462,6 @@
         }
       });
     });
-
-    async function fetchWeather() {
-      try {
-        // Call your Laravel proxy endpoint
-        const response = await fetch('/api/weather?city=Houston&units=metric'); // Hardcode Houston, Metric
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        updateWeatherUI(data);
-      } catch (error) {
-        console.error("Failed to fetch weather:", error);
-        if (weatherWidget) {
-            weatherWidget.innerHTML = '<p class="text-red-400 text-center text-sm">Weather N/A</p>';
-            weatherWidget.classList.remove('hidden');
-        }
-      }
-    }
   </script>
 </body>
 

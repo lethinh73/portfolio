@@ -14,8 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateWeatherUI(data) {
         if (!weatherWidget) return;
 
-        console.log("Updating weather widget with data:", data);
-
         // Update Current Weather
         const currentData = data.current;
         const forecastToday = data.forecasts[0];
