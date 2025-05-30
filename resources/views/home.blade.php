@@ -286,11 +286,11 @@
           </p>
           <div class="flex flex-wrap gap-2 mb-4">
             <x-home.project-skill-pill textColor="text-blue-200"
-              bgColor="text-blue-700">Vue.js</x-home.project-skill-pill>
+              bgColor="bg-blue-700">Vue.js</x-home.project-skill-pill>
             <x-home.project-skill-pill textColor="text-green-200"
-              bgColor="text-green-700">Javascript</x-home.project-skill-pill>
+              bgColor="bg-green-700">Javascript</x-home.project-skill-pill>
             <x-home.project-skill-pill textColor="text-purple-200"
-              bgColor="text-purple-700">CSS</x-home.project-skill-pill>
+              bgColor="bg-purple-700">CSS</x-home.project-skill-pill>
           </div>
           <div class="flex justify-between items-center mt-4">
             <a href="https://github.com/lethinh73/grab-easy"
