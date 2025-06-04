@@ -393,16 +393,31 @@
         reach out to discuss how I can help bring your ideas to life.
       </p>
       <div class="max-w-xl mx-auto">
-        {{-- action="{{ route('contact.submit') }}" --}}
-        <form method="POST"
+        <form method="POST" action="{{ route('contactmessage.store') }}"
           class="p-8 bg-gray-800 rounded-lg shadow-xl text-gray-800 border border-gray-700 card-hover-effect">
           @csrf
           <x-home.form-input id="name" name="name" label="Name" placeholder="Your Name" aria-describedby="name-desc" />
-          <x-home.form-input id="email" name="email" type="email" label="Email" placeholder="your.email@example.com"
-            aria-describedby="email-desc" />
-          <x-home.form-input id="message" name="message" label="Message" placeholder="Your message..."
-            aria-describedby="message-desc" is-text-area />
-          <div class="flex items-center justify-center">
+          @error('name')
+            <p class="text-xs text-red-500 font-semibold">
+              {{ $message }}
+            </p>
+          @enderror
+
+          <x-home.form-input id="email" name="email" type="email" label="Email" placeholder="your.email@example.com" aria-describedby="email-desc" />
+          @error('email')
+            <p class="text-xs text-red-500 font-semibold">
+              {{ $message }}
+            </p>
+          @enderror
+
+          <x-home.form-input id="message" name="message" label="Message" placeholder="Your message..." aria-describedby="message-desc" is-text-area />
+          @error('message')
+            <p class="text-xs text-red-500 font-semibold">
+              {{ $message }}
+            </p>
+          @enderror
+
+          <div class="flex items-center justify-center mt-4">
             <button type="submit"
               class="px-8 py-3 font-bold text-gray-900 bg-cyan-400 rounded-full hover:bg-cyan-300 focus:outline-none focus:shadow-outline transition duration-300 transform hover:scale-105 animate-pulse-btn">
               Send Message <i class="fas fa-paper-plane ml-2"></i>

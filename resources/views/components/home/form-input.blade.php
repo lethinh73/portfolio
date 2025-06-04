@@ -1,6 +1,6 @@
 @props(['id', 'name', 'type' => 'text', 'placeholder', 'label', 'ariaDescribedby', 'isTextArea' => false])
 
-<div class="mb-4">
+<div class="mt-4">
     <label for="{{ $id }}" class="block mb-2 text-sm font-bold text-gray-300 text-left">{{ $label }}</label>
     @if ($isTextArea)
         <textarea id="{{ $id }}" name="{{ $name }}" rows="4" required aria-describedby="{{ $ariaDescribedby }}"
