@@ -20,6 +20,7 @@
   <script src="https://kit.fontawesome.com/167adbfcdc.js" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="{{ asset('css/home.css') }}" />
+  <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 
 <body class="bg-gray-950 text-gray-200 antialiased font-inter">
@@ -381,8 +382,7 @@
     </div>
   </section>
 
-  <section class="py-16 md:py-16 bg-gradient-to-br from-gray-900 to-gray-800 text-white relative hero-gradient-animated"
-    id="contact">
+  <section class="py-16 md:py-16 bg-gradient-to-br from-gray-900 to-gray-800 text-white relative hero-gradient-animated" id="contact">
     <div class="absolute inset-0 bg-dark-grid opacity-70"></div>
     <div class="container px-4 mx-auto text-center relative z-10">
       <h2 class="mb-8 md:mb-10 text-4xl font-bold font-lexend">
@@ -393,19 +393,21 @@
         reach out to discuss how I can help bring your ideas to life.
       </p>
       <div class="max-w-xl mx-auto">
-        <form method="POST" action="{{ route('contactmessage.store') }}"
+        <form id="contact-message" method="POST" action="{{ route('contactmessage.store') }}"
           class="p-8 bg-gray-800 rounded-lg shadow-xl text-gray-800 border border-gray-700 card-hover-effect">
           @csrf
+          <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
+
           <x-home.form-input id="name" name="name" label="Name" placeholder="Your Name" aria-describedby="name-desc" />
           @error('name')
-            <p class="text-xs text-red-500 font-semibold">
+            <p class="text-xs text-red-500 font-semibold mt-2">
               {{ $message }}
             </p>
           @enderror
 
           <x-home.form-input id="email" name="email" type="email" label="Email" placeholder="your.email@example.com" aria-describedby="email-desc" />
           @error('email')
-            <p class="text-xs text-red-500 font-semibold">
+            <p class="text-xs text-red-500 font-semibold mt-2">
               {{ $message }}
             </p>
           @enderror
@@ -443,8 +445,22 @@
     </div>
   </footer>
 
+  <x-notification />
+  <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.site_key') }}"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
+      // Inject ReCaptcha to the form when submit
+      document.getElementById('contact-message').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        grecaptcha.ready(function() {
+          grecaptcha.execute('{{ config('services.recaptcha.site_key') }}', {action: 'submit'}).then(function(token) {
+            document.getElementById('g-recaptcha-response').value = token;
+            document.getElementById('contact-message').submit();
+          });
+        });
+      });
+
       // Mobile menu toggle
       const toggleButton = document.getElementById('mobile-toggle');
       const mobileNav = document.getElementById('mobile-nav');
@@ -478,6 +494,11 @@
       });
     });
   </script>
+  @if ($errors->any())
+    <script>
+      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    </script>
+  @endif
 </body>
 
 </html>

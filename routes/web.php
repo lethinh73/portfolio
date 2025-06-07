@@ -6,5 +6,5 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\WeatherController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::post('/', [ContactMessageController::class, 'store'])->name('contactmessage.store');
+Route::resource('contactmessage', ContactMessageController::class);
 Route::get('/api/weather', [WeatherController::class, 'getCurrentWeather']);
