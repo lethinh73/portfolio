@@ -496,7 +496,9 @@
   </script>
   @if ($errors->any())
     <script>
-      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+      window.addEventListener('load', () => {
+        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+      });
     </script>
   @endif
 </body>

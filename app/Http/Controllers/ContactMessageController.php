@@ -40,8 +40,6 @@ class ContactMessageController extends Controller
         $resp = $recaptcha->setScoreThreshold(0.5)
                   ->verify($request['g-recaptcha-response']);
 
-        Log::debug($resp->toArray());
-
         if (!$resp->toArray()['success']) {
             $notification = [
                 'type' => 'danger',
