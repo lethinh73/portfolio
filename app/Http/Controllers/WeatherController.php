@@ -20,7 +20,7 @@ class WeatherController extends Controller
         $units = self::UNITS;
 
         $cacheKey = "weather_data_houston_" . $units;
-        $cacheDuration = 60 * 15; // 15 minutes
+        $cacheDuration = 60 * 5; // 5 minutes
 
         if (!$apiKey) {
             return response()->json(['error' => 'Server API key missing.'], 500);
