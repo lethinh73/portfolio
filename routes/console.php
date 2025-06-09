@@ -13,9 +13,9 @@ Artisan::command('inspire', function () {
 })->purpose('Display an inspiring quote');
 
 Schedule::call(function () {
-    $newMessages = ContactMessage::whereDate('created_at', Carbon::yesterday())->get();
+    $newMessages = ContactMessage::whereDate('created_at', Carbon::yesterday('America/Chicago'))->get();
 
     if ($newMessages->isNotEmpty()) {
         Mail::to('lethinh73@gmail.com')->send(new MessagesDailyReport($newMessages));
     }
-})->dailyAt('07:00');
+})->dailyAt('07:00')->timezone('America/Chicago');
