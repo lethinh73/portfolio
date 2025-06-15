@@ -1,25 +1,35 @@
 <?php
 
-use App\Livewire\Auth\Register;
-use Livewire\Livewire;
+namespace Tests\Feature\Auth;
 
-test('registration screen can be rendered', function () {
-    $response = $this->get('/register');
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Livewire\Volt\Volt;
+use Tests\TestCase;
 
-    $response->assertStatus(200);
-});
+class RegistrationTest extends TestCase
+{
+    use RefreshDatabase;
 
-test('new users can register', function () {
-    $response = Livewire::test(Register::class)
-        ->set('name', 'Test User')
-        ->set('email', 'test@example.com')
-        ->set('password', 'password')
-        ->set('password_confirmation', 'password')
-        ->call('register');
+    public function test_registration_screen_can_be_rendered(): void
+    {
+        $response = $this->get('/register');
 
-    $response
-        ->assertHasNoErrors()
-        ->assertRedirect(route('dashboard', absolute: false));
+        $response->assertStatus(200);
+    }
 
-    $this->assertAuthenticated();
-});
+    public function test_new_users_can_register(): void
+    {
+        $response = Volt::test('auth.register')
+            ->set('name', 'Test User')
+            ->set('email', 'test@example.com')
+            ->set('password', 'password')
+            ->set('password_confirmation', 'password')
+            ->call('register');
+
+        $response
+            ->assertHasNoErrors()
+            ->assertRedirect(route('dashboard', absolute: false));
+
+        $this->assertAuthenticated();
+    }
+}
