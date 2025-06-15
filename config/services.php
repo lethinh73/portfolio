@@ -35,12 +35,4 @@ return [
         ],
     ],
 
-    'openweathermap' => [
-        'api_key' => env('OPENWEATHER_API_KEY'),
-    ],
-
-    'recaptcha' => [
-        'site_key' => env('RECAPTCHA_SITE_KEY'),
-        'secret' => env('RECAPTCHA_SECRET'),
-    ],
 ];
