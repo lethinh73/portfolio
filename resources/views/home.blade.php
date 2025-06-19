@@ -36,7 +36,7 @@
             <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
                 <div class="flex lg:flex-1">
                     <a href="#" class="-m-1.5 p-1.5">
-                        <span class="sr-only">Your Company</span>
+                        <span class="sr-only">Thinh Le</span>
                         <img class="h-8 w-auto"
                             src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
                             alt="" />
@@ -54,10 +54,10 @@
                     </button>
                 </div>
                 <div class="hidden lg:flex lg:gap-x-12">
-                    <a href="#" class="text-sm/6 font-semibold text-white">Product</a>
-                    <a href="#" class="text-sm/6 font-semibold text-white">Features</a>
-                    <a href="#" class="text-sm/6 font-semibold text-white">Marketplace</a>
-                    <a href="#" class="text-sm/6 font-semibold text-white">Company</a>
+                    <a href="#skills" class="text-sm/6 font-semibold text-white">Skills</a>
+                    <a href="#experience" class="text-sm/6 font-semibold text-white">Experience</a>
+                    <a href="#projects" class="text-sm/6 font-semibold text-white">Projects</a>
+                    <a href="#contact" class="text-sm/6 font-semibold text-white">Contact</a>
                 </div>
                 <div class="hidden lg:flex lg:flex-1 lg:justify-end">
                     <a href="#" class="text-sm/6 font-semibold text-white">Log in <span
@@ -72,7 +72,7 @@
                     class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 p-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
                     <div class="flex items-center justify-between">
                         <a href="#" class="-m-1.5 p-1.5">
-                            <span class="sr-only">Your Company</span>
+                            <span class="sr-only">Thinh Le</span>
                             <img class="h-8 w-auto"
                                 src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
                                 alt="" />
@@ -89,14 +89,14 @@
                     <div class="mt-6 flow-root">
                         <div class="-my-6 divide-y divide-gray-500/25">
                             <div class="space-y-2 py-6">
-                                <a href="#"
-                                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-gray-800">Product</a>
-                                <a href="#"
-                                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-gray-800">Features</a>
-                                <a href="#"
-                                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-gray-800">Marketplace</a>
-                                <a href="#"
-                                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-gray-800">Company</a>
+                                <a href="#skills"
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-gray-800">Skills</a>
+                                <a href="#experience"
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-gray-800">Experience</a>
+                                <a href="#projects"
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-gray-800">Projects</a>
+                                <a href="#contact"
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-gray-800">Contact</a>
                             </div>
                             <div class="py-6">
                                 <a href="#"
@@ -120,20 +120,27 @@
             <div class="py-10 sm:py-15 lg:pb-20">
                 <div class="mx-auto max-w-7xl px-6 lg:px-8">
                     <div class="mx-auto max-w-2xl text-center">
-                        <h1 class="text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl">Thinh Le</h1>
-                        <h3 class="text-2xl font-semibold tracking-tight text-balance text-white sm:text-5xl">Software Developer</h3>
+                        <h1 class="text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl">Thinh Le
+                        </h1>
+                        <h3 class="text-2xl font-semibold tracking-tight text-balance text-white sm:text-5xl">Software
+                            Developer</h3>
 
                         <div class="w-full flex justify-center mt-5">
-                            <img class="transform-3d size-1/4 rounded-full shadow-xl border-2 border-amber-200 animate-wiggle" src="/images/avatar.jpg" />
+                            <img class="transform-3d size-1/4 rounded-full shadow-xl border-2 border-amber-200 animate-wiggle"
+                                src="/images/avatar.jpg" />
                         </div>
 
-                        <p class="mt-8 text-lg font-medium text-pretty text-gray-400 sm:text-xl/8">Anim aute id magna
-                            aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat
-                            veniam occaecat.</p>
+                        <p class="mt-8 text-lg font-medium text-pretty text-gray-400 sm:text-xl/8">
+                            Accomplished and detail-oriented Software Development
+                            Professional with 5+ years of experience in building scalable
+                            applications for real estate, education, finance, and logistics
+                            industries. Passionate about creating innovative, efficient
+                            digital solutions.
+                        </p>
                         <div class="mt-10 flex items-center justify-center gap-x-6">
                             <a href="#"
-                                class="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400">Get
-                                started</a>
+                                class="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400">See
+                                Resume</a>
                             <a href="#" class="text-sm/6 font-semibold text-white">Learn more <span
                                     aria-hidden="true">→</span></a>
                         </div>
@@ -141,9 +148,10 @@
                 </div>
             </div>
 
-            <div class="m-10">
+            <div class="flex justify-center" id="experience">
                 <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                    <div class="relative overflow-hidden rounded-lg bg-gray-700 px-4 pt-5 pb-12 shadow-sm sm:px-6 sm:pt-6 border-2 border-gray-500">
+                    <div
+                        class="relative overflow-hidden rounded-lg bg-gray-700 px-4 pt-5 pb-12 shadow-sm sm:px-6 sm:pt-6 border-2 border-gray-200">
                         <dt>
                             <div class="absolute rounded-md bg-indigo-500 p-3">
                                 <svg class="size-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -174,8 +182,9 @@
                             </div>
                         </dd>
                     </div>
-                    
-                    <div class="relative overflow-hidden rounded-lg bg-gray-700 px-4 pt-5 pb-12 shadow-sm sm:px-6 sm:pt-6 border-2 border-gray-500">
+
+                    <div
+                        class="relative overflow-hidden rounded-lg bg-gray-700 px-4 pt-5 pb-12 shadow-sm sm:px-6 sm:pt-6 border-2 border-gray-200">
                         <dt>
                             <div class="absolute rounded-md bg-indigo-500 p-3">
                                 <svg class="size-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -218,11 +227,12 @@
         </div>
     </div>
 
-    <div class="bg-gray-900 py-24 sm:py-32">
+    <div class="bg-gray-900 py-24 sm:py-32" id="skills">
         <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-            <h2 class="text-base/7 font-semibold text-indigo-400">Deploy faster</h2>
-            <p class="mt-2 max-w-lg text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl">Everything
-                you need to deploy your app</p>
+            <h2 class="text-base/7 font-semibold text-indigo-400">My Expertise</h2>
+            <p class="mt-2 max-w-lg text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl">
+                Skills and Technologies I work with
+            </p>
             <div class="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">
                 <div class="flex p-px lg:col-span-4">
                     <div
@@ -231,10 +241,12 @@
                             src="https://tailwindcss.com/plus-assets/img/component-images/bento-02-releases.png"
                             alt="" />
                         <div class="p-10">
-                            <h3 class="text-sm/4 font-semibold text-gray-400">Releases</h3>
-                            <p class="mt-2 text-lg font-medium tracking-tight text-white">Push to deploy</p>
-                            <p class="mt-2 max-w-lg text-sm/6 text-gray-400">Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit. In gravida justo et nulla efficitur, maximus egestas sem pellentesque.
+                            <h3 class="text-sm/4 font-semibold text-gray-400">Languages & Frameworks</h3>
+                            <p class="mt-2 text-lg font-medium tracking-tight text-white">Versatile in modern web
+                                technologies</p>
+                            <p class="mt-2 max-w-lg text-sm/6 text-gray-400">
+                                Proficient in JavaScript, PHP, ABAP, HTML5, CSS, and MySQL.
+                                Experienced with frameworks like Laravel, React, and Vue.
                             </p>
                         </div>
                     </div>
@@ -242,14 +254,16 @@
                 <div class="flex p-px lg:col-span-2">
                     <div class="overflow-hidden rounded-lg bg-gray-800 ring-1 ring-white/15 lg:rounded-tr-4xl">
                         <img class="h-80 object-cover"
-                            src="https://tailwindcss.com/plus-assets/img/component-images/bento-02-integrations.png"
-                            alt="" />
+                            src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Server room" />
                         <div class="p-10">
-                            <h3 class="text-sm/4 font-semibold text-gray-400">Integrations</h3>
-                            <p class="mt-2 text-lg font-medium tracking-tight text-white">Connect your favorite tools
+                            <h3 class="text-sm/4 font-semibold text-gray-400">Tools & Platforms</h3>
+                            <p class="mt-2 text-lg font-medium tracking-tight text-white">Cloud and Development Tools
                             </p>
-                            <p class="mt-2 max-w-lg text-sm/6 text-gray-400">Curabitur auctor, ex quis auctor venenatis,
-                                eros arcu rhoncus massa.</p>
+                            <p class="mt-2 max-w-lg text-sm/6 text-gray-400">
+                                Skilled in using AWS, GitHub, Docker, and Node.js. Experienced
+                                with Linux Administration and SAP S/4HANA Cloud.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -259,25 +273,31 @@
                             src="https://tailwindcss.com/plus-assets/img/component-images/bento-02-security.png"
                             alt="" />
                         <div class="p-10">
-                            <h3 class="text-sm/4 font-semibold text-gray-400">Security</h3>
-                            <p class="mt-2 text-lg font-medium tracking-tight text-white">Advanced access control</p>
-                            <p class="mt-2 max-w-lg text-sm/6 text-gray-400">Vestibulum ante ipsum primis in faucibus
-                                orci luctus et ultrices posuere cubilia.</p>
+                            <h3 class="text-sm/4 font-semibold text-gray-400">Design & Methodologies</h3>
+                            <p class="mt-2 text-lg font-medium tracking-tight text-white">Efficient and Collaborative
+                                Workflows</p>
+                            <p class="mt-2 max-w-lg text-sm/6 text-gray-400">
+                                Adept in Agile and Scrum methodologies, with a strong focus on
+                                DevOps, CI/CD, and Unit Testing.
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div class="flex p-px lg:col-span-4">
+                <div class="flex p-px lg:col-span-4" id="projects">
                     <div
                         class="overflow-hidden rounded-lg bg-gray-800 ring-1 ring-white/15 max-lg:rounded-b-4xl lg:rounded-br-4xl">
                         <img class="h-80 object-cover object-left"
-                            src="https://tailwindcss.com/plus-assets/img/component-images/bento-02-performance.png"
-                            alt="" />
+                            src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Database schema diagram" />
                         <div class="p-10">
-                            <h3 class="text-sm/4 font-semibold text-gray-400">Performance</h3>
-                            <p class="mt-2 text-lg font-medium tracking-tight text-white">Lightning-fast builds</p>
-                            <p class="mt-2 max-w-lg text-sm/6 text-gray-400">Sed congue eros non finibus molestie.
-                                Vestibulum euismod augue vel commodo vulputate. Maecenas at augue sed elit dictum
-                                vulputate.</p>
+                            <h3 class="text-sm/4 font-semibold text-gray-400">API Integration</h3>
+                            <p class="mt-2 text-lg font-medium tracking-tight text-white">Connecting Systems Seamlessly
+                            </p>
+                            <p class="mt-2 max-w-lg text-sm/6 text-gray-400">
+                                Designed and developed front-end interfaces and integrated
+                                comprehensive RESTful APIs for services like Twilio, Stripe,
+                                and Plaid.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -285,7 +305,74 @@
         </div>
     </div>
 
-    <div class="relative isolate bg-gray-900">
+    <div class="bg-gray-900 py-10 sm:py-5">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <h2 class="text-center text-lg/8 font-semibold text-white">Trusted by the world’s most innovative teams</h2>
+            <div
+                class="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
+                <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                    src="https://tailwindcss.com/plus-assets/img/logos/158x48/transistor-logo-white.svg"
+                    alt="Transistor" width="158" height="48" />
+                <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                    src="https://tailwindcss.com/plus-assets/img/logos/158x48/reform-logo-white.svg" alt="Reform"
+                    width="158" height="48" />
+                <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                    src="https://tailwindcss.com/plus-assets/img/logos/158x48/tuple-logo-white.svg" alt="Tuple"
+                    width="158" height="48" />
+                <img class="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
+                    src="https://tailwindcss.com/plus-assets/img/logos/158x48/savvycal-logo-white.svg" alt="SavvyCal"
+                    width="158" height="48" />
+                <img class="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
+                    src="https://tailwindcss.com/plus-assets/img/logos/158x48/statamic-logo-white.svg" alt="Statamic"
+                    width="158" height="48" />
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-gray-900 py-24 sm:py-32">
+        <div class="mx-auto max-w-7xl px-6 text-center lg:px-8">
+            <div class="mx-auto max-w-2xl">
+                <h2 class="text-4xl font-semibold tracking-tight text-balance text-white sm:text-5xl">Meet our team</h2>
+                <p class="mt-6 text-lg/8 text-gray-400">We’re a dynamic group of individuals who are passionate about
+                    what we do and dedicated to delivering the best results for our clients.</p>
+            </div>
+            <ul role="list"
+                class="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-6 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
+                <li class="rounded-2xl bg-gray-800 px-8 py-10">
+                    <img class="mx-auto size-48 rounded-full md:size-56"
+                        src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
+                        alt="" />
+                    <h3 class="mt-6 text-base/7 font-semibold tracking-tight text-white">Leonard Krasner</h3>
+                    <p class="text-sm/6 text-gray-400">Senior Designer</p>
+                    <ul role="list" class="mt-6 flex justify-center gap-x-6">
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-gray-300">
+                                <span class="sr-only">X</span>
+                                <svg class="size-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                    <path
+                                        d="M11.4678 8.77491L17.2961 2H15.915L10.8543 7.88256L6.81232 2H2.15039L8.26263 10.8955L2.15039 18H3.53159L8.87581 11.7878L13.1444 18H17.8063L11.4675 8.77491H11.4678ZM9.57608 10.9738L8.95678 10.0881L4.02925 3.03974H6.15068L10.1273 8.72795L10.7466 9.61374L15.9156 17.0075H13.7942L9.57608 10.9742V10.9738Z" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-gray-300">
+                                <span class="sr-only">LinkedIn</span>
+                                <svg class="size-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- More people... -->
+            </ul>
+        </div>
+    </div>
+
+    <div class="relative isolate bg-gray-900 py-5" id="contact">
         <div class="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
             <div class="relative px-6 pt-24 pb-20 sm:pt-32 lg:static lg:px-8 lg:py-48">
                 <div class="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
@@ -313,8 +400,10 @@
                     </div>
                     <h2 class="text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl">Get in touch
                     </h2>
-                    <p class="mt-6 text-lg/8 text-gray-300">Proin volutpat consequat porttitor cras nullam gravida at.
-                        Orci molestie a eu arcu. Sed ut tincidunt integer elementum id sem. Arcu sed malesuada et magna.
+                    <p class="mt-6 text-lg/8 text-gray-300">
+                        I'm currently based in Houston, Texas, and open to new
+                        opportunities and collaborations. Feel free to reach out to
+                        discuss potential projects or just say hello!
                     </p>
                     <dl class="mt-10 space-y-4 text-base/7 text-gray-300">
                         <div class="flex gap-x-4">
@@ -326,7 +415,7 @@
                                         d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z" />
                                 </svg>
                             </dt>
-                            <dd>545 Mavis Island<br />Chicago, IL 99191</dd>
+                            <dd>Houston, TX</dd>
                         </div>
                         <div class="flex gap-x-4">
                             <dt class="flex-none">
@@ -337,7 +426,9 @@
                                         d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
                                 </svg>
                             </dt>
-                            <dd><a class="hover:text-white" href="tel:+1 (555) 234-5678">+1 (555) 234-5678</a></dd>
+                            <dd>
+                                <a class="hover:text-white" href="tel:+1-713-815-0775">(713) 815-0775</a>
+                            </dd>
                         </div>
                         <div class="flex gap-x-4">
                             <dt class="flex-none">
@@ -348,7 +439,9 @@
                                         d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
                                 </svg>
                             </dt>
-                            <dd><a class="hover:text-white" href="mailto:hello@example.com">hello@example.com</a></dd>
+                            <dd>
+                                <a class="hover:text-white" href="mailto:lethinh73@gmail.com">lethinh73@gmail.com</a>
+                            </dd>
                         </div>
                     </dl>
                 </div>
@@ -395,8 +488,9 @@
                     </div>
                     <div class="mt-8 flex justify-end">
                         <button type="submit"
-                            class="rounded-md bg-indigo-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Send
-                            message</button>
+                            class="rounded-md bg-indigo-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+                            Send message
+                        </button>
                     </div>
                 </div>
             </form>
@@ -409,8 +503,10 @@
                 <div class="space-y-8">
                     <img class="h-9" src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
                         alt="Company name" />
-                    <p class="text-sm/6 text-balance text-gray-400">Making the world a better place through constructing
-                        elegant hierarchies.</p>
+                    <p class="text-sm/6 text-balance text-gray-400">
+                        Passionate about creating innovative and efficient digital
+                        solutions that solve real-world problems.
+                    </p>
                     <div class="flex gap-x-6">
                         <a href="#" class="text-gray-400 hover:text-gray-300">
                             <span class="sr-only">Facebook</span>
@@ -526,7 +622,9 @@
                 </div>
             </div>
             <div class="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24">
-                <p class="text-sm/6 text-gray-400">&copy; {{ date('Y') }} Thinh Le, Inc. All rights reserved.</p>
+                <p class="text-sm/6 text-gray-400">
+                    &copy; {{ date('Y') }} Thinh Le. All rights reserved.
+                </p>
             </div>
         </div>
     </footer>
