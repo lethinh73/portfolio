@@ -85,12 +85,12 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-              className="bg-slate-800 rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-[1.02] border border-slate-700"
+              className="bg-slate-600 rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-[1.02] border border-slate-500"
             >
               <div className="lg:flex">
                 {/* Project Image/Visual */}
                 <div className="lg:w-1/2 flex items-center justify-center p-4">
-                  <div className="h-80 w-full relative overflow-hidden bg-slate-700 rounded-xl border border-slate-600/30 shadow-lg">
+                  <div className="h-80 w-full relative overflow-hidden bg-slate-600 rounded-xl border border-slate-500 shadow-lg">
                     <img 
                       src={project.image} 
                       alt={project.title}
@@ -172,7 +172,7 @@ const Projects = () => {
                       {project.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="px-3 py-1 bg-slate-700 text-gray-300 text-sm rounded-full border border-slate-500/30"
+                          className="px-3 py-1 bg-slate-600 text-white text-sm rounded-full border border-slate-500 hover:border-slate-400 hover:bg-slate-500 transition-all duration-300"
                         >
                           {tech}
                         </span>
@@ -188,7 +188,7 @@ const Projects = () => {
                     <ul className="space-y-2">
                       {project.features.slice(0, 4).map((feature, idx) => (
                         <li key={idx} className="text-gray-300 text-sm flex items-center">
-                          <div className="w-1.5 h-1.5 bg-slate-400 rounded-full mr-3 flex-shrink-0" />
+                          <div className="w-1.5 h-1.5 bg-[#D4AF37] rounded-full mr-3 flex-shrink-0" />
                           {feature}
                         </li>
                       ))}
@@ -214,7 +214,7 @@ const Projects = () => {
           <Button
             asChild
             size="lg"
-            className="bg-gradient-to-r from-slate-600 to-slate-700 hover:from-slate-500 hover:to-slate-600 text-white px-8 py-3 h-auto rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+            className="bg-slate-600 hover:bg-slate-500 text-white px-8 py-3 h-auto rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-slate-500"
           >
             <a href="https://github.com/lethinh73" className="inline-flex items-center space-x-2">
               <FaGithub size={20} />

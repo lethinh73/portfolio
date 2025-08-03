@@ -48,7 +48,7 @@ const Skills = () => {
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
       whileHover={{ scale: 1.05 }}
-      className="inline-block bg-slate-700 text-gray-300 px-3 py-1.5 rounded-lg text-sm font-medium border border-slate-600 hover:border-[#D4AF37]/50 hover:text-white transition-all duration-300"
+      className="inline-block bg-slate-600 text-white px-3 py-1.5 rounded-lg text-sm font-medium border border-slate-500 hover:border-slate-400 hover:bg-slate-500 transition-all duration-300"
     >
       {skill}
     </motion.span>
@@ -81,7 +81,7 @@ const Skills = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: categoryIndex * 0.2 }}
-              className="bg-slate-800 rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300 border border-slate-700"
+              className="bg-slate-600 rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 border border-slate-500"
             >
               <div className="flex items-center mb-6">
                 <div className={`w-12 h-12 bg-gradient-to-br ${category.color} rounded-lg flex items-center justify-center mr-4`}>
@@ -127,7 +127,7 @@ const Skills = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ scale: 1.05 }}
-                className="bg-slate-800 rounded-lg p-6 text-center shadow-md hover:shadow-lg transition-all duration-300 border border-slate-700 hover:border-slate-600"
+                className="bg-slate-600 rounded-lg p-6 text-center shadow-md hover:shadow-lg transition-all duration-300 border border-slate-500"
               >
                 <tool.icon size={32} className={`mx-auto mb-3 ${tool.color}`} />
                 <p className="font-medium text-white">{tool.name}</p>

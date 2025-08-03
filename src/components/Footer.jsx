@@ -21,12 +21,6 @@ const Footer = () => {
       color: "hover:text-blue-600"
     },
     {
-      icon: FaExternalLinkAlt,
-      href: "https://thinhsoft.com",
-      label: "Portfolio",
-      color: "hover:text-orange-400"
-    },
-    {
       icon: FaEnvelope,
       href: "mailto:lethinh73@gmail.com",
       label: "Email",
@@ -149,7 +143,7 @@ const Footer = () => {
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
             viewport={{ once: true }}
-            className="flex justify-center mt-4"
+            className="flex justify-center mt-5"
           >
             <Button
               onClick={scrollToTop}
@@ -169,7 +163,7 @@ const Footer = () => {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
           viewport={{ once: true }}
-          className="border-t border-slate-700 py-3"
+          className="border-t border-slate-700 flex justify-between items-center py-3"
         >
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row justify-between items-center text-slate-400">

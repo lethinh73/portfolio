@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { color, motion } from 'framer-motion'
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaPaperPlane, FaGithub, FaLinkedin, FaExternalLinkAlt } from 'react-icons/fa'
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
@@ -72,10 +72,10 @@ const Contact = () => {
       color: "hover:text-blue-600"
     },
     {
-      icon: FaExternalLinkAlt,
-      label: "Portfolio",
-      href: "https://thinhsoft.com",
-      color: "hover:text-orange-400"
+      icon: FaEnvelope,
+      label: "Email",
+      color: "hover:text-red-500",
+      href: "mailto:lethinh73@gmail.com"
     }
   ]
 
@@ -130,10 +130,10 @@ const Contact = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="flex items-center space-x-4 p-4 rounded-lg hover:bg-gray-800 transition-colors duration-300 group"
+                  className="flex items-center space-x-4 p-4 rounded-lg hover:bg-slate-500 transition-colors duration-300 group"
                 >
-                  <div className="w-12 h-12 bg-[#D4AF37]/20 rounded-lg flex items-center justify-center group-hover:bg-[#D4AF37]/30 transition-colors duration-300">
-                    <info.icon size={20} className="text-[#D4AF37]" />
+                  <div className="w-12 h-12 bg-slate-600 rounded-lg flex items-center justify-center group-hover:bg-slate-500 transition-colors duration-300 border border-slate-500">
+                    <info.icon size={20} className="text-gray-300" />
                   </div>
                   <div>
                     <p className="font-medium text-white">{info.label}</p>
@@ -160,7 +160,7 @@ const Contact = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     whileHover={{ scale: 1.1, y: -2 }}
-                    className={`w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 transition-all duration-300 shadow-md hover:shadow-lg ${link.color}`}
+                    className={`w-12 h-12 bg-slate-600 rounded-lg flex items-center justify-center text-gray-300 transition-all duration-300 shadow-md hover:shadow-lg border border-slate-500 hover:bg-slate-500 ${link.color}`}
                   >
                     <link.icon size={20} />
                   </motion.a>
@@ -175,7 +175,7 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="bg-gradient-to-br from-[#2B2B2B] to-[#423F3E] rounded-2xl shadow-xl p-8 h-fit border border-[#D4AF37]/20"
+            className="bg-slate-600 rounded-2xl shadow-xl p-8 h-fit border border-slate-500"
           >
             <div className="flex flex-col h-full justify-between">
               <form onSubmit={handleSubmit} className="flex flex-col justify-between min-h-[400px]">
