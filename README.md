@@ -2,6 +2,8 @@
 
 Hi, I'm Thinh Le 👋. Welcome to the official repository for my personal portfolio website. This project showcases my skills, projects, and professional background as a Full-Stack Software Developer with 5+ years of experience.
 
+<img width="1685" height="864" alt="screenshot" src="https://github.com/user-attachments/assets/2759ac47-131e-4e79-8379-3f29c61f1eb3" />
+
 ### [View Live Site →](http://localhost:5174)
 
 ## ✨ Features
