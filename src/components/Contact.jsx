@@ -1,6 +1,7 @@
 import { color, motion } from 'framer-motion'
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaPaperPlane, FaGithub, FaLinkedin, FaExternalLinkAlt } from 'react-icons/fa'
 import { useState } from 'react'
+import toast from 'react-hot-toast'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
@@ -26,15 +27,36 @@ const Contact = () => {
     e.preventDefault()
     setIsSubmitting(true)
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000))
+    // Show loading toast
+    const loadingToast = toast.loading('Sending your message...', {
+      style: {
+        background: '#374151',
+        color: '#fff',
+        border: '1px solid #D4AF37',
+      },
+    })
     
-    // Reset form
-    setFormData({ name: '', email: '', subject: '', message: '' })
-    setIsSubmitting(false)
-    
-    // You would typically send the data to your backend here
-    alert('Thanks for your message! I\'ll get back to you soon.')
+    try {
+      // Simulate form submission
+      await new Promise(resolve => setTimeout(resolve, 2000))
+      
+      // Reset form
+      setFormData({ name: '', email: '', subject: '', message: '' })
+      
+      // Show success toast
+      toast.success('Thanks for your message! I\'ll get back to you soon.', {
+        id: loadingToast,
+        duration: 5000,
+      })
+    } catch (error) {
+      // Show error toast
+      toast.error('Something went wrong. Please try again.', {
+        id: loadingToast,
+        duration: 5000,
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const contactInfo = [
