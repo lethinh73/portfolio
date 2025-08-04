@@ -20,7 +20,7 @@ const Projects = () => {
       github: "https://github.com/lethinh73",
       demo: "#",
       gradient: "from-[#D4AF37] to-[#B8860B]",
-      image: "/src/assets/images/project1.png"
+      image: "/images/project1.png"
     },
     {
       title: "Project Title 2",
@@ -37,7 +37,7 @@ const Projects = () => {
       github: "https://github.com/lethinh73",
       demo: "#",
       gradient: "from-orange-500 to-amber-600",
-      image: "/src/assets/images/project2.png"
+      image: "/images/project2.png"
     },
     {
       title: "Project Title 3",
@@ -54,7 +54,7 @@ const Projects = () => {
       github: "https://github.com/lethinh73",
       demo: "#",
       gradient: "from-[#2B2B2B] to-[#423F3E]",
-      image: "/src/assets/images/project3.png"
+      image: "/images/project3.png"
     }
   ]
 

@@ -57,7 +57,7 @@ const About = () => {
             <div className="relative overflow-hidden rounded-2xl shadow-2xl">
               <div className="aspect-square">
                 <img 
-                  src="/src/assets/images/family.jpg" 
+                  src="/images/family.jpg" 
                   alt="Thinh Le with family"
                   className="w-full h-full object-cover"
                 />

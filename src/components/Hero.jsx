@@ -24,7 +24,7 @@ const Hero = () => {
             <div className="relative">
               <div className="w-32 h-32 mx-auto rounded-full overflow-hidden shadow-2xl border-4 border-gradient-to-br from-[#D4AF37] to-[#B8860B]">
                 <img 
-                  src="/src/assets/images/avatar.jpg" 
+                  src="/images/avatar.jpg" 
                   alt="Thinh Le - Professional Headshot"
                   className="w-full h-full object-cover"
                 />
@@ -151,7 +151,7 @@ const Hero = () => {
                   size="lg"
                   className="bg-transparent border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black px-8 py-4 h-auto font-medium shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  <a href="/src/assets/RESUME.pdf" download className="flex items-center gap-2">
+                  <a href="/RESUME.pdf" download className="flex items-center gap-2">
                     Download CV
                     <FaDownload size={20} />
                   </a>
