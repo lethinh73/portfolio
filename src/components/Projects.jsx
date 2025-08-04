@@ -6,54 +6,51 @@ import AnimatedBackground from './ui/animated-background'
 const Projects = () => {
   const projects = [
     {
-      title: "Project Title 1",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-      technologies: ["React", "Node.js", "MongoDB", "Express", "TypeScript", "AWS"],
+      title: "Form Prefill Configuration UI",
+      description: "A sophisticated React application that provides an interactive user interface to visualize flow graphs of forms and configure field prefill mappings. Built with modern React patterns and styled with Tailwind CSS for optimal user experience.",
+      technologies: ["React", "Tailwind CSS", "JavaScript", "Node.js", "REST API", "Flow Graph"],
       features: [
-        "Feature description placeholder one",
-        "Feature description placeholder two",
-        "Feature description placeholder three",
-        "Feature description placeholder four",
-        "Feature description placeholder five",
-        "Feature description placeholder six"
+        "Interactive Flow Graph with clickable form nodes for detailed views",
+        "Prefill Configuration system for mapping form fields to data sources",
+        "Intuitive modal-based UI for selecting and configuring prefill sources",
+        "Modern React architecture with functional components and hooks",
+        "Clean separation of concerns with organized component structure",
+        "Extensible design supporting multiple data source types"
       ],
-      github: "https://github.com/lethinh73",
+      github: "https://github.com/lethinh73/form-prefill",
       demo: "#",
-      gradient: "from-[#D4AF37] to-[#B8860B]",
       image: "/images/project1.png"
     },
     {
-      title: "Project Title 2",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-      technologies: ["Vue.js", "Laravel", "MySQL", "PHP", "JavaScript", "Docker"],
+      title: "Unit Converter and Calculator",
+      description: "A comprehensive desktop application developed for University Software Engineering course, combining advanced number conversion and calculator functionality. Features support for Decimal, Binary (32-bit), and Hexadecimal formats with IEEE 754 representation breakdown.",
+      technologies: ["Python 3", "PyQt5", "GUI Development", "IEEE 754", "Binary Operations", "Desktop App"],
       features: [
-        "Feature description placeholder one",
-        "Feature description placeholder two",
-        "Feature description placeholder three",
-        "Feature description placeholder four",
-        "Feature description placeholder five",
-        "Feature description placeholder six"
+        "Multi-format number conversion between Decimal, Binary, and Hexadecimal",
+        "IEEE 754 floating-point representation with Sign, Exponent, and Mantissa breakdown",
+        "Comprehensive calculator with arithmetic operations (Add, Subtract, Multiply, Divide)",
+        "Advanced bitwise operations (AND, OR, XOR, NOT, Left Shift, Right Shift)",
+        "Professional PyQt5 GUI with intuitive tabbed interface design",
+        "Team collaboration project showcasing software engineering best practices"
       ],
-      github: "https://github.com/lethinh73",
+      github: "https://github.com/lethinh73/unit-converter",
       demo: "#",
-      gradient: "from-orange-500 to-amber-600",
       image: "/images/project2.png"
     },
     {
-      title: "Project Title 3",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-      technologies: ["Python", "Django", "PostgreSQL", "Redis", "API", "Linux"],
+      title: "Grab Easy - Mobile Food Ordering UI",
+      description: "A sophisticated front-end mobile web application built with Vue.js 3 that simulates a complete food ordering experience. Features modern mobile-first design with intuitive navigation and responsive UI optimized for smartphone screens.",
+      technologies: ["Vue.js 3", "Vue Router 4", "JavaScript", "Mobile UI/UX", "Responsive Design", "Axios"],
       features: [
-        "Feature description placeholder one",
-        "Feature description placeholder two",
-        "Feature description placeholder three",
-        "Feature description placeholder four",
-        "Feature description placeholder five",
-        "Feature description placeholder six"
+        "User onboarding system with mobile number and OTP simulation",
+        "Intuitive bottom navigation for Home, Orders, Offers, and Profile sections",
+        "Dynamic home screen with promotional content and food outlet placeholders",
+        "Comprehensive user profile view with notifications and social links",
+        "Mobile-first responsive design optimized for smartphone experience",
+        "Team collaboration showcasing modern frontend development practices"
       ],
-      github: "https://github.com/lethinh73",
+      github: "https://github.com/lethinh73/grab-easy",
       demo: "#",
-      gradient: "from-[#2B2B2B] to-[#423F3E]",
       image: "/images/project3.png"
     }
   ]
@@ -89,8 +86,8 @@ const Projects = () => {
             >
               <div className="lg:flex">
                 {/* Project Image/Visual */}
-                <div className="lg:w-1/2 flex items-center justify-center p-4">
-                  <div className="h-64 w-full relative overflow-hidden bg-slate-600 rounded-xl border border-slate-500 shadow-lg">
+                <div className="lg:w-1/3 flex items-center justify-center p-4">
+                  <div className="max-h-[400px] w-full relative overflow-hidden bg-slate-600 rounded-xl border border-slate-500 shadow-lg">
                     <img 
                       src={project.image} 
                       alt={project.title}
@@ -101,23 +98,6 @@ const Projects = () => {
                     <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-xl">
                       <h3 className="text-2xl font-bold text-white text-center px-4">{project.title}</h3>
                     </div>
-                    
-                    {/* Animated background elements */}
-                    <motion.div
-                      className="absolute top-4 right-4 w-16 h-16 bg-white/10 rounded-full"
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                    />
-                    <motion.div
-                      className="absolute bottom-8 left-8 w-8 h-8 bg-white/20 rounded-full"
-                      animate={{ y: [0, -20, 0] }}
-                      transition={{ duration: 3, repeat: Infinity }}
-                    />
-                    <motion.div
-                      className="absolute top-1/2 left-4 w-4 h-4 bg-white/15 rounded-full"
-                      animate={{ x: [0, 20, 0] }}
-                      transition={{ duration: 4, repeat: Infinity }}
-                    />
                   </div>
                 </div>
 

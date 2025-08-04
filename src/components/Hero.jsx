@@ -151,8 +151,8 @@ const Hero = () => {
                   size="default"
                   className="bg-transparent border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black px-6 py-3 h-auto font-medium shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  <a href="/RESUME.pdf" download className="flex items-center gap-2">
-                    Download CV
+                  <a href="/RESUME.pdf" target='_blank' className="flex items-center gap-2">
+                    See My Resume
                     <FaDownload size={20} />
                   </a>
                 </Button>
