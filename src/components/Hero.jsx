@@ -13,16 +13,16 @@ const Hero = () => {
 
       {/* Main Content */}
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 w-full">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           {/* Avatar/Logo */}
           <motion.div
-            className="mb-8 relative inline-block"
+            className="mb-6 relative inline-block"
             initial={{ scale: 0, rotate: -180 }}
             animate={{ scale: 1, rotate: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
           >
             <div className="relative">
-              <div className="w-32 h-32 mx-auto rounded-full overflow-hidden shadow-2xl border-4 border-gradient-to-br from-[#D4AF37] to-[#B8860B]">
+              <div className="w-24 h-24 mx-auto rounded-full overflow-hidden shadow-2xl border-4 border-gradient-to-br from-[#D4AF37] to-[#B8860B]">
                 <img 
                   src="/images/avatar.jpg" 
                   alt="Thinh Le - Professional Headshot"
@@ -32,17 +32,17 @@ const Hero = () => {
               
               {/* Multiple floating ring animations */}
               <motion.div
-                className="absolute inset-0 w-32 h-32 border-2 border-[#423F3E]/50 rounded-full"
+                className="absolute inset-0 w-24 h-24 border-2 border-[#423F3E]/50 rounded-full"
                 animate={{ rotate: 360, scale: [1, 1.1, 1] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
               />
               <motion.div
-                className="absolute inset-0 w-32 h-32 border border-[#362222]/60 rounded-full"
+                className="absolute inset-0 w-24 h-24 border border-[#362222]/60 rounded-full"
                 animate={{ rotate: -360, scale: [1.1, 1, 1.1] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
               />
               <motion.div
-                className="absolute inset-0 w-32 h-32 border border-[#423F3E]/30 rounded-full"
+                className="absolute inset-0 w-24 h-24 border border-[#423F3E]/30 rounded-full"
                 animate={{ 
                   rotate: 180, 
                   scale: [0.9, 1.2, 0.9],
@@ -76,7 +76,7 @@ const Hero = () => {
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="max-w-4xl mx-auto"
+            className="max-w-3xl mx-auto"
           >
             <motion.p
               className="text-lg text-[#D4AF37] font-medium mb-4"
@@ -88,7 +88,7 @@ const Hero = () => {
             </motion.p>
 
             <motion.h1
-              className="text-5xl md:text-7xl font-bold text-white mb-6"
+              className="text-4xl md:text-5xl font-bold text-white mb-4"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.8 }}
@@ -99,7 +99,7 @@ const Hero = () => {
             </motion.h1>
 
             <motion.h2
-              className="text-2xl md:text-3xl text-gray-300 mb-8"
+              className="text-xl md:text-2xl text-gray-300 mb-6"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.8 }}
@@ -108,7 +108,7 @@ const Hero = () => {
             </motion.h2>
 
             <motion.p
-              className="text-lg text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed"
+              className="text-base text-gray-400 max-w-2xl mx-auto mb-8 leading-relaxed"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2, duration: 0.8 }}
@@ -131,8 +131,8 @@ const Hero = () => {
               >
                 <Button
                   asChild
-                  size="lg"
-                  className="bg-gradient-to-r from-[#362222] to-[#423F3E] hover:from-[#423F3E] hover:to-[#362222] text-white px-8 py-4 h-auto font-medium shadow-lg hover:shadow-xl transition-all duration-300"
+                  size="default"
+                  className="bg-gradient-to-r from-[#362222] to-[#423F3E] hover:from-[#423F3E] hover:to-[#362222] text-white px-6 py-3 h-auto font-medium shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   <a href="#contact" className="flex items-center gap-2">
                     Get In Touch
@@ -148,8 +148,8 @@ const Hero = () => {
                 <Button
                   asChild
                   variant="outline"
-                  size="lg"
-                  className="bg-transparent border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black px-8 py-4 h-auto font-medium shadow-lg hover:shadow-xl transition-all duration-300"
+                  size="default"
+                  className="bg-transparent border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black px-6 py-3 h-auto font-medium shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   <a href="/RESUME.pdf" download className="flex items-center gap-2">
                     Download CV

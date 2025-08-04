@@ -27,7 +27,7 @@ const About = () => {
   ]
 
   return (
-    <section id="about" className="relative bg-gradient-to-r from-[#171010] to-[#362222] text-white py-20 overflow-hidden">
+    <section id="about" className="relative bg-gradient-to-r from-[#171010] to-[#362222] text-white py-16 overflow-hidden">
       <AnimatedBackground variant="about" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -35,12 +35,12 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             About Me
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-base text-gray-300 max-w-2xl mx-auto">
             Passionate software developer with a love for creating innovative solutions
           </p>
         </motion.div>
@@ -86,25 +86,25 @@ const About = () => {
             className="space-y-6"
           >
             <div className="space-y-4">
-              <p className="text-lg text-gray-300 leading-relaxed">
+              <p className="text-base text-gray-300 leading-relaxed">
                 Hello! I'm Thinh Le, an accomplished Software Development Professional with 5+ years of experience 
                 building scalable applications for real estate, education, finance, and logistics industries. 
                 Currently based in Houston, Texas, I specialize in delivering feature enhancements and RESTful API integrations.
               </p>
               
-              <p className="text-lg text-gray-300 leading-relaxed">
+              <p className="text-base text-gray-300 leading-relaxed">
                 At SOURCE Web Solutions, Inc., I've strategized new feature requests, programmed features under strict 
                 timelines, and deployed up to 75 feature requests with clear documentation. I excel at facilitating 
                 direct communication with users and translating technical terminologies into simple language for clients.
               </p>
               
-              <p className="text-lg text-gray-300 leading-relaxed">
+              <p className="text-base text-gray-300 leading-relaxed">
                 My technical expertise spans JavaScript, PHP, ABAP, React, Vue, Laravel, and AWS. I've designed robust 
                 web applications, integrated comprehensive APIs (Twilio, RETS, Stripe, Plaid), and managed complex 
                 invoicing systems using RESTful APIs and MySQL, achieving 99.9% uptime for clients.
               </p>
               
-              <p className="text-lg text-gray-300 leading-relaxed">
+              <p className="text-base text-gray-300 leading-relaxed">
                 I'm passionate about creating innovative, efficient digital solutions and continuously expanding my 
                 knowledge. I hold certifications in SAP ABAP Cloud, Full-Stack Development, and maintain expertise 
                 in Agile methodology, DevOps, and CI/CD practices.
@@ -150,7 +150,7 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="pt-6"
             >
-              <p className="text-lg text-gray-300 italic">
+              <p className="text-base text-gray-300 italic">
                 "The best way to predict the future is to invent it." - Alan Kay
               </p>
             </motion.div>

@@ -40,7 +40,7 @@ const Footer = () => {
   }
 
   return (
-    <footer className="relative bg-gradient-to-r from-[#2B2B2B] to-[#171010] text-white py-8 overflow-hidden">
+    <footer className="relative bg-gradient-to-r from-[#2B2B2B] to-[#171010] text-white pt-8 pb-4 overflow-hidden">
       <AnimatedBackground variant="footer" />
 
       <div className="relative z-10">
@@ -163,7 +163,7 @@ const Footer = () => {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
           viewport={{ once: true }}
-          className="border-t border-slate-700 flex justify-between items-center py-3"
+          className="border-t border-slate-700 flex justify-between items-center pt-3"
         >
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row justify-between items-center text-slate-400">

@@ -55,7 +55,7 @@ const Skills = () => {
   )
 
   return (
-    <section id="skills" className="relative bg-gradient-to-r from-[#423F3E] to-[#171010] text-white py-20 overflow-hidden">
+    <section id="skills" className="relative bg-gradient-to-r from-[#423F3E] to-[#171010] text-white py-16 overflow-hidden">
       <AnimatedBackground variant="skills" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -63,12 +63,12 @@ const Skills = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Skills & Technologies
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-base text-gray-400 max-w-2xl mx-auto">
             Here are the technologies and tools I work with to bring ideas to life
           </p>
         </motion.div>
@@ -81,13 +81,13 @@ const Skills = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: categoryIndex * 0.2 }}
-              className="bg-slate-600 rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 border border-slate-500"
+              className="bg-slate-600 rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 border border-slate-500"
             >
-              <div className="flex items-center mb-6">
-                <div className={`w-12 h-12 bg-gradient-to-br ${category.color} rounded-lg flex items-center justify-center mr-4`}>
-                  <category.icon size={24} className="text-white" />
+              <div className="flex items-center mb-4">
+                <div className={`w-10 h-10 bg-gradient-to-br ${category.color} rounded-lg flex items-center justify-center mr-3`}>
+                  <category.icon size={20} className="text-white" />
                 </div>
-                <h3 className="text-2xl font-semibold text-white">
+                <h3 className="text-xl font-semibold text-white">
                   {category.title}
                 </h3>
               </div>

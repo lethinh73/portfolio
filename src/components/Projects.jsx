@@ -59,7 +59,7 @@ const Projects = () => {
   ]
 
   return (
-    <section id="projects" className="relative bg-gradient-to-r from-[#362222] to-[#423F3E] text-white py-20 overflow-hidden">
+    <section id="projects" className="relative bg-gradient-to-r from-[#362222] to-[#423F3E] text-white py-16 overflow-hidden">
       <AnimatedBackground variant="projects" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -67,17 +67,17 @@ const Projects = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Featured Projects
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-base text-gray-300 max-w-2xl mx-auto">
             A showcase of my recent work, featuring full-stack applications and innovative solutions
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-1 gap-12">
+        <div className="grid lg:grid-cols-1 gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -90,7 +90,7 @@ const Projects = () => {
               <div className="lg:flex">
                 {/* Project Image/Visual */}
                 <div className="lg:w-1/2 flex items-center justify-center p-4">
-                  <div className="h-80 w-full relative overflow-hidden bg-slate-600 rounded-xl border border-slate-500 shadow-lg">
+                  <div className="h-64 w-full relative overflow-hidden bg-slate-600 rounded-xl border border-slate-500 shadow-lg">
                     <img 
                       src={project.image} 
                       alt={project.title}
