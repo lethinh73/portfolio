@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import AnimatedBackground from './ui/animated-background'
+import SystemMonitor from './SystemMonitor'
 import { 
   FaCode, 
   FaDatabase, 
@@ -134,6 +135,24 @@ const Skills = () => {
               </motion.div>
             ))}
           </div>
+        </motion.div>
+
+        {/* Live System Monitor */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="mt-16"
+        >
+          <h3 className="text-2xl font-semibold text-white text-center mb-8">
+            Live Backend Demo
+          </h3>
+          <p className="text-center text-gray-400 mb-8 max-w-2xl mx-auto">
+            This real-time system monitor demonstrates my backend development skills using Python FastAPI, 
+            showcasing live data fetching and API integration.
+          </p>
+          <SystemMonitor />
         </motion.div>
       </div>
     </section>

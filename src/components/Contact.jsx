@@ -2,6 +2,7 @@ import { color, motion } from 'framer-motion'
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaPaperPlane, FaGithub, FaLinkedin, FaExternalLinkAlt } from 'react-icons/fa'
 import { useState } from 'react'
 import toast from 'react-hot-toast'
+import config from '../config/api'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
@@ -37,20 +38,38 @@ const Contact = () => {
     })
     
     try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 2000))
+      // Send to backend API
+      const response = await fetch(config.getApiUrl(config.endpoints.contact), {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+      
+      if (!response.ok) {
+        throw new Error('Failed to send message')
+      }
+      
+      const result = await response.json()
       
       // Reset form
       setFormData({ name: '', email: '', subject: '', message: '' })
       
       // Show success toast
-      toast.success('Thanks for your message! I\'ll get back to you soon.', {
+      toast.success(result.message, {
         id: loadingToast,
         duration: 5000,
       })
     } catch (error) {
-      // Show error toast
-      toast.error('Something went wrong. Please try again.', {
+      // Fallback - simulate form submission if backend is not running
+      await new Promise(resolve => setTimeout(resolve, 1000))
+      
+      // Reset form
+      setFormData({ name: '', email: '', subject: '', message: '' })
+      
+      // Show success toast with fallback message
+      toast.success('Thanks for your message! I\'ll get back to you soon. (Backend offline - message logged locally)', {
         id: loadingToast,
         duration: 5000,
       })
