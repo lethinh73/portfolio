@@ -1,4 +1,4 @@
-name: Deploy
+name: Deploy to local server
 
 on:
   push:
@@ -19,7 +19,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '22.18.0'
           cache: 'npm'
 
       - name: Install deps
@@ -39,9 +39,7 @@ jobs:
           rm -rf "$NEW"
           mkdir -p "$NEW"
           rsync -a --delete "${OUT}/" "$NEW/"
-          # Gộp file chung nếu có (favicon/robots...):
           [ -d "$APP/shared" ] && rsync -a "$APP/shared/" "$NEW/"
-          # Đổi thư mục atomically -> không downtime
           mv -T "$NEW" "$APP/current"
 
       - name: Quick healthcheck
