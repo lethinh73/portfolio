@@ -28,19 +28,25 @@ jobs:
       - name: Build
         run: |
           npm run build
-          if [ -d dist ]; then OUT=dist; elif [ -d build ]; then OUT=build; else echo "No dist/build found"; exit 1; fi
+          if [ -d dist ]; then OUT=dist; else echo "No dist/build found"; exit 1; fi
           echo "OUT=$OUT" >> $GITHUB_ENV
 
       - name: Atomic deploy to /var/www/thinhsoft/current
         run: |
           set -euo pipefail
           APP=/var/www/thinhsoft
-          NEW="$APP/current.new"
-          rm -rf "$NEW"
-          mkdir -p "$NEW"
-          rsync -a --delete "${OUT}/" "$NEW/"
-          [ -d "$APP/shared" ] && rsync -a "$APP/shared/" "$NEW/"
-          mv -T "$NEW" "$APP/current"
+          TS=$(date -u +%Y%m%d%H%M%S)
+          REL="$APP/releases/$TS"
+          mkdir -p "$REL"
+          rsync -a --delete "${OUT}/" "$REL/"
+          [ -d "$APP/shared" ] && rsync -a "$APP/shared/" "$REL/"
+          ln -sfn "$REL" "$APP/current"
+
+      - name: Cleanup old releases
+        run: |
+          APP=/var/www/thinhsoft
+          ls -1dt $APP/releases/* | tail -n +6 | xargs -r rm -rf
+
 
       - name: Quick healthcheck
         run: |
@@ -48,6 +54,3 @@ jobs:
             curl -fsS http://127.0.0.1/ >/dev/null && exit 0 || sleep 1
           done
           echo "Healthcheck failed"; exit 1
-
-      - name: Reload Nginx
-        run: sudo systemctl reload nginx || true
