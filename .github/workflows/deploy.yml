@@ -1,4 +1,4 @@
-name: Deploy to local server
+name: '🚀 Deploy to Server'
 
 on:
   push:
@@ -6,51 +6,86 @@ on:
   workflow_dispatch: {}
 
 concurrency:
-  group: thinhsoft-${{ github.ref }}
+  group: thinhsoft-deploy-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
   build-and-deploy:
+    name: '🛠️ Build and Deploy'
     runs-on: [self-hosted, linux]
-    permissions:
-      contents: read
-    steps:
-      - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+    env:
+      NODE_VERSION: '22.x'
+      APP_PATH: '/var/www/thinhsoft'
+      RELEASES_TO_KEEP: 3
+
+    steps:
+      - name: '📥 Checkout Code'
+        uses: actions/checkout@v4
+
+      - name: '📦 Setup Node.js Environment'
+        uses: actions/setup-node@v4
         with:
-          node-version: '22.18.0'
+          node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
 
-      - name: Install deps
+      - name: '⚙️ Install Dependencies'
         run: npm ci
 
-      - name: Build
+      - name: '🏗️ Build Application'
+        id: build_step
         run: |
           npm run build
-          if [ -d dist ]; then OUT=dist; else echo "No dist/build found"; exit 1; fi
-          echo "OUT=$OUT" >> $GITHUB_ENV
+          if [ -d "dist" ]; then
+            echo "BUILD_OUTPUT=dist" >> $GITHUB_ENV
+            echo "Found output directory: dist"
+          elif [ -d "build" ]; then
+            echo "BUILD_OUTPUT=build" >> $GITHUB_ENV
+            echo "Found output directory: build"
+          else
+            echo "Error: Could not find 'dist' or 'build' directory after build."
+            exit 1
+          fi
 
-      - name: Atomic deploy to /var/www/thinhsoft/current
+      - name: '🚀 Atomic Deploy'
         run: |
-          set -euo pipefail
-          APP=/var/www/thinhsoft
-          TS=$(date -u +%Y%m%d%H%M%S)
-          REL="$APP/releases/$TS"
-          mkdir -p "$REL"
-          rsync -a --delete "${OUT}/" "$REL/"
-          [ -d "$APP/shared" ] && rsync -a "$APP/shared/" "$REL/"
-          ln -sfn "$REL" "$APP/current"
+          set -euo pipefail # Exit immediately if any command fails.
 
-      - name: Cleanup old releases
+          echo "Starting atomic deploy..."
+          RELEASE_TIMESTAMP=$(date -u +%Y%m%d%H%M%S)
+          RELEASE_PATH="${APP_PATH}/releases/${RELEASE_TIMESTAMP}"
+          
+          echo "Creating new release directory: ${RELEASE_PATH}"
+          mkdir -p "${RELEASE_PATH}"
+          
+          echo "Copying built files to the new release directory..."
+          rsync -a --delete "${{ env.BUILD_OUTPUT }}/" "${RELEASE_PATH}/"
+          
+          if [ -d "${APP_PATH}/shared" ]; then
+            echo "Copying files from the 'shared' directory..."
+            rsync -a "${APP_PATH}/shared/" "${RELEASE_PATH}/"
+          fi
+          
+          echo "Switching the 'current' symlink to the new release..."
+          ln -sfn "${RELEASE_PATH}" "${APP_PATH}/current"
+          
+          echo "✅ Successfully deployed release ${RELEASE_TIMESTAMP}!"
+
+      - name: '🧹 Cleanup Old Releases'
         run: |
-          APP=/var/www/thinhsoft
-          ls -1dt $APP/releases/* | tail -n +6 | xargs -r rm -rf
+          echo "Keeping the latest ${RELEASES_TO_KEEP} releases..."
+          ls -1dt ${APP_PATH}/releases/* | tail -n +$(($RELEASES_TO_KEEP + 1)) | xargs -r rm -rf
+          echo "Cleanup complete."
 
-
-      - name: Quick healthcheck
+      - name: '🩺 Quick Healthcheck'
         run: |
+          echo "Waiting for the application to start..."
           for i in {1..20}; do
-            curl -fsS http://127.0.0.1/ >/dev/null && exit 0 || sleep 1
+            if curl -fsS http://127.0.0.1/ >/dev/null; then
+              echo "✅ Healthcheck successful!"
+              exit 0
+            fi
+            sleep 1
           done
-          echo "Healthcheck failed"; exit 1
+          echo "❌ Healthcheck failed after 20 seconds."
+          exit 1
