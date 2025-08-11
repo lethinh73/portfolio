@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
+import { useRef } from 'react'
 import { FaCode, FaCoffee, FaHeart, FaLightbulb } from 'react-icons/fa'
 import AnimatedBackground from './ui/animated-background'
 
@@ -26,9 +27,12 @@ const About = () => {
     }
   ]
 
+  const ref = useRef(null)
+  const isInView = useInView(ref, { amount: 0.2 })
+
   return (
-    <section id="about" className="relative bg-gradient-to-r from-[#171010] to-[#362222] text-white py-16 overflow-hidden">
-      <AnimatedBackground variant="about" />
+    <section ref={ref} id="about" className="relative bg-gradient-to-r from-[#171010] to-[#362222] text-white py-16 overflow-hidden">
+      {isInView && <AnimatedBackground variant="about" />}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}

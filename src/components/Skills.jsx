@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
+import { useRef } from 'react'
 import AnimatedBackground from './ui/animated-background'
 import SystemMonitor from './SystemMonitor'
 import { 
@@ -55,9 +56,12 @@ const Skills = () => {
     </motion.span>
   )
 
+  const ref = useRef(null)
+  const isInView = useInView(ref, { amount: 0.2 })
+
   return (
-    <section id="skills" className="relative bg-gradient-to-r from-[#423F3E] to-[#171010] text-white py-16 overflow-hidden">
-      <AnimatedBackground variant="skills" />
+    <section ref={ref} id="skills" className="relative bg-gradient-to-r from-[#423F3E] to-[#171010] text-white py-16 overflow-hidden">
+      {isInView && <AnimatedBackground variant="skills" />}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
