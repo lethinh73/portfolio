@@ -83,7 +83,7 @@ const SystemMonitor = () => {
           <FaServer className="mx-auto text-red-400 text-4xl mb-4" />
           <h3 className="text-xl font-semibold text-red-400 mb-2">System Monitor Offline</h3>
           <p className="text-gray-300 text-sm">
-            Backend server is not running. Start the Python backend to see real-time system stats.
+            Backend server is not running.
           </p>
           <p className="text-gray-400 text-xs mt-2">Error: {error}</p>
         </div>
