@@ -17,7 +17,7 @@ jobs:
     env:
       # Paths for both applications
       FRONTEND_APP_PATH: '/var/www/thinhsoft'
-      BACKEND_APP_PATH: '/var/www/thinhsoft-backend' # <-- This line has been updated
+      BACKEND_APP_PATH: '/var/www/thinhsoft-backend'
 
       # Environment versions
       NODE_VERSION: '22.x'
@@ -66,7 +66,6 @@ jobs:
           tools: composer
 
       - name: '⚙️ Install Backend Dependencies'
-        working-directory: ./backend
         run: composer install --no-dev --no-interaction --optimize-autoloader
 
       # =================================================================
