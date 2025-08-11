@@ -27,9 +27,15 @@ function format_uptime(int $seconds): string {
 
 
 return function (App $app) {
-    
+    $app->get('/', function (Request $request, Response $response) {
+        $response->getBody()->write(json_encode([
+            'message' => 'ThinhSoft API',
+            'status' => 'success'
+        ]));
+        return $response->withHeader('Content-Type', 'application/json');
+    });
+
     $app->get('/system', function (Request $request, Response $response) {
-    
         // --- CPU Usage ---
         $load = sys_getloadavg();
         $cores = get_cpu_cores();
