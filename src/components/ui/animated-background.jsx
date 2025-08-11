@@ -1,5 +1,5 @@
-import React from 'react'
-import { motion } from 'framer-motion'
+import React, { useMemo } from 'react'
+import { motion as Motion } from 'framer-motion'
 
 const AnimatedBackground = ({ variant = 'default' }) => {
   const getVariantConfig = () => {
@@ -71,11 +71,65 @@ const AnimatedBackground = ({ variant = 'default' }) => {
   }
 
   const config = getVariantConfig()
+
+  const particleConfigs = useMemo(() => {
+    return Array.from({ length: config.particleCount }, () => ({
+      style: {
+        top: `${Math.random() * 100}%`,
+        left: `${Math.random() * 100}%`,
+      },
+      animate: {
+        y: [0, -100, 0],
+        x: [0, Math.random() * 100 - 50, 0],
+        opacity: [0.2, 0.8, 0.2],
+      },
+      transition: {
+        duration: Math.random() * 10 + 10,
+        repeat: Infinity,
+        ease: "easeInOut",
+        delay: Math.random() * 5,
+      },
+    }))
+  }, [config.particleCount])
+
+  const starConfigs = useMemo(() => {
+    return Array.from({ length: config.starCount }, () => ({
+      style: {
+        top: `${Math.random() * 100}%`,
+        left: `${Math.random() * 100}%`,
+        width: `${Math.random() * 3 + 1}px`,
+        height: `${Math.random() * 3 + 1}px`,
+        clipPath:
+          'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)',
+      },
+      transition: {
+        duration: Math.random() * 3 + 2,
+        repeat: Infinity,
+        ease: "easeInOut",
+        delay: Math.random() * 3,
+      },
+    }))
+  }, [config.starCount])
+
+  const twinkleConfigs = useMemo(() => {
+    return Array.from({ length: 15 }, () => ({
+      style: {
+        top: `${Math.random() * 100}%`,
+        left: `${Math.random() * 100}%`,
+      },
+      transition: {
+        duration: Math.random() * 2 + 1,
+        repeat: Infinity,
+        ease: "easeInOut",
+        delay: Math.random() * 2,
+      },
+    }))
+  }, [])
   
   return (
     <div className="absolute inset-0 overflow-hidden">
       {/* Animated gradient orbs */}
-      <motion.div
+      <Motion.div
         className={`absolute w-96 h-96 ${config.primaryColor} rounded-full blur-3xl`}
         animate={{
           x: [0, 100, 0],
@@ -90,7 +144,7 @@ const AnimatedBackground = ({ variant = 'default' }) => {
         style={{ top: '10%', left: '10%' }}
       />
       
-      <motion.div
+      <Motion.div
         className={`absolute w-96 h-96 ${config.secondaryColor} rounded-full blur-3xl`}
         animate={{
           x: [0, -100, 0],
@@ -106,31 +160,19 @@ const AnimatedBackground = ({ variant = 'default' }) => {
       />
 
       {/* Floating particles */}
-      {[...Array(config.particleCount)].map((_, i) => (
-        <motion.div
+      {particleConfigs.map((cfg, i) => (
+        <Motion.div
           key={`particle-${i}`}
           className={`absolute w-1 h-1 ${config.particleColor} rounded-full opacity-20`}
-          animate={{
-            y: [0, -100, 0],
-            x: [0, Math.random() * 100 - 50, 0],
-            opacity: [0.2, 0.8, 0.2],
-          }}
-          transition={{
-            duration: Math.random() * 10 + 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: Math.random() * 5,
-          }}
-          style={{
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-          }}
+          animate={cfg.animate}
+          transition={cfg.transition}
+          style={cfg.style}
         />
       ))}
 
       {/* Animated stars */}
-      {[...Array(config.starCount)].map((_, i) => (
-        <motion.div
+      {starConfigs.map((cfg, i) => (
+        <Motion.div
           key={`star-${i}`}
           className={`absolute ${config.starColor} opacity-60`}
           animate={{
@@ -138,41 +180,22 @@ const AnimatedBackground = ({ variant = 'default' }) => {
             rotate: [0, 180, 360],
             opacity: [0.3, 1, 0.3],
           }}
-          transition={{
-            duration: Math.random() * 3 + 2,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: Math.random() * 3,
-          }}
-          style={{
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-            width: `${Math.random() * 3 + 1}px`,
-            height: `${Math.random() * 3 + 1}px`,
-            clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)',
-          }}
+          transition={cfg.transition}
+          style={cfg.style}
         />
       ))}
 
       {/* Additional twinkling effect */}
-      {[...Array(15)].map((_, i) => (
-        <motion.div
+      {twinkleConfigs.map((cfg, i) => (
+        <Motion.div
           key={`twinkle-${i}`}
           className={`absolute w-0.5 h-0.5 ${config.starColor} rounded-full`}
           animate={{
             opacity: [0, 1, 0],
             scale: [0.5, 1.5, 0.5],
           }}
-          transition={{
-            duration: Math.random() * 2 + 1,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: Math.random() * 2,
-          }}
-          style={{
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-          }}
+          transition={cfg.transition}
+          style={cfg.style}
         />
       ))}
     </div>
