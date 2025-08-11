@@ -1,5 +1,5 @@
-import React from 'react'
-import { motion } from 'framer-motion'
+import React, { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import { FaHeart, FaGithub, FaLinkedin, FaExternalLinkAlt, FaEnvelope, FaArrowUp } from 'react-icons/fa'
 import { Button } from '@/components/ui/button'
 import AnimatedBackground from './ui/animated-background'
@@ -39,9 +39,12 @@ const Footer = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
+  const ref = useRef(null)
+  const isInView = useInView(ref, { amount: 0.2 })
+
   return (
-    <footer className="relative bg-gradient-to-r from-[#2B2B2B] to-[#171010] text-white pt-8 pb-4 overflow-hidden">
-      <AnimatedBackground variant="footer" />
+    <footer ref={ref} className="relative bg-gradient-to-r from-[#2B2B2B] to-[#171010] text-white pt-8 pb-4 overflow-hidden">
+      {isInView && <AnimatedBackground variant="footer" />}
 
       <div className="relative z-10">
         {/* Main Footer Content */}

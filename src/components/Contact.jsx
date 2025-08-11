@@ -1,6 +1,6 @@
-import { color, motion } from 'framer-motion'
+import { color, motion, useInView } from 'framer-motion'
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaPaperPlane, FaGithub, FaLinkedin, FaExternalLinkAlt } from 'react-icons/fa'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import toast from 'react-hot-toast'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -15,6 +15,9 @@ const Contact = () => {
     message: ''
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const ref = useRef(null)
+  const isInView = useInView(ref, { amount: 0.2 })
 
   const handleChange = (e) => {
     setFormData({
@@ -102,8 +105,8 @@ const Contact = () => {
   ]
 
   return (
-    <section id="contact" className="relative bg-gradient-to-r from-[#171010] to-[#423F3E] text-white py-16 overflow-hidden">
-      <AnimatedBackground variant="contact" />
+    <section ref={ref} id="contact" className="relative bg-gradient-to-r from-[#171010] to-[#423F3E] text-white py-16 overflow-hidden">
+      {isInView && <AnimatedBackground variant="contact" />}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}

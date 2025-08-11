@@ -1,12 +1,16 @@
-import { motion } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import { FaDownload, FaExternalLinkAlt } from 'react-icons/fa'
 import { Button } from '@/components/ui/button'
 import AnimatedBackground from './ui/animated-background'
+import { useRef } from 'react'
 
 const Hero = () => {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { amount: 0.2 })
+
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-[#171010] via-[#2B2B2B] to-[#423F3E] text-white flex items-center justify-center overflow-hidden">
-      <AnimatedBackground variant="hero" />
+    <section ref={ref} className="relative min-h-screen bg-gradient-to-br from-[#171010] via-[#2B2B2B] to-[#423F3E] text-white flex items-center justify-center overflow-hidden">
+      {isInView && <AnimatedBackground variant="hero" />}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-[#362222]/5 via-[#423F3E]/10 to-[#171010]/20"></div>
       </div>
