@@ -4,7 +4,7 @@ Hi, I'm Thinh Le 👋. Welcome to the official repository for my personal portfo
 
 <img width="1685" height="864" alt="screenshot" src="https://github.com/user-attachments/assets/2759ac47-131e-4e79-8379-3f29c61f1eb3" />
 
-### [View Live Site →](http://localhost:5174)
+### [View Live Site →](https://thinhsoft.com)
 
 ## ✨ Features
 
@@ -28,12 +28,22 @@ This project is built with a cutting-edge web development stack:
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)
 
+Backend:
+
+![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
+![Slim 4](https://img.shields.io/badge/Slim-4.x-4A4A4A?style=for-the-badge)
+![PHPUnit](https://img.shields.io/badge/PHPUnit-9.x-4A4A4A?style=for-the-badge)
+
 ### Core Technologies:
 - **React 19.1.0** - Modern React with latest features
 - **Vite 7.0.4** - Next-generation frontend tooling
 - **Tailwind CSS 4.1.0** - Utility-first CSS framework
 - **Framer Motion 12.23.12** - Production-ready motion library
 - **shadcn/ui** - High-quality, accessible component system
+- **Slim 4** - Backend microframework for APIs
+- **PHP-DI** - Dependency Injection container
+- **Monolog** - Structured logging
+- **PHPUnit** - Backend testing framework
 
 ### Key Libraries:
 - **@radix-ui/react-slot** - Primitive component composition
@@ -51,12 +61,12 @@ To run this project on your local machine, follow these steps:
    cd portfolio
    ```
 
-2. **Install dependencies:**
+2. **Install frontend dependencies:**
    ```bash
    npm install
    ```
 
-3. **Start the development server:**
+3. **Start the frontend dev server:**
    ```bash
    npm run dev
    ```
@@ -80,10 +90,83 @@ npm run preview
 npm run lint
 ```
 
+## 🧩 Backend (Slim 4 API)
+
+The backend is a Slim 4 PHP API located in `backend/`. It powers dynamic features like the system monitor and future contact form.
+
+### Prerequisites
+- PHP 8.0+ (7.4 supported, but 8.x recommended)
+- Composer
+
+Optionally for Docker: Docker Desktop
+
+### Install and run (local PHP)
+```bash
+cd backend
+composer install
+
+# Start API at http://localhost:8080
+composer start
+```
+
+### Run with Docker
+```bash
+cd backend
+docker compose up -d
+```
+This starts the API at `http://localhost:8080` inside a PHP 7 Alpine container.
+
+### Configure the frontend to talk to the API
+Set the API base URL via Vite environment variable:
+
+```bash
+# at project root
+echo "VITE_API_BASE_URL=http://localhost:8080" >> .env.local
+```
+
+The frontend reads this from `src/config/api.js`.
+
+### API Endpoints
+- `GET /` → Basic health payload: `{ message: "ThinhSoft API", status: "success" }`
+- `GET /system` → System metrics payload:
+   - `cpu_percent` (number)
+   - `memory_percent` (number)
+   - `disk_percent` (number)
+   - `process_count` (number)
+   - `uptime` (string, e.g., `0 days, 05:42`)
+   - `platform_info` (object: `system`, `machine`)
+   - `network_stats` (object: `bytes_sent`, `bytes_recv`, `packets_sent`, `packets_recv`)
+
+Notes:
+- CORS headers are emitted dynamically based on the request Origin, so calling the API from `http://localhost:5174` works out of the box.
+- Some metrics (e.g., uptime and network stats) rely on Linux `/proc` and may be partial on macOS/Windows. Docker provides full metrics.
+
+### Backend tests
+```bash
+cd backend
+composer test
+```
+
+## ▶️ Running frontend + backend together
+
+Use two terminals:
+- Terminal 1 (frontend): `npm run dev` → http://localhost:5174
+- Terminal 2 (backend): `cd backend && composer start` → http://localhost:8080
+
+Ensure `.env.local` has `VITE_API_BASE_URL=http://localhost:8080`.
+
 ## 📁 Project Structure
 
 ```
 portfolio/
+├── backend/                 # Slim 4 API
+│   ├── public/              # App front controller (index.php)
+│   ├── app/                 # Settings, routes, middleware
+│   ├── src/                 # Application code (handlers, middleware, etc.)
+│   ├── tests/               # PHPUnit tests
+│   ├── vendor/              # Composer dependencies
+│   ├── composer.json        # Backend dependencies & scripts
+│   └── docker-compose.yml   # Optional Docker setup (port 8080)
 ├── src/
 │   ├── components/
 │   │   ├── ui/              # shadcn/ui components
@@ -104,7 +187,8 @@ portfolio/
 │   └── index.css            # Global styles
 ├── public/                  # Static assets
 ├── components.json          # shadcn/ui configuration
-├── tailwind.config.js       # Tailwind CSS configuration
+├── eslint.config.js         # ESLint flat config
+├── tsconfig.json            # TS config (used by tooling)
 └── vite.config.js          # Vite configuration
 ```
 
@@ -151,4 +235,4 @@ I'm always open to connecting and discussing new opportunities.
 * **Portfolio:** [thinhsoft.com](https://thinhsoft.com)
 
 ---
-*This README was last updated on August 3, 2025.*
+*This README was last updated on August 11, 2025.*
