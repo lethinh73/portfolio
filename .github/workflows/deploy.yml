@@ -62,11 +62,10 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ env.PHP_VERSION }}
-          extensions: mbstring, pdo, pdo_mysql
-          tools: composer
+          extensions: mbstring, simplexml, dom
 
       - name: '⚙️ Install Backend Dependencies'
-        run: composer install --no-dev --no-interaction --optimize-autoloader
+        run: cd backend && composer install --no-progress --prefer-dist --optimize-autoloader
 
       # =================================================================
       # Deployment Steps
