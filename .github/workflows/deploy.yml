@@ -33,12 +33,6 @@ jobs:
       # =================================================================
       # Frontend Build Steps
       # =================================================================
-      - name: '📦 Setup Node.js Environment'
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
-
       - name: '⚙️ Install Frontend Dependencies'
         run: npm ci
 
@@ -58,12 +52,6 @@ jobs:
       # =================================================================
       # Backend Build Steps
       # =================================================================
-      - name: '📦 Setup PHP Environment'
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: ${{ env.PHP_VERSION }}
-          extensions: mbstring, simplexml, dom
-
       - name: '⚙️ Install Backend Dependencies'
         run: cd backend && composer install --no-progress --prefer-dist --optimize-autoloader
 
