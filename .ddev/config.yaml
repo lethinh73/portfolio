@@ -1,10 +1,10 @@
 name: portfolio
 type: generic
-docroot: dist
+docroot: ""
 php_version: "8.3"
 webserver_type: nginx-fpm
 xdebug_enabled: false
-additional_hostnames: []
+additional_hostnames: ["api.portfolio"]
 additional_fqdns: []
 database:
     type: mariadb
