@@ -153,7 +153,7 @@ const Skills = () => {
             Live Backend Demo
           </h3>
           <p className="text-center text-gray-400 mb-8 max-w-2xl mx-auto">
-            This real-time system monitor demonstrates my backend development skills using Python FastAPI, 
+            This real-time system monitor demonstrates my backend development skills using Slim 4,
             showcasing live data fetching and API integration.
           </p>
           <SystemMonitor />
