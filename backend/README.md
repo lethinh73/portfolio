@@ -1,42 +1,53 @@
-# Slim Framework 4 Skeleton Application
+# CakePHP Application Skeleton
 
-[![Coverage Status](https://coveralls.io/repos/github/slimphp/Slim-Skeleton/badge.svg?branch=master)](https://coveralls.io/github/slimphp/Slim-Skeleton?branch=master)
+![Build Status](https://github.com/cakephp/app/actions/workflows/ci.yml/badge.svg?branch=5.x)
+[![Total Downloads](https://img.shields.io/packagist/dt/cakephp/app.svg?style=flat-square)](https://packagist.org/packages/cakephp/app)
+[![PHPStan](https://img.shields.io/badge/PHPStan-level%208-brightgreen.svg?style=flat-square)](https://github.com/phpstan/phpstan)
 
-Use this skeleton application to quickly setup and start working on a new Slim Framework 4 application. This application uses the latest Slim 4 with Slim PSR-7 implementation and PHP-DI container implementation. It also uses the Monolog logger.
+A skeleton for creating applications with [CakePHP](https://cakephp.org) 5.x.
 
-This skeleton application was built for Composer. This makes setting up a new Slim Framework application quick and easy.
+The framework source code can be found here: [cakephp/cakephp](https://github.com/cakephp/cakephp).
 
-## Install the Application
+## Installation
 
-Run this command from the directory in which you want to install your new Slim Framework application. You will require PHP 7.4 or newer.
+1. Download [Composer](https://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
+2. Run `php composer.phar create-project --prefer-dist cakephp/app [app_name]`.
 
-```bash
-composer create-project slim/slim-skeleton [my-app-name]
-```
-
-Replace `[my-app-name]` with the desired directory name for your new application. You'll want to:
-
-* Point your virtual host document root to your new application's `public/` directory.
-* Ensure `logs/` is web writable.
-
-To run the application in development, you can run these commands 
+If Composer is installed globally, run
 
 ```bash
-cd [my-app-name]
-composer start
+composer create-project --prefer-dist cakephp/app
 ```
 
-Or you can use `docker-compose` to run the app with `docker`, so you can run these commands:
-```bash
-cd [my-app-name]
-docker-compose up -d
-```
-After that, open `http://localhost:8080` in your browser.
-
-Run this command in the application directory to run the test suite
+In case you want to use a custom app dir name (e.g. `/myapp/`):
 
 ```bash
-composer test
+composer create-project --prefer-dist cakephp/app myapp
 ```
 
-That's it! Now go build something cool.
+You can now either use your machine's webserver to view the default home page, or start
+up the built-in webserver with:
+
+```bash
+bin/cake server -p 8765
+```
+
+Then visit `http://localhost:8765` to see the welcome page.
+
+## Update
+
+Since this skeleton is a starting point for your application and various files
+would have been modified as per your needs, there isn't a way to provide
+automated upgrades, so you have to do any updates manually.
+
+## Configuration
+
+Read and edit the environment specific `config/app_local.php` and set up the
+`'Datasources'` and any other configuration relevant for your application.
+Other environment agnostic settings can be changed in `config/app.php`.
+
+## Layout
+
+The app skeleton uses [Milligram](https://milligram.io/) (v1.3) minimalist CSS
+framework by default. You can, however, replace it with any other library or
+custom styles.
