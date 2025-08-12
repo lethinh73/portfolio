@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Exception\HttpNotFoundException;
 use Slim\App;
 
 // Helper function to get the number of CPU cores.
@@ -101,5 +102,38 @@ return function (App $app) {
         
         $response->getBody()->write(json_encode($data));
         return $response->withHeader('Content-Type', 'application/json');
+    });
+
+    $app->post('/contact', function (Request $request, Response $response) {
+        try {
+            $data = json_decode($request->getBody()->getContents(), true);
+
+            // Validate and process the contact form data
+            if (empty($data['name']) || empty($data['email']) || empty($data['message'])) {
+                throw new Exception('All fields are required');
+            }
+
+            // TODO: Implement actual email sending logic here
+
+            $response->getBody()->write(json_encode([
+                'message' => 'Contact form submitted successfully',
+                'status' => 'success'
+            ]));
+        } catch (Exception $e) {
+            $response->getBody()->write(json_encode([
+                'message' => $e->getMessage(),
+                'status' => 'error'
+            ]));
+        }
+
+        return $response->withHeader('Content-Type', 'application/json');
+    });
+
+    /**
+     * Catch-all route to serve a 404 Not Found page if none of the routes match
+     * NOTE: make sure this route is defined last
+     */
+    $app->map(['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], '/{routes:.+}', function ($request, $response) {
+        throw new HttpNotFoundException($request);
     });
 };

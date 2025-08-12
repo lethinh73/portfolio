@@ -6,9 +6,6 @@ const config = {
   // API Endpoints
   endpoints: {
     system: '/system',
-    systemCpu: '/system/cpu',
-    systemMemory: '/system/memory',
-    systemDisk: '/system/disk',
     contact: '/contact',
   },
   

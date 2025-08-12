@@ -55,7 +55,11 @@ const Contact = () => {
       }
       
       const result = await response.json()
-      
+
+      if (result.status !== 'success') {
+        throw new Error(result.message || 'Failed to send message')
+      }
+
       // Reset form
       setFormData({ name: '', email: '', subject: '', message: '' })
       
@@ -65,14 +69,8 @@ const Contact = () => {
         duration: 5000,
       })
     } catch (error) {
-      // Fallback - simulate form submission if backend is not running
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      
-      // Reset form
-      setFormData({ name: '', email: '', subject: '', message: '' })
-      
-      // Show success toast with fallback message
-      toast.success('Thanks for your message! I\'ll get back to you soon. (Backend offline - message logged locally)', {
+      // Show error toast
+      toast.error('Failed to send your message. Please try again later.', {
         id: loadingToast,
         duration: 5000,
       })
@@ -221,8 +219,8 @@ const Contact = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="bg-slate-600 rounded-2xl shadow-xl p-8 h-fit border border-slate-500"
           >
-            <div className="flex flex-col h-full justify-between">
-              <form onSubmit={handleSubmit} className="flex flex-col justify-between min-h-[400px]">
+            <div className="flex flex-col">
+              <form onSubmit={handleSubmit} className="flex flex-col gap-6 min-h-[350px]">
                 {/* Name and Email Row */}
                 <div className="grid md:grid-cols-2 gap-6">
                   <motion.div
