@@ -30,31 +30,17 @@ jobs:
       - name: '📥 Checkout Code'
         uses: actions/checkout@v4
 
-      # Make npm/node available regardless of the runner's PATH
-      - name: '🔧 Setup Node.js'
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: npm
-
-      # Setup PHP
-      # - name: '🔧 Setup PHP'
-      #   uses: shivammathur/setup-php@v2
-      #   with:
-      #     php-version: ${{ env.PHP_VERSION }}
-      #     tools: composer:v2
-      #   env:
-      #     runner: self-hosted
-
       # =================================================================
       # Frontend Build Steps
       # =================================================================
       - name: '⚙️ Install Frontend Dependencies'
-        run: npm ci
+        run: |
+          export NVM_DIR="$HOME/.nvm"
+          [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+          npm ci
 
       - name: '🏗️ Build Frontend Application'
         id: build_step
-        shell: bash
         run: |
           set -euo pipefail
           npm run build
@@ -79,11 +65,9 @@ jobs:
       # =================================================================
       - name: '🏷️ Set Release Timestamp'
         id: timestamp
-        shell: bash
         run: echo "RELEASE_TIMESTAMP=$(date -u +%Y%m%d%H%M%S)" >> "$GITHUB_ENV"
       
       - name: '🚀 Atomic Deploy: Frontend'
-        shell: bash
         run: |
           set -euo pipefail
           RELEASE_PATH="${FRONTEND_APP_PATH}/releases/${RELEASE_TIMESTAMP}"
@@ -102,7 +86,6 @@ jobs:
           echo "✅ Frontend deployed successfully!"
 
       - name: '🚀 Atomic Deploy: Backend'
-        shell: bash
         run: |
           set -euo pipefail
           RELEASE_PATH="${BACKEND_APP_PATH}/releases/${RELEASE_TIMESTAMP}"
