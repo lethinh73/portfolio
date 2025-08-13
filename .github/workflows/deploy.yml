@@ -16,7 +16,7 @@ jobs:
 
     env:
       # Paths for both applications
-      FRONTEND_APP_PATH: '/var/www/thinhsoft'
+      FRONTEND_APP_PATH: '/var/www/thinhsoft-frontend'
       BACKEND_APP_PATH: '/var/www/thinhsoft-backend'
 
       # Environment versions
