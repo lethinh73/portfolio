@@ -43,6 +43,8 @@ jobs:
         id: build_step
         run: |
           set -euo pipefail
+          export NVM_DIR="$HOME/.nvm"
+          [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
           npm run build
           if [ -d "dist" ]; then
             echo "BUILD_OUTPUT=dist" >> "$GITHUB_ENV"
