@@ -43,6 +43,8 @@ jobs:
         with:
           php-version: ${{ env.PHP_VERSION }}
           tools: composer:v2
+        env:
+          runner: self-hosted
 
       # =================================================================
       # Frontend Build Steps
