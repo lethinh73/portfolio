@@ -38,13 +38,13 @@ jobs:
           cache: npm
 
       # Setup PHP
-      - name: '🔧 Setup PHP'
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: ${{ env.PHP_VERSION }}
-          tools: composer:v2
-        env:
-          runner: self-hosted
+      # - name: '🔧 Setup PHP'
+      #   uses: shivammathur/setup-php@v2
+      #   with:
+      #     php-version: ${{ env.PHP_VERSION }}
+      #     tools: composer:v2
+      #   env:
+      #     runner: self-hosted
 
       # =================================================================
       # Frontend Build Steps
