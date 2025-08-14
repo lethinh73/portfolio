@@ -34,13 +34,16 @@ jobs:
       # Frontend Build Steps
       # =================================================================
       - name: '⚙️ Install Frontend Dependencies'
+        working-directory: ./frontend
         run: |
+          set -euo pipefail
           export NVM_DIR="$HOME/.nvm"
           [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
           npm ci
 
       - name: '🏗️ Build Frontend Application'
         id: build_step
+        working-directory: ./frontend
         run: |
           set -euo pipefail
           export NVM_DIR="$HOME/.nvm"
@@ -48,10 +51,8 @@ jobs:
           npm run build
           if [ -d "dist" ]; then
             echo "BUILD_OUTPUT=dist" >> "$GITHUB_ENV"
-          elif [ -d "build" ]; then
-            echo "BUILD_OUTPUT=build" >> "$GITHUB_ENV"
           else
-            echo "Error: Could not find 'dist' or 'build' directory." >&2
+            echo "Error: Could not find 'dist' directory." >&2
             exit 1
           fi
 
@@ -76,7 +77,6 @@ jobs:
           echo "Creating new frontend release directory: ${RELEASE_PATH}"
           mkdir -p "${RELEASE_PATH}"
           echo "Copying built frontend files..."
-          # IMPORTANT: use $BUILD_OUTPUT (env var), not ${{ env.BUILD_OUTPUT }}
           rsync -a --delete "${BUILD_OUTPUT}/" "${RELEASE_PATH}/"
           echo "Creating env file..."
           {
