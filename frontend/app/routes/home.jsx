@@ -1,10 +1,9 @@
-import type { Route } from "./+types/home";
 import { Welcome } from "../welcome/welcome";
 
-export function meta({}: Route.MetaArgs) {
+export function meta() {
   return [
     { title: "Thinh Le - Home" },
-    { name: "description", content: "Thinh's Home Page" },
+    { name: "description", content: "Thinh Le's personal website" },
   ];
 }
 
