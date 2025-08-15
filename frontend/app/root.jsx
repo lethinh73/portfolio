@@ -10,6 +10,7 @@ import { Provider } from "@/components/ui/provider";
 import Header from "@/components/shared/header";
 import Footer from "@/components/shared/footer";
 import "./app.css";
+import LoadingScreen from "@/components/shared/loadingscreen";
 
 export const links = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -50,6 +51,10 @@ export function Layout({ children }) {
 
 export default function App() {
   return <Outlet />;
+}
+
+export function HydrateFallback() {
+  return <LoadingScreen />;
 }
 
 export function ErrorBoundary({ error }) {
