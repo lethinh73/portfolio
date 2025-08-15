@@ -1,17 +1,15 @@
-import Header from "@/components/home/header";
 
 export function meta() {
   return [
-    { title: "Thinh Le - Home" },
+    { title: "Thinh Le - Not Found" },
     { name: "description", content: "Thinh Le's personal website" },
   ];
 }
 
-export default function Home() {
+export default function NotFound() {
   return (
     <>
-      <Header />
-      Yeah!
+      Not Found
     </>
   );
 }
