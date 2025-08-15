@@ -1,4 +1,5 @@
 import { Welcome } from "../welcome/welcome";
+import Header from "@/components/home/header";
 
 export function meta() {
   return [
@@ -8,5 +9,10 @@ export function meta() {
 }
 
 export default function Home() {
-  return <Welcome />;
+  return (
+    <>
+      <Header />
+      <Welcome />
+    </>
+  );
 }
