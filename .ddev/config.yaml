@@ -2,13 +2,13 @@ name: portfolio
 type: generic
 docroot: ""
 php_version: "8.4"
-webserver_type: apache-fpm
+webserver_type: nginx-fpm
 xdebug_enabled: false
-additional_hostnames: ["api.portfolio"]
+additional_hostnames: ["api.thinhsoft", "thinhsoft"]
 additional_fqdns: []
 database:
-    type: mariadb
-    version: "10.11"
+    type: mysql
+    version: "8.4"
 use_dns_when_possible: true
 composer_version: "2"
 web_environment: []
