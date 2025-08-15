@@ -7,6 +7,8 @@ import {
   ScrollRestoration,
 } from "react-router";
 import { Provider } from "@/components/ui/provider";
+import Header from "@/components/shared/header";
+import Footer from "@/components/shared/footer";
 import "./app.css";
 
 export const links = () => [
@@ -24,17 +26,21 @@ export const links = () => [
 
 export function Layout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" class="h-full bg-gray-100 dark:bg-gray-900">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
       </head>
-      <body>
-        <Provider>
-          {children}
-        </Provider>
+      <body class="h-full">
+        <div className="min-h-full">
+          <Provider>
+            <Header />
+            {children}
+            <Footer />
+          </Provider>
+        </div>
         <ScrollRestoration />
         <Scripts />
       </body>

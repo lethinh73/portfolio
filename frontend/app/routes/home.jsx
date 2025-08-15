@@ -1,4 +1,5 @@
-import Header from "@/components/home/header";
+import ContentHeader from "@/components/shared/contentheader";
+import MainContent from "@/components/shared/maincontent";
 
 export function meta() {
   return [
@@ -10,8 +11,10 @@ export function meta() {
 export default function Home() {
   return (
     <>
-      <Header />
-      Yeah!
+      <ContentHeader title="Dashboard" />
+      <MainContent>
+        <p>Welcome to your dashboard!</p>
+      </MainContent>
     </>
   );
 }
