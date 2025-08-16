@@ -10,13 +10,13 @@ export function meta() {
 export default function NotFound() {
   return (
     <>
-      <main className="relative isolate h-svh">
-         <img
+      <main className="relative isolate flex-1 min-h-0 flex items-center">
+        <img
           alt=""
           src="/img/404.png"
           className="absolute inset-0 -z-10 size-full object-cover object-top"
         />
-        <div className="mx-auto max-w-7xl px-6 py-32 text-center sm:py-40 lg:px-8">
+        <div className="mx-auto max-w-7xl px-6 text-center lg:px-8">
           <p className="text-base/8 font-semibold text-white">404</p>
           <h1 className="mt-4 text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl">
             Page not found

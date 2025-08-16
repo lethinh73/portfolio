@@ -35,10 +35,12 @@ export function Layout({ children }) {
         <Links />
       </head>
       <body class="h-full">
-        <div className="min-h-full">
+        <div className="min-h-svh flex flex-col">
           <Provider>
             <Header />
-            {children}
+            <div className="flex-1 flex flex-col min-h-0">
+              {children}
+            </div>
             <Footer />
           </Provider>
         </div>
