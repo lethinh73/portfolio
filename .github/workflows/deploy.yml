@@ -21,15 +21,3 @@ jobs:
       - name: '📄 Create Production Environment File'
         run: echo "${{ secrets.ENV_FILE }}" > .env
         shell: bash
-
-      - name: '🏗️ Build Docker Images Locally'
-        run: docker-compose -f docker-compose.yml -f docker-compose.prod.yml build
-        shell: bash
-
-      - name: '🚀 Deploy Using Local Images'
-        run: docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --remove-orphans
-        shell: bash
-
-      - name: '🧹 Cleanup Old Docker Images'
-        run: docker image prune -af
-        shell: bash
