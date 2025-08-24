@@ -2,7 +2,7 @@ name: '🚀 Deploy to Server'
 
 on:
   push:
-    branches: [ main ]
+    branches: [ deployment ]
   workflow_dispatch: {}
 
 concurrency:
@@ -10,104 +10,26 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
-    name: '🛠️ Build and Deploy'
-    runs-on: [self-hosted, linux]   # specify linux if appropriate
-
-    env:
-      # Paths for both applications
-      FRONTEND_APP_PATH: '/var/www/thinhsoft-frontend'
-      BACKEND_APP_PATH: '/var/www/thinhsoft-backend'
-
-      # Environment versions
-      NODE_VERSION: '22.x'
-      PHP_VERSION: '8.4'
-      
-      # Deployment settings
-      RELEASES_TO_KEEP: 3
+  deploy:
+    name: '🛠️ Build and Deploy Locally'
+    runs-on: self-hosted
 
     steps:
       - name: '📥 Checkout Code'
         uses: actions/checkout@v4
 
-      # =================================================================
-      # Frontend Build Steps
-      # =================================================================
-      - name: '⚙️ Install Frontend Dependencies'
-        working-directory: ./frontend
-        run: |
-          set -euo pipefail
-          export NVM_DIR="$HOME/.nvm"
-          [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-          npm ci
+      - name: '📄 Create Production Environment File'
+        run: echo "${{ secrets.ENV_FILE }}" > .env
+        shell: bash
 
-      - name: '🏗️ Build Frontend Application'
-        id: build_step
-        working-directory: ./frontend
-        run: |
-          set -euo pipefail
-          export NVM_DIR="$HOME/.nvm"
-          [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-          npm run build
-          if [ -d "dist" ]; then
-            echo "BUILD_OUTPUT=dist" >> "$GITHUB_ENV"
-          else
-            echo "Error: Could not find 'dist' directory." >&2
-            exit 1
-          fi
+      - name: '🏗️ Build Docker Images Locally'
+        run: docker-compose -f docker-compose.yml -f docker-compose.prod.yml build
+        shell: bash
 
-      # =================================================================
-      # Backend Build Steps
-      # =================================================================
-      - name: '⚙️ Install Backend Dependencies'
-        working-directory: ./backend
-        run: composer install --no-progress --prefer-dist --optimize-autoloader
+      - name: '🚀 Deploy Using Local Images'
+        run: docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --remove-orphans
+        shell: bash
 
-      # =================================================================
-      # Deployment Steps
-      # =================================================================
-      - name: '🏷️ Set Release Timestamp'
-        id: timestamp
-        run: echo "RELEASE_TIMESTAMP=$(date -u +%Y%m%d%H%M%S)" >> "$GITHUB_ENV"
-      
-      - name: '🚀 Atomic Deploy: Frontend'
-        run: |
-          set -euo pipefail
-          RELEASE_PATH="${FRONTEND_APP_PATH}/releases/${RELEASE_TIMESTAMP}"
-          echo "Creating new frontend release directory: ${RELEASE_PATH}"
-          mkdir -p "${RELEASE_PATH}"
-          echo "Copying built frontend files..."
-          rsync -a --delete "${BUILD_OUTPUT}/" "${RELEASE_PATH}/"
-          echo "Creating env file..."
-          {
-            echo "VITE_API_BASE_URL=${{ secrets.VITE_API_BASE_URL }}"
-            echo "VITE_NODE_ENV=${{ secrets.VITE_NODE_ENV }}"
-          } > "${RELEASE_PATH}/.env"
-          echo "Switching 'current' symlink for frontend..."
-          ln -sfn "${RELEASE_PATH}" "${FRONTEND_APP_PATH}/current"
-          echo "✅ Frontend deployed successfully!"
-
-      - name: '🚀 Atomic Deploy: Backend'
-        run: |
-          set -euo pipefail
-          RELEASE_PATH="${BACKEND_APP_PATH}/releases/${RELEASE_TIMESTAMP}"
-          echo "Creating new backend release directory: ${RELEASE_PATH}"
-          mkdir -p "${RELEASE_PATH}"
-          echo "Copying backend files..."
-          rsync -a --delete ./backend/ "${RELEASE_PATH}/"
-          echo "Switching 'current' symlink for backend..."
-          ln -sfn "${RELEASE_PATH}" "${BACKEND_APP_PATH}/current"
-          echo "✅ Backend deployed successfully!"
-
-      # =================================================================
-      # Cleanup Steps
-      # =================================================================
-      - name: '🧹 Cleanup Old Frontend Releases'
-        run: |
-          ls -1dt ${{ env.FRONTEND_APP_PATH }}/releases/* | tail -n +$((${{ env.RELEASES_TO_KEEP }} + 1)) | xargs -r rm -rf
-          echo "Frontend cleanup complete."
-
-      - name: '🧹 Cleanup Old Backend Releases'
-        run: |
-          ls -1dt ${{ env.BACKEND_APP_PATH }}/releases/* | tail -n +$((${{ env.RELEASES_TO_KEEP }} + 1)) | xargs -r rm -rf
-          echo "Backend cleanup complete."
+      - name: '🧹 Cleanup Old Docker Images'
+        run: docker image prune -af
+        shell: bash
