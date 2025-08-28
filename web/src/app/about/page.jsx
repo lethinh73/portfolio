@@ -58,35 +58,31 @@ export default function About() {
         </div>
         <div className="lg:order-first lg:row-span-2">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-            I’m Spencer Sharp. I live in New York City, where I design the
-            future.
+            I’m Thinh Le. I live in Houston, where I make my dreams come true.
           </h1>
           <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
             <p>
-              I’ve loved making things for as long as I can remember, and wrote
-              my first program when I was 6 years old, just two weeks after my
-              mom brought home the brand new Macintosh LC 550 that I taught
-              myself to type on.
+              When I was 15 years old, watching my dad building his first computer
+              from parts, I knew I had a passion for technology. I spent the next few
+              years reading every book I could find on my dad’s bookshelf about
+              programming and software development. Unlike most kids my age, I loved
+              spending hours in front of a computer, learning how to code and build
+              software, and then showing my projects to my family and friends.
             </p>
             <p>
-              The only thing I loved more than computers as a kid was space.
-              When I was 8, I climbed the 40-foot oak tree at the back of our
-              yard while wearing my older sister’s motorcycle helmet, counted
-              down from three, and jumped — hoping the tree was tall enough that
-              with just a bit of momentum I’d be able to get to orbit.
+              Of course, I also had a great interest in gaming. I could spend
+              entire weekends playing turn-based strategy games. I love the way
+              they challenge my strategic thinking and problem-solving skills.
+              These games taught me the importance of patience, planning, and
+              perseverance.
             </p>
             <p>
-              I spent the next few summers indoors working on a rocket design,
-              while I recovered from the multiple surgeries it took to fix my
-              badly broken legs. It took nine iterations, but when I was 15 I
-              sent my dad’s Blackberry into orbit and was able to transmit a
-              photo back down to our family computer from space.
-            </p>
-            <p>
-              Today, I’m the founder of Planetaria, where we’re working on
-              civilian space suits and manned shuttle kits you can assemble at
-              home so that the next generation of kids really <em>can</em> make
-              it to orbit — from the comfort of their own backyards.
+              Today, I’m a software developer at Source Web Solutions. I work on
+              building web applications and helping clients achieve their goals
+              through technology. I have learned so much from my experiences
+              working with different teams and tackling various challenges. My
+              goal is to continue growing as a developer and to contribute to
+              meaningful projects that make a difference.
             </p>
           </div>
         </div>
@@ -105,11 +101,11 @@ export default function About() {
               Follow on LinkedIn
             </SocialLink>
             <SocialLink
-              href="mailto:spencer@planetaria.tech"
+              href="mailto:lthinh73@gmail.com"
               icon={MailIcon}
               className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
             >
-              spencer@planetaria.tech
+              lthinh73@gmail.com
             </SocialLink>
           </ul>
         </div>
