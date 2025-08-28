@@ -1,15 +1,15 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import clsx from 'clsx'
+import Image from 'next/image';
+import Link from 'next/link';
+import clsx from 'clsx';
 
-import { Container } from '@/components/Container'
+import { Container } from '@/components/Container';
 import {
   GitHubIcon,
   InstagramIcon,
   LinkedInIcon,
   XIcon,
-} from '@/components/SocialIcons'
-import portraitImage from '@/images/portrait.jpg'
+} from '@/components/SocialIcons';
+import portraitImage from '@/images/portrait.jpg';
 
 function SocialLink({ className, href, children, icon: Icon }) {
   return (
@@ -22,7 +22,7 @@ function SocialLink({ className, href, children, icon: Icon }) {
         <span className="ml-4">{children}</span>
       </Link>
     </li>
-  )
+  );
 }
 
 function MailIcon(props) {
@@ -33,14 +33,14 @@ function MailIcon(props) {
         d="M6 5a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H6Zm.245 2.187a.75.75 0 0 0-.99 1.126l6.25 5.5a.75.75 0 0 0 .99 0l6.25-5.5a.75.75 0 0 0-.99-1.126L12 12.251 6.245 7.187Z"
       />
     </svg>
-  )
+  );
 }
 
 export const metadata = {
   title: 'About',
   description:
     'I’m Spencer Sharp. I live in New York City, where I design the future.',
-}
+};
 
 export default function About() {
   return (
@@ -62,12 +62,13 @@ export default function About() {
           </h1>
           <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
             <p>
-              When I was 15 years old, watching my dad building his first computer
-              from parts, I knew I had a passion for technology. I spent the next few
-              years reading every book I could find on my dad’s bookshelf about
-              programming and software development. Unlike most kids my age, I loved
-              spending hours in front of a computer, learning how to code and build
-              software, and then showing my projects to my family and friends.
+              When I was 15 years old, watching my dad building his first
+              computer from parts, I knew I had a passion for technology. I
+              spent the next few years reading every book I could find on my
+              dad’s bookshelf about programming and software development. Unlike
+              most kids my age, I loved spending hours in front of a computer,
+              learning how to code and build software, and then showing my
+              projects to my family and friends.
             </p>
             <p>
               Of course, I also had a great interest in gaming. I could spend
@@ -111,5 +112,5 @@ export default function About() {
         </div>
       </div>
     </Container>
-  )
+  );
 }

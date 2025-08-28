@@ -1,6 +1,6 @@
-import { Card } from '@/components/Card'
-import { Section } from '@/components/Section'
-import { SimpleLayout } from '@/components/SimpleLayout'
+import { Card } from '@/components/Card';
+import { Section } from '@/components/Section';
+import { SimpleLayout } from '@/components/SimpleLayout';
 
 function ToolsSection({ children, ...props }) {
   return (
@@ -9,7 +9,7 @@ function ToolsSection({ children, ...props }) {
         {children}
       </ul>
     </Section>
-  )
+  );
 }
 
 function Tool({ title, href, children }) {
@@ -20,13 +20,13 @@ function Tool({ title, href, children }) {
       </Card.Title>
       <Card.Description>{children}</Card.Description>
     </Card>
-  )
+  );
 }
 
 export const metadata = {
   title: 'Uses',
   description: 'Software I use, gadgets I love, and other things I recommend.',
-}
+};
 
 export default function Uses() {
   return (
@@ -108,5 +108,5 @@ export default function Uses() {
         </ToolsSection>
       </div>
     </SimpleLayout>
-  )
+  );
 }

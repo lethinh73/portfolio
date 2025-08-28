@@ -1,17 +1,16 @@
-import { Providers } from '@/app/providers'
-import { Layout } from '@/components/Layout'
+import { Providers } from '@/app/providers';
+import { Layout } from '@/components/Layout';
 
-import '@/styles/tailwind.css'
+import '@/styles/tailwind.css';
 
 export const metadata = {
   title: {
     template: '%s - Thinh Le',
-    default:
-      'Thinh Le - Software Developer',
+    default: 'Thinh Le - Software Developer',
   },
   description:
     'I’m Thinh, a software developer based in Houston. I love making professional websites and applications.',
-}
+};
 
 export default function RootLayout({ children }) {
   return (
@@ -24,5 +23,5 @@ export default function RootLayout({ children }) {
         </Providers>
       </body>
     </html>
-  )
+  );
 }
