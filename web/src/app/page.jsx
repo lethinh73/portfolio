@@ -11,14 +11,15 @@ import {
   LinkedInIcon,
   XIcon,
 } from '@/components/SocialIcons';
-import logoAirbnb from '@/images/logos/airbnb.svg';
-import logoFacebook from '@/images/logos/facebook.svg';
-import logoPlanetaria from '@/images/logos/planetaria.svg';
+import logoSource from '@/images/logos/source.png';
+import logoLabs196 from '@/images/logos/labs196.jpeg';
+import logoAccredo from '@/images/logos/accredo.jpeg';
+import logoWGU from '@/images/logos/wgu.jpeg';
+import logoUHCL from '@/images/logos/uhcl.jpg';
+import logoSanjac from '@/images/logos/sanjac.jpeg';
 import image1 from '@/images/photos/image-1.jpg';
 import image2 from '@/images/photos/image-2.jpg';
 import image3 from '@/images/photos/image-3.jpg';
-import image4 from '@/images/photos/image-4.jpg';
-import image5 from '@/images/photos/image-5.jpg';
 
 function MailIcon(props) {
   return (
@@ -110,7 +111,7 @@ function SocialLink({ icon: Icon, ...props }) {
   );
 }
 
-function Newsletter() {
+function Contact() {
   return (
     <form
       action="/thank-you"
@@ -124,17 +125,31 @@ function Newsletter() {
         Please feel free to enter any questions you may have and I will try my
         best to get back to you as soon as I can.
       </p>
-      <div className="mt-6 flex items-center">
-        <span className="flex min-w-0 flex-auto p-px">
-          <input
-            type="email"
-            placeholder="Email address"
-            aria-label="Email address"
-            required
-            className="w-full appearance-none rounded-[calc(var(--radius-md)-1px)] bg-white px-3 py-[calc(--spacing(2)-1px)] shadow-md shadow-zinc-800/5 outline outline-zinc-900/10 placeholder:text-zinc-400 focus:ring-4 focus:ring-teal-500/10 focus:outline-teal-500 sm:text-sm dark:bg-zinc-700/15 dark:text-zinc-200 dark:outline-zinc-700 dark:placeholder:text-zinc-500 dark:focus:ring-teal-400/10 dark:focus:outline-teal-400"
+      <div className="mt-6 flex flex-col gap-5">
+        <input
+          type="text"
+          placeholder="Full name"
+          aria-label="Full name"
+          required
+          className="appearance-none rounded-[calc(var(--radius-md)-1px)] bg-white px-3 py-[calc(--spacing(2)-1px)] shadow-md shadow-zinc-800/5 outline outline-zinc-900/10 placeholder:text-zinc-400 focus:ring-4 focus:ring-teal-500/10 focus:outline-teal-500 sm:text-sm dark:bg-zinc-700/15 dark:text-zinc-200 dark:outline-zinc-700 dark:placeholder:text-zinc-500 dark:focus:ring-teal-400/10 dark:focus:outline-teal-400"
+        />
+
+        <input
+          type="email"
+          placeholder="Email address"
+          aria-label="Email address"
+          required
+          className="appearance-none rounded-[calc(var(--radius-md)-1px)] bg-white px-3 py-[calc(--spacing(2)-1px)] shadow-md shadow-zinc-800/5 outline outline-zinc-900/10 placeholder:text-zinc-400 focus:ring-4 focus:ring-teal-500/10 focus:outline-teal-500 sm:text-sm dark:bg-zinc-700/15 dark:text-zinc-200 dark:outline-zinc-700 dark:placeholder:text-zinc-500 dark:focus:ring-teal-400/10 dark:focus:outline-teal-400"
+        />
+
+        <textarea
+          placeholder="Message"
+          aria-label="Message"
+          required
+          className="appearance-none rounded-[calc(var(--radius-md)-1px)] bg-white px-3 py-[calc(--spacing(2)-1px)] shadow-md shadow-zinc-800/5 outline outline-zinc-900/10 placeholder:text-zinc-400 focus:ring-4 focus:ring-teal-500/10 focus:outline-teal-500 sm:text-sm dark:bg-zinc-700/15 dark:text-zinc-200 dark:outline-zinc-700 dark:placeholder:text-zinc-500 dark:focus:ring-teal-400/10 dark:focus:outline-teal-400"
           />
-        </span>
-        <Button type="submit" className="ml-4 flex-none">
+
+        <Button type="submit" className="mt-2">
           Submit
         </Button>
       </div>
@@ -143,36 +158,31 @@ function Newsletter() {
 }
 
 function Role({ role }) {
-  let startLabel =
-    typeof role.start === 'string' ? role.start : role.start.label;
-  let startDate =
-    typeof role.start === 'string' ? role.start : role.start.dateTime;
-
-  let endLabel = typeof role.end === 'string' ? role.end : role.end.label;
-  let endDate = typeof role.end === 'string' ? role.end : role.end.dateTime;
+  const start = role.start;
+  const end = role.end;
+  const title = role.company || role.school;
+  const logo = role.logo;
+  const subtitle = role.title || role.degree;
 
   return (
     <li className="flex gap-4">
       <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md ring-1 shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-        <Image src={role.logo} alt="" className="h-7 w-7" unoptimized />
+        <Image src={logo} alt="" className="h-7 w-7 rounded-full" unoptimized />
       </div>
       <dl className="flex flex-auto flex-wrap gap-x-2">
         <dt className="sr-only">Company</dt>
         <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
-          {role.company}
+          {title}
         </dd>
         <dt className="sr-only">Role</dt>
         <dd className="text-xs text-zinc-500 dark:text-zinc-400">
-          {role.title}
+          {subtitle}
         </dd>
         <dt className="sr-only">Date</dt>
-        <dd
-          className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
-          aria-label={`${startLabel} until ${endLabel}`}
-        >
-          <time dateTime={startDate}>{startLabel}</time>{' '}
+        <dd className="ml-auto text-xs text-zinc-400 dark:text-zinc-500">
+          {start}{' '}
           <span aria-hidden="true">—</span>{' '}
-          <time dateTime={endDate}>{endLabel}</time>
+          {end}
         </dd>
       </dl>
     </li>
@@ -180,31 +190,52 @@ function Role({ role }) {
 }
 
 function Resume() {
-  let resume = [
+  let work = [
     {
       company: 'Source Web Solutions',
       title: 'Software Developer',
-      logo: logoPlanetaria,
+      logo: logoSource,
       start: 'May, 2022',
-      end: {
-        label: 'Present',
-        dateTime: new Date().getFullYear().toString(),
-      },
+      end: 'Present',
     },
     {
       company: 'Labs196',
       title: 'Tech Intern',
-      logo: logoAirbnb,
+      logo: logoLabs196,
       start: 'Aug, 2021',
       end: 'Nov, 2021',
     },
     {
       company: 'Accredo Packaging',
       title: 'ERP Support Specialist',
-      logo: logoFacebook,
+      logo: logoAccredo,
       start: '2011',
       end: '2014',
     },
+  ];
+
+  let education = [
+    {
+      school: 'Western Governors University',
+      degree: 'B.S. in Computer Science',
+      logo: logoWGU,
+      start: '2025',
+      end: '2026',
+    },
+    {
+      school: 'University of Houston - Clear Lake',
+      degree: 'B.S. in Computer Science',
+      logo: logoUHCL,
+      start: '2020',
+      end: '2022',
+    },
+    {
+      school: 'San Jacinto College',
+      degree: 'A.S. in Computer Science',
+      logo: logoSanjac,
+      start: '2016',
+      end: '2019',
+    }
   ];
 
   return (
@@ -214,7 +245,7 @@ function Resume() {
         <span className="ml-3">Work</span>
       </h2>
       <ol className="mt-6 space-y-4">
-        {resume.map((role, roleIndex) => (
+        {work.map((role, roleIndex) => (
           <Role key={roleIndex} role={role} />
         ))}
       </ol>
@@ -224,7 +255,7 @@ function Resume() {
         <span className="ml-3">Education</span>
       </h2>
       <ol className="mt-6 space-y-4">
-        {resume.map((role, roleIndex) => (
+        {education.map((role, roleIndex) => (
           <Role key={roleIndex} role={role} />
         ))}
       </ol>
@@ -239,17 +270,15 @@ function Resume() {
 
 function Photos() {
   let rotations = [
-    'rotate-2',
     '-rotate-2',
     'rotate-2',
     'rotate-2',
-    '-rotate-2',
   ];
 
   return (
     <div className="mt-16 sm:mt-20">
       <div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
-        {[image1, image2, image3, image4, image5].map((image, imageIndex) => (
+        {[image1, image2, image3].map((image, imageIndex) => (
           <div
             key={image.src}
             className={clsx(
@@ -315,9 +344,10 @@ export default async function Home() {
       <Photos />
       <Container className="mt-24 md:mt-28">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
-          <div className="flex flex-col gap-16">Content</div>
+          <div className="flex flex-col gap-16">
+            <Contact />
+          </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
-            <Newsletter />
             <Resume />
           </div>
         </div>

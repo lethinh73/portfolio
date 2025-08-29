@@ -13,7 +13,7 @@ export function Layout({ children }) {
               particleCount={200}
               particleSpread={10}
               speed={0.2}
-              particleBaseSize={100}
+              particleBaseSize={150}
               moveParticlesOnHover={false}
               alphaParticles={true}
               disableRotation={true}
