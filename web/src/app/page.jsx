@@ -147,7 +147,7 @@ function Contact() {
           aria-label="Message"
           required
           className="appearance-none rounded-[calc(var(--radius-md)-1px)] bg-white px-3 py-[calc(--spacing(2)-1px)] shadow-md shadow-zinc-800/5 outline outline-zinc-900/10 placeholder:text-zinc-400 focus:ring-4 focus:ring-teal-500/10 focus:outline-teal-500 sm:text-sm dark:bg-zinc-700/15 dark:text-zinc-200 dark:outline-zinc-700 dark:placeholder:text-zinc-500 dark:focus:ring-teal-400/10 dark:focus:outline-teal-400"
-          />
+        />
 
         <Button type="submit" className="mt-2">
           Submit
@@ -175,14 +175,10 @@ function Role({ role }) {
           {title}
         </dd>
         <dt className="sr-only">Role</dt>
-        <dd className="text-xs text-zinc-500 dark:text-zinc-400">
-          {subtitle}
-        </dd>
+        <dd className="text-xs text-zinc-500 dark:text-zinc-400">{subtitle}</dd>
         <dt className="sr-only">Date</dt>
         <dd className="ml-auto text-xs text-zinc-400 dark:text-zinc-500">
-          {start}{' '}
-          <span aria-hidden="true">—</span>{' '}
-          {end}
+          {start} <span aria-hidden="true">—</span> {end}
         </dd>
       </dl>
     </li>
@@ -235,7 +231,7 @@ function Resume() {
       logo: logoSanjac,
       start: '2016',
       end: '2019',
-    }
+    },
   ];
 
   return (
@@ -260,7 +256,12 @@ function Resume() {
         ))}
       </ol>
 
-      <Button href="#" variant="secondary" className="group mt-6 w-full">
+      <Button
+        href="/documents/RESUME.pdf"
+        target="_blank"
+        variant="secondary"
+        className="group mt-6 w-full"
+      >
         My Resume
         <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
       </Button>
@@ -269,11 +270,7 @@ function Resume() {
 }
 
 function Photos() {
-  let rotations = [
-    '-rotate-2',
-    'rotate-2',
-    'rotate-2',
-  ];
+  let rotations = ['-rotate-2', 'rotate-2', 'rotate-2'];
 
   return (
     <div className="mt-16 sm:mt-20">
@@ -316,10 +313,11 @@ export default async function Home() {
             />
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I’m Thinh, a software developer based in Houston. I love making
-            professional websites and applications. In my free time, I enjoy
-            exploring new technologies and working on personal projects that can
-            help my friends and family.
+            Hi, I’m Thinh — a software developer based in Houston. I specialize
+            in building modern, scalable web applications that help people and
+            businesses achieve their goals. Outside of work, I enjoy exploring
+            new technologies, gaming, and creating side projects that bring
+            value to my friends and family.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink href="#" aria-label="Follow on X" icon={XIcon} />

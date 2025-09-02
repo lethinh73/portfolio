@@ -38,8 +38,7 @@ function MailIcon(props) {
 
 export const metadata = {
   title: 'About',
-  description:
-    'I’m Thinh Le. I live in Houston, where I design the future.',
+  description: 'I’m Thinh Le. I live in Houston, where I design the future.',
 };
 
 export default function About() {
@@ -58,33 +57,34 @@ export default function About() {
         </div>
         <div className="lg:order-first lg:row-span-2">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-            I’m Thinh Le.<br />
-            I live in Houston, where I make my dreams come true.
+            I’m Thinh Le.
+            <br />I live in Houston, where I make my dreams come true.
           </h1>
           <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
             <p>
-              When I was 15 years old, watching my dad building his first
-              computer from parts, I knew I had a passion for technology. I
-              spent the next few years reading every book I could find on my
-              dad’s bookshelf about programming and software development. Unlike
-              most kids my age, I loved spending hours in front of a computer,
-              learning how to code and build software, and then showing my
-              projects to my family and friends.
+              I first discovered my passion for technology at 15, when I watched
+              my dad assemble his first computer from scratch. That moment
+              inspired me to dive into programming books, spend countless hours
+              experimenting on the computer, and build small projects to share
+              with family and friends.
             </p>
             <p>
-              Of course, I also had a great interest in gaming. I could spend
-              entire weekends playing turn-based strategy games. I love the way
-              they challenge my strategic thinking and problem-solving skills.
-              These games taught me the importance of patience, planning, and
-              perseverance.
+              Gaming also played a big role in shaping how I think. Turn-based
+              strategy games taught me patience, planning, and problem-solving —
+              skills I now apply every day as a developer.
             </p>
             <p>
-              Today, I’m a software developer at Source Web Solutions. I work on
-              building web applications and helping clients achieve their goals
-              through technology. I have learned so much from my experiences
-              working with different teams and tackling various challenges. My
-              goal is to continue growing as a developer and to contribute to
-              meaningful projects that make a difference.
+              Today, I’m a software developer at Source Web Solutions. I work
+              with clients to create reliable, user-friendly applications that
+              make a real difference. Each project challenges me to grow,
+              collaborate, and think creatively.
+            </p>
+            <p>
+              <strong>
+                My long-term goal is simple: to keep learning, keep building,
+                and contribute to meaningful projects that have a positive
+                impact.
+              </strong>
             </p>
           </div>
         </div>
