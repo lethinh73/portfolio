@@ -48,7 +48,35 @@ export default function Projects() {
     },
     {
       color: '#060010',
-      content: '',
+      content: (
+        <>
+          <div className="w-full overflow-hidden rounded-lg bg-white shadow-sm outline outline-black/5 dark:bg-gray-800 dark:shadow-none dark:outline-white/15">
+            <img
+              alt=""
+              src="https://tailwindcss.com/plus-assets/img/component-images/bento-02-performance.png"
+              className="h-80 object-cover object-left dark:hidden"
+            />
+            <img
+              alt=""
+              src="https://tailwindcss.com/plus-assets/img/component-images/dark-bento-02-performance.png"
+              className="h-80 object-cover object-left not-dark:hidden"
+            />
+            <div className="p-10">
+              <h3 className="text-sm/4 font-semibold text-gray-500 dark:text-gray-400">
+                Performance
+              </h3>
+              <p className="mt-2 text-lg font-medium tracking-tight text-gray-900 dark:text-white">
+                Lightning-fast builds
+              </p>
+              <p className="mt-2 max-w-lg text-sm/6 text-gray-600 dark:text-gray-400">
+                Sed congue eros non finibus molestie. Vestibulum euismod augue
+                vel commodo vulputate. Maecenas at augue sed elit dictum
+                vulputate.
+              </p>
+            </div>
+          </div>
+        </>
+      ),
     },
   ];
 
