@@ -14,9 +14,6 @@ composer_version: "2"
 web_environment: []
 corepack_enable: false
 nodejs_version: "22"
-hooks:
-  post-start:
-    - exec: "cd web && npm install && npm run dev"
 
 # Key features of DDEV's config.yaml:
 

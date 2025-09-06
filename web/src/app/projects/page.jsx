@@ -1,5 +1,6 @@
 import { SimpleLayout } from '@/components/SimpleLayout';
 import MagicBento from '@/components/MagicBento';
+import Image from 'next/image';
 
 export const metadata = {
   title: 'Projects',
@@ -14,29 +15,7 @@ export default function Projects() {
         <>
           <div className="relative max-lg:row-start-1">
             <div className="absolute inset-px rounded-lg bg-white max-lg:rounded-t-4xl dark:bg-gray-800" />
-            <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)]">
-              <div className="px-8 pt-8 sm:px-10 sm:pt-10">
-                <p className="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center dark:text-white">
-                  Performance
-                </p>
-                <p className="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center dark:text-gray-400">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit
-                  maiores impedit.
-                </p>
-              </div>
-              <div className="flex flex-1 items-center justify-center px-8 max-lg:pt-10 max-lg:pb-12 sm:px-10 lg:pb-2">
-                <img
-                  alt=""
-                  src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png"
-                  className="w-full max-lg:max-w-xs dark:hidden"
-                />
-                <img
-                  alt=""
-                  src="https://tailwindcss.com/plus-assets/img/component-images/dark-bento-03-performance.png"
-                  className="w-full not-dark:hidden max-lg:max-w-xs"
-                />
-              </div>
-            </div>
+            <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)]"></div>
             <div className="pointer-events-none absolute inset-px rounded-lg shadow-sm outline outline-black/5 max-lg:rounded-t-4xl dark:outline-white/15" />
           </div>
         </>
@@ -51,28 +30,10 @@ export default function Projects() {
       content: (
         <>
           <div className="w-full overflow-hidden rounded-lg bg-white shadow-sm outline outline-black/5 dark:bg-gray-800 dark:shadow-none dark:outline-white/15">
-            <img
-              alt=""
-              src="https://tailwindcss.com/plus-assets/img/component-images/bento-02-performance.png"
-              className="h-80 object-cover object-left dark:hidden"
-            />
-            <img
-              alt=""
-              src="https://tailwindcss.com/plus-assets/img/component-images/dark-bento-02-performance.png"
-              className="h-80 object-cover object-left not-dark:hidden"
-            />
             <div className="p-10">
-              <h3 className="text-sm/4 font-semibold text-gray-500 dark:text-gray-400">
-                Performance
-              </h3>
-              <p className="mt-2 text-lg font-medium tracking-tight text-gray-900 dark:text-white">
-                Lightning-fast builds
-              </p>
-              <p className="mt-2 max-w-lg text-sm/6 text-gray-600 dark:text-gray-400">
-                Sed congue eros non finibus molestie. Vestibulum euismod augue
-                vel commodo vulputate. Maecenas at augue sed elit dictum
-                vulputate.
-              </p>
+              <h3 className="text-sm/4 font-semibold text-gray-500 dark:text-gray-400"></h3>
+              <p className="mt-2 text-lg font-medium tracking-tight text-gray-900 dark:text-white"></p>
+              <p className="mt-2 max-w-lg text-sm/6 text-gray-600 dark:text-gray-400"></p>
             </div>
           </div>
         </>
@@ -85,7 +46,10 @@ export default function Projects() {
       title="My projects"
       intro="These are the projects that have been most meaningful to me — whether personally, professionally, or both."
     >
-      <MagicBento
+
+      Will be updated soon!
+
+      {/* <MagicBento
         textAutoHide={true}
         enableStars={true}
         enableSpotlight={true}
@@ -97,7 +61,7 @@ export default function Projects() {
         particleCount={12}
         glowColor="132, 0, 255"
         cardData={cardData}
-      />
+      /> */}
     </SimpleLayout>
   );
 }
