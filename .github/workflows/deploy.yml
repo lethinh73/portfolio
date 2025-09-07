@@ -5,19 +5,71 @@ on:
     branches: [ deployment ]
   workflow_dispatch: {}
 
-concurrency:
-  group: thinhsoft-deploy-${{ github.ref }}
-  cancel-in-progress: false
-
 jobs:
   deploy:
-    name: '🛠️ Build and Deploy Locally'
+    name: Build and Deploy
     runs-on: self-hosted
-
     steps:
-      - name: '📥 Checkout Code'
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: '📄 Create Production Environment File'
-        run: echo "${{ secrets.ENV_FILE }}" > .env
-        shell: bash
+      - name: Add .env to api
+        working-directory: api
+        run: |
+          echo {{ secrets.API_ENV }} > .env
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite
+
+      - name: Install Composer dependencies
+        working-directory: api
+        run: composer install --prefer-dist --no-interaction --no-progress
+
+      - name: Run Laravel migrations
+        working-directory: api
+        run: php artisan migrate --force --no-interaction
+
+      - name: Cache Laravel configuration
+        working-directory: api
+        run: |
+          php artisan optimize:clear
+          php artisan route:clear
+          php artisan view:clear
+          php artisan event:clear
+          php artisan config:clear
+
+          php artisan optimize
+          php artisan config:cache
+          php artisan route:cache
+          php artisan view:cache
+          php artisan event:cache
+
+      - name: Add .env to web
+        working-directory: web
+        run: |
+          echo {{ secrets.WEB_ENV }} > .env
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install frontend dependencies
+        working-directory: web
+        run: npm ci
+
+      - name: Build Next.js frontend
+        working-directory: web
+        run: npm run build
+
+      - name: Restart nginx
+        run: |
+          sudo systemctl restart nginx
+
+      - name: Serve Next.js frontend
+        working-directory: web
+        run: npm run start
