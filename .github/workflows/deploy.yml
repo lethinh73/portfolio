@@ -14,15 +14,11 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Add .env to api
+        env:
+          API_ENV: ${{ secrets.API_ENV }}
         working-directory: api
         run: |
-          echo {{ secrets.API_ENV }} > .env
-
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.4'
-          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite
+          echo $API_ENV >> .env
 
       - name: Install Composer dependencies
         working-directory: api
@@ -40,7 +36,6 @@ jobs:
           php artisan view:clear
           php artisan event:clear
           php artisan config:clear
-
           php artisan optimize
           php artisan config:cache
           php artisan route:cache
@@ -48,15 +43,11 @@ jobs:
           php artisan event:cache
 
       - name: Add .env to web
+        env:
+          WEB_ENV: ${{ secrets.WEB_ENV }}
         working-directory: web
         run: |
-          echo {{ secrets.WEB_ENV }} > .env
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v5
-        with:
-          node-version: '22'
-          cache: 'npm'
+          echo $WEB_ENV >> .env
 
       - name: Install frontend dependencies
         working-directory: web
