@@ -18,7 +18,7 @@ jobs:
           API_ENV: ${{ secrets.API_ENV }}
         working-directory: api
         run: |
-          echo $API_ENV >> .env
+          printf "%s\n" "$API_ENV" > .env
 
       - name: Install Composer dependencies
         working-directory: api
@@ -51,7 +51,7 @@ jobs:
           WEB_ENV: ${{ secrets.WEB_ENV }}
         working-directory: web
         run: |
-          echo $WEB_ENV >> .env
+          printf "%s\n" "$WEB_ENV" > .env
 
       - name: Install frontend dependencies
         working-directory: web
