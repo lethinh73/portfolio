@@ -32,12 +32,6 @@ jobs:
         working-directory: api
         run: php artisan migrate --force --no-interaction
 
-      - name: Cache Laravel configuration
-        working-directory: api
-        run: |
-          php artisan optimize:clear   
-          php artisan optimize
-
       - name: Add .env to web
         env:
           WEB_ENV: ${{ secrets.WEB_ENV }}
@@ -53,6 +47,18 @@ jobs:
         working-directory: web
         run: npm run build
 
-      - name: Serve Next.js frontend
+      - name: Copy files
         working-directory: web
-        run: pm2 start npm --name "web" -- run start
+        run: |
+          rsync -av --delete ./ /var/www/portfolio/
+
+      - name: Optimize Laravel
+        working-directory: /var/www/portfolio/api
+        run: |
+          php artisan optimize:clear
+          php artisan optimize
+
+      - name: Serve Next.js frontend
+        working-directory: /var/www/portfolio/web
+        run: |
+          pm2 start npm --name "web" -- run start
