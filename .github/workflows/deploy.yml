@@ -13,6 +13,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # --- API (Laravel) ---
       - name: Add .env to api
         env:
           API_ENV: ${{ secrets.API_ENV }}
@@ -22,16 +23,13 @@ jobs:
 
       - name: Install Composer dependencies
         working-directory: api
-        run: composer install --prefer-dist --no-interaction --no-progress
-
-      - name: Generate application key
-        working-directory: api
-        run: php artisan key:generate
+        run: composer install --prefer-dist --no-interaction --no-progress --optimize-autoloader --no-dev
 
       - name: Run Laravel migrations
         working-directory: api
         run: php artisan migrate --force --no-interaction
 
+      # --- WEB (Next.js) ---
       - name: Add .env to web
         env:
           WEB_ENV: ${{ secrets.WEB_ENV }}
@@ -47,17 +45,22 @@ jobs:
         working-directory: web
         run: npm run build
 
-      - name: Copy files
+      # --- Deploy ---
+      - name: Copy files to server
         run: |
-          rsync -av --delete ./ /var/www/portfolio/
+          rsync -av --delete \
+            --exclude 'api/storage/' \
+            ./ /var/www/portfolio/
 
+      # --- Post-deploy (Laravel optimize) ---
       - name: Optimize Laravel
         run: |
           cd /var/www/portfolio/api
           php artisan optimize:clear
           php artisan optimize
 
-      - name: Serve Next.js frontend
+      # --- Post-deploy (Next.js run with PM2) ---
+      - name: Serve Next.js frontend with PM2
         run: |
           cd /var/www/portfolio/web
-          pm2 start npm --name "web" -- run start
+          pm2 start npm --name "web" -- run start || pm2 restart web

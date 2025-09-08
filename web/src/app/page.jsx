@@ -8,7 +8,7 @@ import { Button } from '@/components/Button';
 import { Container } from '@/components/Container';
 import {
   FiGithub,
-  FiInstagram,
+  FiFacebook,
   FiLinkedin,
 } from 'react-icons/fi';
 import logoSource from '@/images/logos/source.png';
@@ -239,17 +239,17 @@ export default async function Home() {
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
-              href="#"
-              aria-label="Follow on Instagram"
-              icon={FiInstagram}
+              href="https://facebook.com/lethinh7373"
+              aria-label="Follow on Facebook"
+              icon={FiFacebook}
             />
             <SocialLink
-              href="#"
+              href="https://github.com/lethinh73"
               aria-label="Follow on GitHub"
               icon={FiGithub}
             />
             <SocialLink
-              href="#"
+              href="https://linkedin.com/in/lethinh73"
               aria-label="Follow on LinkedIn"
               icon={FiLinkedin}
             />

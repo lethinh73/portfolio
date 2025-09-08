@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import { Container } from '@/components/Container';
 import {
   FiGithub,
-  FiInstagram,
+  FiFacebook,
   FiLinkedin,
   FiMail,
 } from 'react-icons/fi';
@@ -79,14 +79,14 @@ export default function About() {
         </div>
         <div className="lg:pl-20">
           <ul role="list">
-            <SocialLink href="#" icon={FiInstagram} className="mt-4">
-              Follow on Instagram
+            <SocialLink href="https://facebook.com/lethinh7373" icon={FiFacebook} className="mt-4">
+              Facebook
             </SocialLink>
-            <SocialLink href="#" icon={FiGithub} className="mt-4">
-              Follow on GitHub
+            <SocialLink href="https://github.com/lethinh73" icon={FiGithub} className="mt-4">
+              GitHub
             </SocialLink>
-            <SocialLink href="#" icon={FiLinkedin} className="mt-4">
-              Follow on LinkedIn
+            <SocialLink href="https://linkedin.com/in/lethinh73" icon={FiLinkedin} className="mt-4">
+              LinkedIn
             </SocialLink>
             <SocialLink
               href="mailto:lethinh73@gmail.com"
