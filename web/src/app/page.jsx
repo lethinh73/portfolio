@@ -240,16 +240,19 @@ export default async function Home() {
           <div className="mt-6 flex gap-6">
             <SocialLink
               href="https://facebook.com/lethinh7373"
+              target="_blank"
               aria-label="Follow on Facebook"
               icon={FiFacebook}
             />
             <SocialLink
               href="https://github.com/lethinh73"
+              target="_blank"
               aria-label="Follow on GitHub"
               icon={FiGithub}
             />
             <SocialLink
               href="https://linkedin.com/in/lethinh73"
+              target="_blank"
               aria-label="Follow on LinkedIn"
               icon={FiLinkedin}
             />

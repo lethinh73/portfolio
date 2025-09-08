@@ -63,4 +63,5 @@ jobs:
       - name: Serve Next.js frontend with PM2
         run: |
           cd /var/www/portfolio/web
-          pm2 start npm --name "web" -- run start || pm2 restart web
+          pm2 delete web || true
+          pm2 start npm --name "web" -- run start
