@@ -50,6 +50,7 @@ jobs:
         run: |
           rsync -av --delete \
             --exclude 'api/storage/' \
+            --exclude 'api/bootstrap/cache/' \
             ./ /var/www/portfolio/
 
       # --- Post-deploy (Laravel optimize) ---
