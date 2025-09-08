@@ -53,12 +53,12 @@ jobs:
           rsync -av --delete ./ /var/www/portfolio/
 
       - name: Optimize Laravel
-        working-directory: /var/www/portfolio/api
         run: |
+          cd /var/www/portfolio/api
           php artisan optimize:clear
           php artisan optimize
 
       - name: Serve Next.js frontend
-        working-directory: /var/www/portfolio/web
         run: |
+          cd /var/www/portfolio/web
           pm2 start npm --name "web" -- run start
