@@ -9,9 +9,6 @@ jobs:
   deploy:
     name: Build and Deploy
     runs-on: self-hosted
-    defaults:
-      run:
-        working-directory: ${{ secrets.PROJECT_DIR }}
     env:
       API_ENV: ${{ secrets.API_ENV }}
       WEB_ENV: ${{ secrets.WEB_ENV }}
@@ -24,7 +21,8 @@ jobs:
 
       # --- API (Laravel) ---
       - name: Add .env to api
-        run: printf "%s\n" "$API_ENV" > api/.env
+        working-directory: ${{ secrets.PROJECT_DIR }}/api
+        run: printf "%s\n" "$API_ENV" > .env
 
       - name: Install Composer dependencies
         working-directory: ${{ secrets.PROJECT_DIR }}/api
@@ -42,7 +40,8 @@ jobs:
 
       # --- WEB (Next.js) ---
       - name: Add .env to web
-        run: printf "%s\n" "$WEB_ENV" > web/.env
+        working-directory: ${{ secrets.PROJECT_DIR }}/web
+        run: printf "%s\n" "$WEB_ENV" > .env
 
       - name: Install frontend dependencies
         working-directory: ${{ secrets.PROJECT_DIR }}/web
