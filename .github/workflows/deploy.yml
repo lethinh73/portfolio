@@ -21,47 +21,35 @@ jobs:
       - name: Copy files to server directory
         run: |
           rsync -av --delete \
-          --exclude 'api/storage/' \
-          --exclude 'api/bootstrap/cache/' \
-          --exclude '.env' \
+          --exclude 'app/storage/' \
+          --exclude 'app/bootstrap/cache/' \
+          --exclude 'app/.env' \
           ./ ${{ secrets.PROJECT_DIR }}/
 
       # --- API (Laravel) ---
-      - name: Add .env to api
-        working-directory: ${{ secrets.PROJECT_DIR }}/api
+      - name: Add .env to application
+        working-directory: ${{ secrets.PROJECT_DIR }}/app
         run: printf "%s\n" "$API_ENV" > .env
 
       - name: Install Composer dependencies
-        working-directory: ${{ secrets.PROJECT_DIR }}/api
+        working-directory: ${{ secrets.PROJECT_DIR }}/app
         run: composer install --no-dev --optimize-autoloader
 
       - name: Run Laravel migrations
-        working-directory: ${{ secrets.PROJECT_DIR }}/api
+        working-directory: ${{ secrets.PROJECT_DIR }}/app
         run: php artisan migrate --force --no-interaction
 
       - name: Optimize Laravel
-        working-directory: ${{ secrets.PROJECT_DIR }}/api
+        working-directory: ${{ secrets.PROJECT_DIR }}/app
         run: |
           php artisan optimize:clear
           php artisan optimize
 
-      # --- WEB (Next.js) ---
-      - name: Add .env to web
-        working-directory: ${{ secrets.PROJECT_DIR }}/web
-        run: printf "%s\n" "$WEB_ENV" > .env
-
+      # --- WEB (React) ---
       - name: Install frontend dependencies
-        working-directory: ${{ secrets.PROJECT_DIR }}/web
+        working-directory: ${{ secrets.PROJECT_DIR }}/app
         run: npm ci
 
-      - name: Build Next.js frontend
-        working-directory: ${{ secrets.PROJECT_DIR }}/web
+      - name: Build React frontend
+        working-directory: ${{ secrets.PROJECT_DIR }}/app
         run: npm run build
-        
-      # --- Post-deploy (Next.js run with PM2) ---
-      - name: Serve Next.js frontend with PM2
-        working-directory: ${{ secrets.PROJECT_DIR }}/web
-        run: |
-          pm2 stop web || true
-          pm2 delete web || true
-          pm2 start npm --name "web" -- run start
