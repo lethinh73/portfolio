@@ -9,60 +9,53 @@ jobs:
   deploy:
     name: Build and Deploy
     runs-on: self-hosted
+    defaults:
+      run:
+        working-directory: ${{ secrets.PROJECT_DIR }}
+    env:
+      API_ENV: ${{ secrets.API_ENV }}
+      WEB_ENV: ${{ secrets.WEB_ENV }}
     steps:
-      - name: Checkout code
+      # --- Pull latest code ---
+      - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          path: ${{ secrets.PROJECT_DIR }}
 
       # --- API (Laravel) ---
       - name: Add .env to api
-        env:
-          API_ENV: ${{ secrets.API_ENV }}
-        working-directory: api
-        run: |
-          printf "%s\n" "$API_ENV" > .env
+        run: printf "%s\n" "$API_ENV" > api/.env
 
       - name: Install Composer dependencies
-        working-directory: api
-        run: composer install --prefer-dist --no-interaction --no-progress --optimize-autoloader --no-dev
+        working-directory: ${{ secrets.PROJECT_DIR }}/api
+        run: composer install --no-dev --optimize-autoloader
 
       - name: Run Laravel migrations
-        working-directory: api
+        working-directory: ${{ secrets.PROJECT_DIR }}/api
         run: php artisan migrate --force --no-interaction
 
-      # --- WEB (Next.js) ---
-      - name: Add .env to web
-        env:
-          WEB_ENV: ${{ secrets.WEB_ENV }}
-        working-directory: web
-        run: |
-          printf "%s\n" "$WEB_ENV" > .env
-
-      - name: Install frontend dependencies
-        working-directory: web
-        run: npm ci
-
-      - name: Build Next.js frontend
-        working-directory: web
-        run: npm run build
-
-      # --- Deploy ---
-      - name: Copy files to server
-        run: |
-          rsync -av --delete \
-            --exclude 'api/storage/' \
-            --exclude 'api/bootstrap/cache/' \
-            ./ /var/www/portfolio/
-
-      # --- Post-deploy (Laravel optimize) ---
       - name: Optimize Laravel
+        working-directory: ${{ secrets.PROJECT_DIR }}/api
         run: |
-          cd /var/www/portfolio/api
           php artisan optimize:clear
           php artisan optimize
 
+      # --- WEB (Next.js) ---
+      - name: Add .env to web
+        run: printf "%s\n" "$WEB_ENV" > web/.env
+
+      - name: Install frontend dependencies
+        working-directory: ${{ secrets.PROJECT_DIR }}/web
+        run: npm ci
+
+      - name: Build Next.js frontend
+        working-directory: ${{ secrets.PROJECT_DIR }}/web
+        run: npm run build
+        
       # --- Post-deploy (Next.js run with PM2) ---
       - name: Serve Next.js frontend with PM2
+        working-directory: ${{ secrets.PROJECT_DIR }}/web
         run: |
-          cd /var/www/portfolio/web
+          pm2 stop web || true
           pm2 delete web || true
           pm2 start npm --name "web" -- run start
