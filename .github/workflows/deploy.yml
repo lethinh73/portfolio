@@ -16,8 +16,14 @@ jobs:
       # --- Pull latest code ---
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          path: ${{ secrets.PROJECT_DIR }}
+
+      # --- Copy files to PROJECT_DIR, ignore storage and cache in the api ---
+      - name: Copy files to server directory
+        run: rsync -av --delete \
+          --exclude 'api/storage/' \
+          --exclude 'api/bootstrap/cache/' \
+          --exclude '.env' \
+          ./ ${{ secrets.PROJECT_DIR }}/
 
       # --- API (Laravel) ---
       - name: Add .env to api
