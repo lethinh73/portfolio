@@ -19,7 +19,8 @@ jobs:
 
       # --- Copy files to PROJECT_DIR, ignore storage and cache in the api ---
       - name: Copy files to server directory
-        run: rsync -av --delete \
+        run: |
+          rsync -av --delete \
           --exclude 'api/storage/' \
           --exclude 'api/bootstrap/cache/' \
           --exclude '.env' \
