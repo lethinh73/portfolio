@@ -1,9 +1,12 @@
-import GooeyNav from '@/components/GooeyNav';
-import LogoLoop from '@/components/LogoLoop';
-import TextType from '@/components/TextType';
-import CircularGallery from '@/components/CircularGallery';
+import GooeyNav from '@/components/gooey-nav';
+import LogoLoop from '@/components/logo-loop';
+import TextType from '@/components/text-type';
+import CircularGallery from '@/components/circular-gallery';
 import { Head } from '@inertiajs/react';
 import { SiMysql, SiPhp, SiPython, SiReact, SiTailwindcss, SiTypescript } from 'react-icons/si';
+import Particles from '@/components/particles';
+import { ContactForm } from '@/components/contact-form';
+import { Separator } from '@/components/ui/separator';
 
 function NavBar() {
   const items = [
@@ -124,9 +127,23 @@ export default function Home() {
   return (
     <>
       <Head title="Home" />
-      <NavBar />
+
+      <div className="fixed top-0 left-0 w-full h-full">
+        <Particles
+          particleColors={['#ffffff', '#ffffff']}
+          particleCount={200}
+          particleSpread={10}
+          speed={0.1}
+          particleBaseSize={100}
+          moveParticlesOnHover={false}
+          alphaParticles={true}
+          disableRotation={true}
+        />
+      </div>
 
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center pt-5">
+        <NavBar />
+        
         <Logo />
 
         <div className="mt-20 flex flex-col md:mt-10 md:flex-row md:space-x-6 md:row">
@@ -156,9 +173,24 @@ export default function Home() {
           <Technologies />
         </div>
 
+        <Separator className="my-10" />
+
         <div className='mt-10' style={{ height: '500px' }}>
           <CircularGallery bend={0.5} textColor="#ffffff" borderRadius={0.05} scrollSpeed={1} scrollEase={0.05}/>
         </div>
+
+        <Separator className="my-10" />
+
+        <div id="contact" className="mt-20 mb-10 relative flex flex-col items-center">
+          <h3 className="text-2xl font-bold mb-5">Contact Me</h3>
+          <ContactForm />
+        </div>
+
+        <Separator className="my-10" />
+
+        <footer className="text-center text-sm text-gray-500 mb-5">
+          &copy; {new Date().getFullYear()} Thinh Le. All rights reserved.
+        </footer>
       </div>
     </>
   );
