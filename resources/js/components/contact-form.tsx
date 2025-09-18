@@ -1,86 +1,82 @@
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormMessage,
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-
-const FormSchema = z.object({
-  name: z.string().min(2, {
-    message: "Name must be at least 2 characters.",
-  }),
-  email: z.email({
-    message: "Invalid email address.",
-  }),
-  message: z.string().min(5, {
-    message: "Message must be at least 5 characters.",
-  }),
-});
+import ContactController from '@/actions/App/Http/Controllers/ContactController';
+import InputError from '@/components/input-error';
+import SimpleNotification from '@/components/simple-notification';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import { Form } from '@inertiajs/react';
+import { useState } from 'react';
 
 export function ContactForm() {
-  const form = useForm<z.infer<typeof FormSchema>>({
-    resolver: zodResolver(FormSchema),
-    defaultValues: {
-      name: "",
-    },
-  });
-
-  function onSubmit(data: z.infer<typeof FormSchema>) {
-    console.log("Form submitted:", data);
-  }
+  const [showSuccess, setShowSuccess] = useState<boolean>(false);
 
   return (
-    <Form {...form}>
-      <span className="text-gray-300 mb-2">Please let me know if you have any questions or just want to say hi!</span>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-6">
-        <FormField
-          control={form.control}
-          name="name"
-          render={({ field }) => (
-            <FormItem>
-              <FormControl>
-                <Input placeholder="John Doe" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+    <>
+      <Form
+        {...ContactController.store.form()}
+        options={{
+          preserveScroll: true,
+        }}
+        className="w-2/3 space-y-6 md:w-2/5"
+      >
+        {({ processing, recentlySuccessful, errors }) => {
+          if (recentlySuccessful) {
+            setShowSuccess(true);
+            setTimeout(() => setShowSuccess(false), 3000);
+          }
 
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormControl>
-                <Input placeholder="john.doe@example.com" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+          return (
+            <>
+              <div className="grid gap-2">
+                <Label htmlFor="name">Name</Label>
 
-        <FormField
-          control={form.control}
-          name="message"
-          render={({ field }) => (
-            <FormItem>
-              <FormControl>
-                <Textarea placeholder="Your message..." {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+                <Input id="name" className="mt-1 block w-full" name="name" required autoComplete="name" placeholder="Full name" />
 
-        <Button type="submit">Submit</Button>
-      </form>
-    </Form>
+                <InputError className="mt-2" message={errors.name} />
+              </div>
+
+              <div className="grid gap-2">
+                <Label htmlFor="email">Email address</Label>
+
+                <Input
+                  id="email"
+                  type="email"
+                  className="mt-1 block w-full"
+                  name="email"
+                  required
+                  autoComplete="username"
+                  placeholder="Email address"
+                />
+
+                <InputError className="mt-2" message={errors.email} />
+              </div>
+
+              <div className="grid gap-2">
+                <Label htmlFor="message">Message</Label>
+
+                <Textarea id="message" className="mt-1 block w-full" name="message" required placeholder="Your message" />
+
+                <InputError className="mt-2" message={errors.message} />
+              </div>
+
+              <div className="flex items-center gap-4">
+                <Button disabled={processing} data-test="update-profile-button">
+                  Submit
+                </Button>
+              </div>
+            </>
+          );
+        }}
+      </Form>
+
+      <SimpleNotification
+        show={showSuccess}
+        setShow={setShowSuccess}
+        type="success"
+        title="Success"
+        message="Your message has been sent successfully!"
+      />
+    </>
   );
 }

@@ -1,11 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
 use Inertia\Inertia;
 
 Route::get('/', function () {
     return Inertia::render('home');
 })->name('home');
+
+Route::post('contact', [ContactController::class, 'store'])
+    ->middleware('throttle:10,1') // Limit to 10 requests per minute
+    ->name('contact.store');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {
