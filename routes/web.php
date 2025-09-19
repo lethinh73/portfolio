@@ -9,7 +9,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::post('contact', [ContactController::class, 'store'])
-    ->middleware('throttle:contact')
+    ->middleware('throttle:10,1')
     ->name('contact.store');
 
 Route::middleware(['auth', 'verified'])->group(function () {
