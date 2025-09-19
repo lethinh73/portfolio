@@ -27,7 +27,7 @@ jobs:
 
       - name: Add .env file
         working-directory: ${{ secrets.PROJECT_DIR }}
-        run: printf "%s\n" "$API_ENV" > .env
+        run: printf "%s\n" "$ENV_FILE" > .env
 
       # --- Laravel ---
       - name: Install Composer dependencies
