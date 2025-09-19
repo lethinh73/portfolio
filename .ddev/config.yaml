@@ -1,10 +1,11 @@
 name: portfolio
-type: php
+type: laravel
 docroot: ""
 php_version: "8.4"
 webserver_type: nginx-fpm
 xdebug_enabled: false
-additional_hostnames: ["thinhsoft", "api.thinhsoft"]
+additional_hostnames:
+    - thinhsoft
 additional_fqdns: []
 database:
     type: mariadb
