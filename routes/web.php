@@ -9,7 +9,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::post('contact', [ContactController::class, 'store'])
-    ->middleware('throttle:10,1') // Limit to 10 requests per minute
+    ->middleware('throttle:contact')
     ->name('contact.store');
 
 Route::middleware(['auth', 'verified'])->group(function () {

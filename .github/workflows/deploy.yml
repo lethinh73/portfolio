@@ -10,58 +10,45 @@ jobs:
     name: Build and Deploy
     runs-on: self-hosted
     env:
-      API_ENV: ${{ secrets.API_ENV }}
-      WEB_ENV: ${{ secrets.WEB_ENV }}
+      ENV_FILE: ${{ secrets.ENV_FILE }}
     steps:
       # --- Pull latest code ---
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # --- Copy files to PROJECT_DIR, ignore storage and cache in the api ---
+      # --- Copy files to PROJECT_DIR, ignore storage and cache folders ---
       - name: Copy files to server directory
         run: |
           rsync -av --delete \
-          --exclude 'api/storage/' \
-          --exclude 'api/bootstrap/cache/' \
+          --exclude 'storage/' \
+          --exclude 'bootstrap/cache/' \
           --exclude '.env' \
           ./ ${{ secrets.PROJECT_DIR }}/
 
-      # --- API (Laravel) ---
-      - name: Add .env to api
-        working-directory: ${{ secrets.PROJECT_DIR }}/api
+      - name: Add .env file
+        working-directory: ${{ secrets.PROJECT_DIR }}
         run: printf "%s\n" "$API_ENV" > .env
 
+      # --- Laravel ---
       - name: Install Composer dependencies
-        working-directory: ${{ secrets.PROJECT_DIR }}/api
+        working-directory: ${{ secrets.PROJECT_DIR }}
         run: composer install --no-dev --optimize-autoloader
 
       - name: Run Laravel migrations
-        working-directory: ${{ secrets.PROJECT_DIR }}/api
+        working-directory: ${{ secrets.PROJECT_DIR }}
         run: php artisan migrate --force --no-interaction
 
       - name: Optimize Laravel
-        working-directory: ${{ secrets.PROJECT_DIR }}/api
+        working-directory: ${{ secrets.PROJECT_DIR }}
         run: |
           php artisan optimize:clear
           php artisan optimize
 
-      # --- WEB (Next.js) ---
-      - name: Add .env to web
-        working-directory: ${{ secrets.PROJECT_DIR }}/web
-        run: printf "%s\n" "$WEB_ENV" > .env
-
+      # --- React ---
       - name: Install frontend dependencies
-        working-directory: ${{ secrets.PROJECT_DIR }}/web
+        working-directory: ${{ secrets.PROJECT_DIR }}
         run: npm ci
 
-      - name: Build Next.js frontend
-        working-directory: ${{ secrets.PROJECT_DIR }}/web
+      - name: Build React frontend
+        working-directory: ${{ secrets.PROJECT_DIR }}
         run: npm run build
-        
-      # --- Post-deploy (Next.js run with PM2) ---
-      - name: Serve Next.js frontend with PM2
-        working-directory: ${{ secrets.PROJECT_DIR }}/web
-        run: |
-          pm2 stop web || true
-          pm2 delete web || true
-          pm2 start npm --name "web" -- run start

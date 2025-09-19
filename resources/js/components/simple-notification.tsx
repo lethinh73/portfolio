@@ -1,7 +1,7 @@
 import { Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/20/solid';
 import { CheckCircleIcon, ExclamationCircleIcon, InformationCircleIcon } from '@heroicons/react/24/outline';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 interface SimpleNotificationProps {
   title: string;
@@ -9,9 +9,29 @@ interface SimpleNotificationProps {
   type?: 'success' | 'error' | 'info';
   show: boolean;
   setShow: React.Dispatch<React.SetStateAction<boolean>>;
+  duration?: number;
 }
 
-const SimpleNotification: React.FC<SimpleNotificationProps> = ({ title, message, type, show, setShow }) => {
+const SimpleNotification: React.FC<SimpleNotificationProps> = ({
+  title,
+  message,
+  type,
+  show,
+  setShow,
+  duration = 3000, // Default to 3 seconds
+}) => {
+  useEffect(() => {
+    if (show) {
+      const timer = setTimeout(() => {
+        setShow(false);
+      }, duration);
+
+      return () => {
+        clearTimeout(timer);
+      };
+    }
+  }, [show, duration, setShow]);
+
   const getIcon = () => {
     switch (type) {
       case 'error':
@@ -24,17 +44,29 @@ const SimpleNotification: React.FC<SimpleNotificationProps> = ({ title, message,
     }
   };
 
+  const getBgColor = () => {
+    switch (type) {
+      case 'error':
+        return 'bg-red-50 dark:bg-red-800/30';
+      case 'info':
+        return 'bg-blue-50 dark:bg-blue-800/30';
+      case 'success':
+      default:
+        return 'bg-green-50 dark:bg-green-800/30';
+    }
+  };
+
   return (
     <>
       <div aria-live="assertive" className="pointer-events-none fixed inset-0 z-50 flex items-end px-4 py-6 sm:items-start sm:p-6">
         <div className="flex w-full flex-col items-center space-y-4 sm:items-end">
           <Transition show={show}>
-            <div className="pointer-events-auto w-full max-w-sm rounded-lg bg-white shadow-lg outline-1 outline-black/5 transition data-closed:opacity-0 data-enter:transform data-enter:duration-300 data-enter:ease-out data-closed:data-enter:translate-y-2 data-leave:duration-100 data-leave:ease-in data-closed:data-enter:sm:translate-x-2 data-closed:data-enter:sm:translate-y-0 dark:bg-gray-800 dark:-outline-offset-1 dark:outline-white/10">
+            <div className={`pointer-events-auto w-full max-w-sm rounded-lg ${getBgColor()} shadow-lg outline-1 outline-black/5 transition data-closed:opacity-0 data-enter:transform data-enter:duration-300 data-enter:ease-out data-closed:data-enter:translate-y-2 data-leave:duration-100 data-leave:ease-in data-closed:data-enter:sm:translate-x-2 data-closed:data-enter:sm:translate-y-0 dark:-outline-offset-1 dark:outline-white/10`}>
               <div className="p-4">
                 <div className="flex items-start">
                   <div className="shrink-0">{getIcon()}</div>
                   <div className="ml-3 w-0 flex-1 pt-0.5">
-                    <p className="text-sm font-medium text-gray-900 dark:text-white">{title}</p>
+                    <p className="text-sm font-medium text-gray-900 dark:text-white text-start">{title}</p>
                     <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{message}</p>
                   </div>
                   <div className="ml-4 flex shrink-0">
