@@ -4,7 +4,10 @@ import LogoLoop from '@/components/logo-loop';
 import Particles from '@/components/particles';
 import TextType from '@/components/text-type';
 import { Separator } from '@/components/ui/separator';
+import { Appearance, useAppearance } from '@/hooks/use-appearance';
 import { Head } from '@inertiajs/react';
+import { MoonIcon, SunIcon } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { SiMysql, SiPhp, SiPython, SiReact, SiTailwindcss, SiTypescript } from 'react-icons/si';
 
 function NavItem({ href, children }: { href: string; children: React.ReactNode }) {
@@ -32,8 +35,30 @@ function NavBar(props: React.ComponentPropsWithoutRef<'nav'>) {
 function Logo() {
   return (
     <div className="mt-10 flex justify-center space-x-4">
-      <img src="/images/avatar.jpg" alt="Logo" className="h-32 w-32 rounded-full border-4 border-white shadow-lg" />
+      <img src="/images/avatar.jpg" alt="Logo" className="h-32 w-32 rounded-full border-4 border-black shadow-lg dark:border-white" />
     </div>
+  );
+}
+
+function ThemeToggle() {
+  const { appearance, updateAppearance } = useAppearance();
+  const otherAppearance: Appearance = appearance === 'dark' ? 'light' : 'dark';
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  return (
+    <button
+      type="button"
+      aria-label={mounted ? `Switch to ${otherAppearance} theme` : 'Toggle theme'}
+      className="group rounded-full bg-white/90 px-3 py-2 shadow-lg ring-1 shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20"
+      onClick={() => updateAppearance(otherAppearance)}
+    >
+      <SunIcon className="h-6 w-6 fill-zinc-100 stroke-zinc-500 transition group-hover:fill-zinc-200 group-hover:stroke-zinc-700 dark:hidden [@media(prefers-color-scheme:dark)]:fill-teal-50 [@media(prefers-color-scheme:dark)]:stroke-teal-500 [@media(prefers-color-scheme:dark)]:group-hover:fill-teal-50 [@media(prefers-color-scheme:dark)]:group-hover:stroke-teal-600" />
+      <MoonIcon className="hidden h-6 w-6 fill-zinc-700 stroke-zinc-500 transition not-[@media_(prefers-color-scheme:dark)]:fill-teal-400/10 not-[@media_(prefers-color-scheme:dark)]:stroke-teal-500 dark:block [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400" />
+    </button>
   );
 }
 
@@ -118,6 +143,8 @@ function Technologies() {
 }
 
 export default function Home() {
+  const { appearance } = useAppearance();
+
   return (
     <>
       <Head title="Home" />
@@ -136,8 +163,13 @@ export default function Home() {
       </div>
 
       <div className="mx-auto max-w-4xl px-4 pt-5 text-center sm:px-6 lg:px-8">
-        <div className="flex justify-center">
-          <NavBar className="pointer-events-auto" />
+        <div className="relative flex w-full items-center">
+          <div className="flex w-full justify-center">
+            <NavBar className="pointer-events-auto" />
+          </div>
+          <div className="absolute right-0">
+            <ThemeToggle />
+          </div>
         </div>
         <Logo />
 
@@ -151,12 +183,13 @@ export default function Home() {
               pauseDuration={2000}
               loop={true}
               showCursor={true}
+              textColors={appearance === 'dark' ? ['#ffffff'] : ['#000000']}
               cursorCharacter="_"
-              className="mt-5 text-4xl font-bold dark:text-white text-black"
+              className="mt-5 text-4xl font-bold"
             />
           </div>
           <div className="mt-6 text-left md:col-9 md:mt-0 md:w-1/2 md:pl-5">
-            <p className="text-gray-300">
+            <p className="text-gray-700 dark:text-gray-300">
               Hi, I’m Thinh — a software developer based in Houston. I specialize in building modern, scalable web applications that help people and
               businesses achieve their goals. Outside of work, I enjoy exploring new technologies, gaming, and creating side projects that bring value
               to my friends and family.
