@@ -162,7 +162,7 @@ export default function Home() {
         />
       </div>
 
-      <div className="mx-auto max-w-4xl px-4 pt-5 text-center sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-4xl px-4 pt-5 sm:px-6 lg:px-8">
         <div className="relative flex w-full items-center">
           <div className="flex w-full justify-center">
             <NavBar className="pointer-events-auto" />
@@ -215,6 +215,7 @@ export default function Home() {
         </div>
 
         <Separator className="my-10" />
+        <h2 className="mb-5 text-2xl font-bold">More About Me</h2>
 
         <footer className="mb-5 text-center text-sm text-gray-500">&copy; {new Date().getFullYear()} Thinh Le. All rights reserved.</footer>
       </div>
