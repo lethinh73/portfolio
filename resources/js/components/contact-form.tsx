@@ -1,16 +1,14 @@
 import ContactController from '@/actions/App/Http/Controllers/ContactController';
 import InputError from '@/components/input-error';
-import SimpleNotification from '@/components/simple-notification';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Form } from '@inertiajs/react';
-import { useState } from 'react';
+import { Toaster } from "@/components/ui/sonner";
+import { toast } from "sonner";
 
 export function ContactForm() {
-  const [showSuccess, setShowSuccess] = useState<boolean>(false);
-  const [showError, setShowError] = useState<boolean>(false);
 
   return (
     <>
@@ -21,12 +19,10 @@ export function ContactForm() {
         }}
         className="w-2/3 space-y-6 md:w-2/5"
         onSuccess={() => {
-          setShowError(false); // Hide error if it was showing
-          setShowSuccess(true);
+          toast.success("Thank you for your message!");
         }}
         onError={() => {
-          setShowSuccess(false); // Hide success if it was showing
-          setShowError(true);
+          toast.error("There was an error sending your message.");
         }}
       >
         {({ processing, errors }) => {
@@ -55,7 +51,7 @@ export function ContactForm() {
                 <Textarea id="message" className="mt-1 block w-full" name="message" required placeholder="Your message" />
                 <InputError className="mt-2" message={errors.message} />
               </div>
-              <div className="flex items-center gap-4">
+              <div className="flex justify-center gap-4">
                 <Button disabled={processing} data-test="update-profile-button">
                   Submit
                 </Button>
@@ -64,22 +60,7 @@ export function ContactForm() {
           );
         }}
       </Form>
-
-      <SimpleNotification
-        show={showSuccess}
-        setShow={setShowSuccess}
-        type="success"
-        title="Success"
-        message="Your message has been sent successfully!"
-      />
-
-      <SimpleNotification
-        show={showError}
-        setShow={setShowError}
-        type="error"
-        title="Error"
-        message="There was an error sending your message."
-      />
+      <Toaster position="bottom-right" richColors={true} />
     </>
   );
 }
