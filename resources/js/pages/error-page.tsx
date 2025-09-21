@@ -18,12 +18,8 @@ export default function ErrorPage({ status }: { status: number }) {
 
   return (
     <>
-      <main className="fixed isolate w-full h-full">
-        <img
-          alt=""
-          src="/images/404.png"
-          className="absolute inset-0 -z-10 size-full object-cover object-top"
-        />
+      <main className="fixed isolate h-full w-full">
+        <img alt="" src="/images/404.png" className="absolute inset-0 -z-10 size-full object-cover object-top" />
         <div className="mx-auto max-w-7xl px-6 py-32 text-center sm:py-40 lg:px-8">
           <p className="text-base/8 font-semibold text-white">{status}</p>
           <h1 className="mt-4 text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl">{title}</h1>

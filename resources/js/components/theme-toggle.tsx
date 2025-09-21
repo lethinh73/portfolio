@@ -1,6 +1,6 @@
+import { Appearance } from '@/hooks/use-appearance';
 import { MoonIcon, SunIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import { Appearance } from '@/hooks/use-appearance';
 
 function ThemeToggle({ appearance, updateAppearance }: { appearance: Appearance; updateAppearance: (mode: Appearance) => void }) {
   const otherAppearance: Appearance = appearance === 'dark' ? 'light' : 'dark';

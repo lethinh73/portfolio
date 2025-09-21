@@ -1,5 +1,5 @@
-import { SiMysql, SiPhp, SiPython, SiReact, SiTailwindcss, SiTypescript } from 'react-icons/si';
 import LogoLoop from '@/components/logo-loop';
+import { SiMysql, SiPhp, SiPython, SiReact, SiTailwindcss, SiTypescript } from 'react-icons/si';
 
 function TechnologyLoop() {
   const techLogos = [

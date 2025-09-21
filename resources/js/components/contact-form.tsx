@@ -3,13 +3,12 @@ import InputError from '@/components/input-error';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Toaster } from '@/components/ui/sonner';
 import { Textarea } from '@/components/ui/textarea';
 import { Form } from '@inertiajs/react';
-import { Toaster } from "@/components/ui/sonner";
-import { toast } from "sonner";
+import { toast } from 'sonner';
 
 export function ContactForm() {
-
   return (
     <>
       <Form
@@ -19,10 +18,10 @@ export function ContactForm() {
         }}
         className="w-2/3 space-y-6 md:w-2/5"
         onSuccess={() => {
-          toast.success("Thank you for your message!");
+          toast.success('Thank you for your message!');
         }}
         onError={() => {
-          toast.error("There was an error sending your message.");
+          toast.error('There was an error sending your message.');
         }}
       >
         {({ processing, errors }) => {
