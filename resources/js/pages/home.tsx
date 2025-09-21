@@ -1,145 +1,14 @@
 import CircularGallery from '@/components/circular-gallery';
 import { ContactForm } from '@/components/contact-form';
-import LogoLoop from '@/components/logo-loop';
+import NavBar from '@/components/nav-bar';
 import Particles from '@/components/particles';
+import TechnologyLoop from '@/components/technology-loop';
 import TextType from '@/components/text-type';
+import ThemeToggle from '@/components/theme-toggle';
+import ThinhLogo from '@/components/thinh-logo';
 import { Separator } from '@/components/ui/separator';
-import { Appearance, useAppearance } from '@/hooks/use-appearance';
+import { useAppearance } from '@/hooks/use-appearance';
 import { Head } from '@inertiajs/react';
-import { MoonIcon, SunIcon } from 'lucide-react';
-import { useEffect, useState } from 'react';
-import { SiMysql, SiPhp, SiPython, SiReact, SiTailwindcss, SiTypescript } from 'react-icons/si';
-
-function NavItem({ href, children }: { href: string; children: React.ReactNode }) {
-  return (
-    <li>
-      <a href={href} className={'relative block px-3 py-2 transition hover:text-teal-500 dark:hover:text-teal-400'}>
-        {children}
-      </a>
-    </li>
-  );
-}
-
-function NavBar(props: React.ComponentPropsWithoutRef<'nav'>) {
-  return (
-    <nav {...props}>
-      <ul className="flex justify-between rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg ring-1 shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
-        <NavItem href="#home">Home</NavItem>
-        <NavItem href="#projects">Projects</NavItem>
-        <NavItem href="#contact">Contact</NavItem>
-      </ul>
-    </nav>
-  );
-}
-
-function Logo() {
-  return (
-    <div className="mt-10 flex justify-center space-x-4">
-      <img src="/images/avatar.jpg" alt="Logo" className="h-32 w-32 rounded-full border-4 border-black shadow-lg dark:border-white" />
-    </div>
-  );
-}
-
-function ThemeToggle({ appearance, updateAppearance }: { appearance: Appearance; updateAppearance: (mode: Appearance) => void }) {
-  const otherAppearance: Appearance = appearance === 'dark' ? 'light' : 'dark';
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  return (
-    <button
-      type="button"
-      aria-label={mounted ? `Switch to ${otherAppearance} theme` : 'Toggle theme'}
-      className="group rounded-full bg-white/90 px-3 py-2 shadow-lg ring-1 shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20"
-      onClick={() => updateAppearance(otherAppearance)}
-    >
-      <SunIcon className="h-6 w-6 fill-zinc-100 stroke-zinc-500 transition group-hover:fill-zinc-200 group-hover:stroke-zinc-700 dark:hidden [@media(prefers-color-scheme:dark)]:fill-teal-50 [@media(prefers-color-scheme:dark)]:stroke-teal-500 [@media(prefers-color-scheme:dark)]:group-hover:fill-teal-50 [@media(prefers-color-scheme:dark)]:group-hover:stroke-teal-600" />
-      <MoonIcon className="hidden h-6 w-6 fill-zinc-700 stroke-zinc-500 transition not-[@media_(prefers-color-scheme:dark)]:fill-teal-400/10 not-[@media_(prefers-color-scheme:dark)]:stroke-teal-500 dark:block [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400" />
-    </button>
-  );
-}
-
-function Technologies() {
-  const techLogos = [
-    {
-      node: (
-        <span className="flex flex-row items-center gap-1 text-lg">
-          <SiReact />
-          React
-        </span>
-      ),
-      title: 'React',
-      href: 'https://react.dev',
-    },
-    {
-      node: (
-        <span className="flex flex-row items-center gap-1 text-lg">
-          <SiTypescript />
-          TypeScript
-        </span>
-      ),
-      title: 'TypeScript',
-      href: 'https://www.typescriptlang.org',
-    },
-    {
-      node: (
-        <span className="flex flex-row items-center gap-1 text-lg">
-          <SiTailwindcss />
-          Tailwind CSS
-        </span>
-      ),
-      title: 'Tailwind CSS',
-      href: 'https://tailwindcss.com',
-    },
-    {
-      node: (
-        <span className="flex flex-row items-center gap-1 text-lg">
-          <SiPhp />
-          PHP
-        </span>
-      ),
-      title: 'PHP',
-      href: 'https://www.php.net',
-    },
-    {
-      node: (
-        <span className="flex flex-row items-center gap-1 text-lg">
-          <SiMysql />
-          MySQL
-        </span>
-      ),
-      title: 'MySQL',
-      href: 'https://www.mysql.com',
-    },
-    {
-      node: (
-        <span className="flex flex-row items-center gap-1 text-lg">
-          <SiPython />
-          Python
-        </span>
-      ),
-      title: 'Python',
-      href: 'https://www.python.org',
-    },
-  ];
-
-  return (
-    <div style={{ height: '80px', position: 'relative', overflow: 'hidden', paddingTop: '20px' }}>
-      <LogoLoop
-        logos={techLogos}
-        speed={50}
-        direction="left"
-        logoHeight={30}
-        gap={50}
-        pauseOnHover
-        scaleOnHover
-        ariaLabel="Technologies I work with"
-      />
-    </div>
-  );
-}
 
 export default function Home() {
   const { appearance, updateAppearance } = useAppearance();
@@ -170,7 +39,7 @@ export default function Home() {
             <ThemeToggle appearance={appearance} updateAppearance={updateAppearance} />
           </div>
         </div>
-        <Logo />
+        <ThinhLogo />
 
         <div className="md:row mt-20 flex flex-col md:mt-10 md:flex-row md:space-x-6">
           <div className="text-left md:col-3 md:w-1/2 md:pl-5">
@@ -197,7 +66,7 @@ export default function Home() {
         </div>
 
         <div className="mt-10 flex justify-center">
-          <Technologies />
+          <TechnologyLoop />
         </div>
 
         <Separator className="my-10" />

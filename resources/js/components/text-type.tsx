@@ -163,6 +163,7 @@ const TextType = ({
     variableSpeed,
     onSentenceComplete,
     textColors,
+    getRandomSpeed
   ]);
 
   const shouldHideCursor =
