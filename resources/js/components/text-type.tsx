@@ -161,7 +161,8 @@ const TextType = ({
     isVisible,
     reverseMode,
     variableSpeed,
-    onSentenceComplete
+    onSentenceComplete,
+    textColors,
   ]);
 
   const shouldHideCursor =
@@ -181,6 +182,7 @@ const TextType = ({
       <span
         ref={cursorRef}
         className={`ml-1 inline-block opacity-100 ${shouldHideCursor ? 'hidden' : ''} ${cursorClassName}`}
+        style={{ color: getCurrentTextColor() }}
       >
         {cursorCharacter}
       </span>

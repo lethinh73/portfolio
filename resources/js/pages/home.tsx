@@ -40,8 +40,7 @@ function Logo() {
   );
 }
 
-function ThemeToggle() {
-  const { appearance, updateAppearance } = useAppearance();
+function ThemeToggle({ appearance, updateAppearance }: { appearance: Appearance; updateAppearance: (mode: Appearance) => void }) {
   const otherAppearance: Appearance = appearance === 'dark' ? 'light' : 'dark';
   const [mounted, setMounted] = useState(false);
 
@@ -143,7 +142,7 @@ function Technologies() {
 }
 
 export default function Home() {
-  const { appearance } = useAppearance();
+  const { appearance, updateAppearance } = useAppearance();
 
   return (
     <>
@@ -168,7 +167,7 @@ export default function Home() {
             <NavBar className="pointer-events-auto" />
           </div>
           <div className="absolute right-0">
-            <ThemeToggle />
+            <ThemeToggle appearance={appearance} updateAppearance={updateAppearance} />
           </div>
         </div>
         <Logo />
