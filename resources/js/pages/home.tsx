@@ -11,7 +11,7 @@ import { useAppearance } from '@/hooks/use-appearance';
 import { Head } from '@inertiajs/react';
 
 export default function Home() {
-  const { appearance, updateAppearance } = useAppearance();
+  const { appearance, updateAppearance, isDarkMode } = useAppearance();
 
   return (
     <>
@@ -51,7 +51,7 @@ export default function Home() {
               pauseDuration={2000}
               loop={true}
               showCursor={true}
-              textColors={appearance === 'dark' ? ['#ffffff'] : ['#000000']}
+              textColors={isDarkMode ? ['#ffffff'] : ['#000000']}
               cursorCharacter="_"
               className="mt-5 text-4xl font-bold"
             />
