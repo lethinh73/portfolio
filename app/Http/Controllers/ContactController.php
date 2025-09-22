@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactRequest;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Mail;
+use App\Models\Contact;
 
 class ContactController extends Controller
 {
@@ -17,12 +17,7 @@ class ContactController extends Controller
     {
         $data = $request->validated();
 
-        // For now, just email myself
-        Mail::raw("Name: {$data['name']}\nEmail: {$data['email']}\nMessage: {$data['message']}", function ($message) use ($data) {
-            $message->to("lethinh73@gmail.com") // Hardcoded to myself for now
-                ->subject('New contact form submission from '.$data['name'])
-                ->replyTo($data['email']);
-        });
+        Contact::create($data);
 
         return to_route('home');
     }
