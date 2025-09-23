@@ -23,7 +23,7 @@ function ThemeToggle({ appearance, updateAppearance }: { appearance: Appearance;
       onClick={() => updateAppearance(nextAppearance)}
     >
       {!mounted && <div className="h-6 w-6" />}
-      
+
       {mounted && appearance === 'light' && (
         <SunIcon className="h-6 w-6 fill-zinc-100 stroke-zinc-500 transition group-hover:fill-zinc-200 group-hover:stroke-zinc-700" />
       )}
