@@ -11,7 +11,7 @@ import { useAppearance } from '@/hooks/use-appearance';
 import { Head } from '@inertiajs/react';
 
 export default function Home() {
-  const { appearance, updateAppearance } = useAppearance();
+  const { appearance, updateAppearance, isDarkMode } = useAppearance();
 
   return (
     <>
@@ -39,6 +39,7 @@ export default function Home() {
             <ThemeToggle appearance={appearance} updateAppearance={updateAppearance} />
           </div>
         </div>
+
         <ThinhLogo />
 
         <div className="md:row mt-20 flex flex-col md:mt-10 md:flex-row md:space-x-6">
@@ -51,7 +52,7 @@ export default function Home() {
               pauseDuration={2000}
               loop={true}
               showCursor={true}
-              textColors={appearance === 'dark' ? ['#ffffff'] : ['#000000']}
+              textColors={isDarkMode ? ['#ffffff'] : ['#000000']}
               cursorCharacter="_"
               className="mt-5 text-4xl font-bold"
             />
@@ -77,13 +78,76 @@ export default function Home() {
 
         <Separator className="my-10" />
 
+        <div id="projects" className="relative mt-20 mb-10 flex flex-col items-center">
+          <h3 className="mb-5 text-2xl font-bold">Projects</h3>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="rounded-lg border bg-white shadow-md dark:border-gray-700 dark:bg-gray-800">
+              <img src="https://placehold.co/600x400" alt="Project 2" className="h-48 w-full rounded-t-lg object-cover" />
+              <div className="p-6">
+                <h4 className="text-lg font-semibold">Project 2</h4>
+                <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                  A brief description of the project goes here. Highlight its purpose and key features.
+                </p>
+
+                <div className='flex gap-2 mt-4'>
+                  <a href="#" className="mt-4 inline-block text-sm font-medium text-blue-600 hover:underline dark:text-blue-400">
+                    View Project
+                  </a>
+                  <a href="#" className="mt-4 inline-block text-sm font-medium text-blue-600 hover:underline dark:text-blue-400">
+                    Demo
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-lg border bg-white shadow-md dark:border-gray-700 dark:bg-gray-800">
+              <img src="https://placehold.co/600x400" alt="Project 2" className="h-48 w-full rounded-t-lg object-cover" />
+              <div className="p-6">
+                <h4 className="text-lg font-semibold">Project 2</h4>
+                <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                  A brief description of the project goes here. Highlight its purpose and key features.
+                </p>
+
+                <div className='flex gap-2 mt-4'>
+                  <a href="#" className="mt-4 inline-block text-sm font-medium text-blue-600 hover:underline dark:text-blue-400">
+                    View Project
+                  </a>
+                  <a href="#" className="mt-4 inline-block text-sm font-medium text-blue-600 hover:underline dark:text-blue-400">
+                    Demo
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-lg border bg-white shadow-md dark:border-gray-700 dark:bg-gray-800">
+              <img src="https://placehold.co/600x400" alt="Project 2" className="h-48 w-full rounded-t-lg object-cover" />
+              <div className="p-6">
+                <h4 className="text-lg font-semibold">Project 2</h4>
+                <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                  A brief description of the project goes here. Highlight its purpose and key features.
+                </p>
+
+                <div className='flex gap-2 mt-4'>
+                  <a href="#" className="mt-4 inline-block text-sm font-medium text-blue-600 hover:underline dark:text-blue-400">
+                    View Project
+                  </a>
+                  <a href="#" className="mt-4 inline-block text-sm font-medium text-blue-600 hover:underline dark:text-blue-400">
+                    Demo
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <Separator className="my-10" />
+
         <div id="contact" className="relative mt-20 mb-10 flex flex-col items-center">
           <h3 className="mb-5 text-2xl font-bold">Contact Me</h3>
           <ContactForm />
         </div>
 
         <Separator className="my-10" />
-        <h2 className="mb-5 text-2xl font-bold">More About Me</h2>
 
         <footer className="mb-5 text-center text-sm text-gray-500">&copy; {new Date().getFullYear()} Thinh Le. All rights reserved.</footer>
       </div>

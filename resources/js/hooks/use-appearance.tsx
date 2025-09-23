@@ -50,6 +50,9 @@ export function initializeTheme() {
 
 export function useAppearance() {
   const [appearance, setAppearance] = useState<Appearance>('system');
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    return appearance === 'dark' || (appearance === 'system' && prefersDark());
+  });
 
   const updateAppearance = useCallback((mode: Appearance) => {
     setAppearance(mode);
@@ -61,6 +64,8 @@ export function useAppearance() {
     setCookie('appearance', mode);
 
     applyTheme(mode);
+
+    setIsDarkMode(mode === 'dark' || (mode === 'system' && prefersDark()));
   }, []);
 
   useEffect(() => {
@@ -70,5 +75,5 @@ export function useAppearance() {
     return () => mediaQuery()?.removeEventListener('change', handleSystemThemeChange);
   }, [updateAppearance]);
 
-  return { appearance, updateAppearance } as const;
+  return { appearance, updateAppearance, isDarkMode } as const;
 }
