@@ -2,6 +2,8 @@
 
 Welcome to my portfolio project! This repository showcases my technical skills, projects, and experience as a developer. Below, you'll find details about the technologies used, the structure of the project, and how to run it locally.
 
+<img width="888" height="626" alt="SCREENSHOT" src="https://github.com/user-attachments/assets/d6e2add7-3d7b-4ed0-ba19-eee0ff76c19f" />
+
 ---
 
 ## Live Demo
