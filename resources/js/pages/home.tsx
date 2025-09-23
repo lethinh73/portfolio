@@ -5,6 +5,7 @@ import Particles from '@/components/particles';
 import TechnologyLoop from '@/components/technology-loop';
 import TextType from '@/components/text-type';
 import ThemeToggle from '@/components/theme-toggle';
+import SpotlightCard from '@/components/spotlight-card';
 import ThinhLogo from '@/components/thinh-logo';
 import { Separator } from '@/components/ui/separator';
 import { useAppearance } from '@/hooks/use-appearance';
@@ -40,7 +41,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className='mt-20'>
+        <div className="mt-20">
           <ThinhLogo />
         </div>
 
@@ -83,15 +84,15 @@ export default function Home() {
         <div id="projects" className="relative mt-20 mb-10 flex flex-col items-center">
           <h3 className="mb-5 text-2xl font-bold">Projects</h3>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <div className="rounded-lg border bg-white shadow-md dark:border-gray-700 dark:bg-gray-800">
-              <img src="https://placehold.co/600x400" alt="Project 2" className="h-48 w-full rounded-t-lg object-cover" />
+            <SpotlightCard spotlightColor="rgba(0, 229, 255, 0.2)">
+              <img src="https://placehold.co/600x400" alt="Project 2" className="h-48 w-full rounded-lg" />
               <div className="p-6">
                 <h4 className="text-lg font-semibold">Project 2</h4>
                 <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
                   A brief description of the project goes here. Highlight its purpose and key features.
                 </p>
 
-                <div className='flex gap-2 mt-4'>
+                <div className="mt-4 flex gap-2">
                   <a href="#" className="mt-4 inline-block text-sm font-medium text-blue-600 hover:underline dark:text-blue-400">
                     View Project
                   </a>
@@ -100,45 +101,7 @@ export default function Home() {
                   </a>
                 </div>
               </div>
-            </div>
-
-            <div className="rounded-lg border bg-white shadow-md dark:border-gray-700 dark:bg-gray-800">
-              <img src="https://placehold.co/600x400" alt="Project 2" className="h-48 w-full rounded-t-lg object-cover" />
-              <div className="p-6">
-                <h4 className="text-lg font-semibold">Project 2</h4>
-                <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                  A brief description of the project goes here. Highlight its purpose and key features.
-                </p>
-
-                <div className='flex gap-2 mt-4'>
-                  <a href="#" className="mt-4 inline-block text-sm font-medium text-blue-600 hover:underline dark:text-blue-400">
-                    View Project
-                  </a>
-                  <a href="#" className="mt-4 inline-block text-sm font-medium text-blue-600 hover:underline dark:text-blue-400">
-                    Demo
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div className="rounded-lg border bg-white shadow-md dark:border-gray-700 dark:bg-gray-800">
-              <img src="https://placehold.co/600x400" alt="Project 2" className="h-48 w-full rounded-t-lg object-cover" />
-              <div className="p-6">
-                <h4 className="text-lg font-semibold">Project 2</h4>
-                <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                  A brief description of the project goes here. Highlight its purpose and key features.
-                </p>
-
-                <div className='flex gap-2 mt-4'>
-                  <a href="#" className="mt-4 inline-block text-sm font-medium text-blue-600 hover:underline dark:text-blue-400">
-                    View Project
-                  </a>
-                  <a href="#" className="mt-4 inline-block text-sm font-medium text-blue-600 hover:underline dark:text-blue-400">
-                    Demo
-                  </a>
-                </div>
-              </div>
-            </div>
+            </SpotlightCard>
           </div>
         </div>
 
@@ -149,7 +112,7 @@ export default function Home() {
           <ContactForm />
         </div>
 
-        <Separator className="my-10" />
+        <Separator className="my-5" />
 
         <footer className="mb-5 text-center text-sm text-gray-500">&copy; {new Date().getFullYear()} Thinh Le. All rights reserved.</footer>
       </div>
