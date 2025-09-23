@@ -30,17 +30,19 @@ export default function Home() {
         />
       </div>
 
-      <div className="mx-auto max-w-4xl px-4 pt-5 sm:px-6 lg:px-8">
-        <div className="relative flex w-full items-center">
+      <div id="home" className="mx-auto max-w-4xl px-4 pt-5 sm:px-6 lg:px-8">
+        <div className="fixed top-5 left-0 z-50 flex w-full items-center">
           <div className="flex w-full justify-center">
             <NavBar className="pointer-events-auto" />
           </div>
-          <div className="absolute right-0">
+          <div className="absolute right-10">
             <ThemeToggle appearance={appearance} updateAppearance={updateAppearance} />
           </div>
         </div>
 
-        <ThinhLogo />
+        <div className='mt-20'>
+          <ThinhLogo />
+        </div>
 
         <div className="md:row mt-20 flex flex-col md:mt-10 md:flex-row md:space-x-6">
           <div className="text-left md:col-3 md:w-1/2 md:pl-5">
