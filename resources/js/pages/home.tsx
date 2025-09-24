@@ -161,7 +161,7 @@ export default function Home() {
               </div>
             </SpotlightCard>
 
-            <SpotlightCard
+            {/* <SpotlightCard
               className="rounded-lg border bg-white shadow-md dark:border-gray-700 dark:bg-gray-800"
               spotlightColor="rgba(255, 255, 255, 0.25)"
             >
@@ -186,7 +186,7 @@ export default function Home() {
                   </a>
                 </div>
               </div>
-            </SpotlightCard>
+            </SpotlightCard> */}
           </div>
         </div>
 
