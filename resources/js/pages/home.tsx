@@ -82,11 +82,11 @@ export default function Home() {
         <Separator className="my-10" />
 
         <div id="projects" className="relative mt-20 mb-10 flex flex-col items-center">
-          <h3 className="mb-5 text-2xl font-bold">Projects</h3>
+          <h3 className="mb-5 text-2xl font-bold">My Projects</h3>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <SpotlightCard spotlightColor='rgba(255, 255, 255, 0.25)'>
-              <img src="/images/unit-converter.png" alt="Unit Converter and Calculator" className="h-48 w-full rounded-t-lg object-cover" />
-              <div className="p-6">
+              <img src="/images/unit-converter.png" alt="Unit Converter and Calculator" className="h-50 w-full object-cover" />
+              <div className="p-6 bg-gray-300 dark:bg-gray-700">
                 <h4 className="text-lg font-semibold">Unit Converter and Calculator</h4>
                 <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
                   A Python application that combines a number converter and a calculator, supporting Decimal, Binary (32-bit), and Hexadecimal
@@ -101,16 +101,42 @@ export default function Home() {
                 </div>
 
                 <div className="mt-4 flex justify-between">
-                  <a href="#" className="inline-block text-sm font-medium text-blue-600 hover:underline dark:text-blue-400">
+                  <a href="https://github.com/lethinh73/unit-converter" className="inline-block text-sm font-medium text-blue-600 hover:underline dark:text-blue-400">
                     View Project
                   </a>
-                  <a href="#" className="inline-block text-sm font-medium text-blue-600 hover:underline dark:text-blue-400">
+                  <a href="javascript:void(0)" className="inline-block text-sm font-medium text-gray-500 hover:underline opacity-50 pointer-events-none">
                     Demo
                   </a>
                 </div>
               </div>
             </SpotlightCard>
 
+            <SpotlightCard spotlightColor='rgba(255, 255, 255, 0.25)'>
+              <img src="/images/unit-converter.png" alt="Unit Converter and Calculator" className="h-50 w-full object-cover" />
+              <div className="p-6 bg-gray-300 dark:bg-gray-700">
+                <h4 className="text-lg font-semibold">Unit Converter and Calculator</h4>
+                <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                  A Python application that combines a number converter and a calculator, supporting Decimal, Binary (32-bit), and Hexadecimal
+                  formats. Built with PyQt5 for the GUI.
+                </p>
+                <div className="mt-4">
+                  <h5 className="text-sm font-medium text-gray-700 dark:text-gray-300">Technologies Used:</h5>
+                  <ul className="mt-2 flex flex-wrap gap-2">
+                    <li className="rounded bg-blue-100 px-2 py-1 text-xs text-blue-800 dark:bg-blue-900 dark:text-blue-200">Python 3</li>
+                    <li className="rounded bg-green-100 px-2 py-1 text-xs text-green-800 dark:bg-green-900 dark:text-green-200">PyQt5</li>
+                  </ul>
+                </div>
+
+                <div className="mt-4 flex justify-between">
+                  <a href="https://github.com/lethinh73/unit-converter" className="inline-block text-sm font-medium text-blue-600 hover:underline dark:text-blue-400">
+                    View Project
+                  </a>
+                  <a href="javascript:void(0)" className="inline-block text-sm font-medium text-gray-500 hover:underline opacity-50 pointer-events-none">
+                    Demo
+                  </a>
+                </div>
+              </div>
+            </SpotlightCard>
           </div>
         </div>
 
