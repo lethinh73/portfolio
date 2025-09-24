@@ -84,55 +84,105 @@ export default function Home() {
         <div id="projects" className="relative mt-20 mb-10 flex flex-col items-center">
           <h3 className="mb-5 text-2xl font-bold">My Projects</h3>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <SpotlightCard spotlightColor='rgba(255, 255, 255, 0.25)'>
-              <img src="/images/unit-converter.png" alt="Unit Converter and Calculator" className="h-50 w-full object-cover" />
-              <div className="p-6 bg-gray-300 dark:bg-gray-700">
+            <SpotlightCard
+              className="rounded-lg border bg-white shadow-md dark:border-gray-700 dark:bg-gray-800"
+              spotlightColor="rgba(255, 255, 255, 0.25)"
+            >
+              <img src="/images/unit-converter.png" alt="Unit Converter and Calculator" className="h-48 w-full rounded-t-lg object-cover" />
+              <div className="p-6">
                 <h4 className="text-lg font-semibold">Unit Converter and Calculator</h4>
                 <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                  A Python application that combines a number converter and a calculator, supporting Decimal, Binary (32-bit), and Hexadecimal
-                  formats. Built with PyQt5 for the GUI.
+                  A Python application that combines a number converter and a calculator, supporting Decimal, 32-bit Binary, and Hexadecimal formats.
+                  Built with PyQt5 and the struct module for IEEE 754 breakdown.
                 </p>
                 <div className="mt-4">
-                  <h5 className="text-sm font-medium text-gray-700 dark:text-gray-300">Technologies Used:</h5>
+                  <h5 className="text-sm font-medium text-gray-700 dark:text-gray-300">Tech Stack:</h5>
                   <ul className="mt-2 flex flex-wrap gap-2">
                     <li className="rounded bg-blue-100 px-2 py-1 text-xs text-blue-800 dark:bg-blue-900 dark:text-blue-200">Python 3</li>
                     <li className="rounded bg-green-100 px-2 py-1 text-xs text-green-800 dark:bg-green-900 dark:text-green-200">PyQt5</li>
+                    <li className="rounded bg-purple-100 px-2 py-1 text-xs text-purple-800 dark:bg-purple-900 dark:text-purple-200">struct</li>
                   </ul>
                 </div>
 
-                <div className="mt-4 flex justify-between">
-                  <a href="https://github.com/lethinh73/unit-converter" className="inline-block text-sm font-medium text-blue-600 hover:underline dark:text-blue-400">
-                    View Project
+                <div className="mt-4 flex justify-between gap-2">
+                  <a
+                    href="https://github.com/lethinh73/unit-converter"
+                    className="inline-block text-sm font-medium text-blue-600 hover:underline dark:text-blue-400"
+                  >
+                    View Source
                   </a>
-                  <a href="javascript:void(0)" className="inline-block text-sm font-medium text-gray-500 hover:underline opacity-50 pointer-events-none">
-                    Demo
+                  <a
+                    href="javascript:void(0)"
+                    className="pointer-events-none inline-block text-sm font-medium text-gray-500 opacity-50 hover:underline"
+                  >
+                    Live Demo
                   </a>
                 </div>
               </div>
             </SpotlightCard>
 
-            <SpotlightCard spotlightColor='rgba(255, 255, 255, 0.25)'>
-              <img src="/images/unit-converter.png" alt="Unit Converter and Calculator" className="h-50 w-full object-cover" />
-              <div className="p-6 bg-gray-300 dark:bg-gray-700">
-                <h4 className="text-lg font-semibold">Unit Converter and Calculator</h4>
+            <SpotlightCard
+              className="rounded-lg border bg-white shadow-md dark:border-gray-700 dark:bg-gray-800"
+              spotlightColor="rgba(255, 255, 255, 0.25)"
+            >
+              <img
+                src="https://github.com/user-attachments/assets/d6e2add7-3d7b-4ed0-ba19-eee0ff76c19f"
+                alt="Portfolio Project"
+                className="h-48 w-full rounded-t-lg object-cover"
+              />
+              <div className="p-6">
+                <h4 className="text-lg font-semibold">Portfolio Project</h4>
                 <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                  A Python application that combines a number converter and a calculator, supporting Decimal, Binary (32-bit), and Hexadecimal
-                  formats. Built with PyQt5 for the GUI.
+                  A modern web application built with Laravel 12, React 19, and Inertia.js. Features a dynamic contact form, interactive photo
+                  gallery, dark mode support, and responsive design.
                 </p>
                 <div className="mt-4">
-                  <h5 className="text-sm font-medium text-gray-700 dark:text-gray-300">Technologies Used:</h5>
+                  <h5 className="text-sm font-medium text-gray-700 dark:text-gray-300">Tech Stack:</h5>
                   <ul className="mt-2 flex flex-wrap gap-2">
-                    <li className="rounded bg-blue-100 px-2 py-1 text-xs text-blue-800 dark:bg-blue-900 dark:text-blue-200">Python 3</li>
-                    <li className="rounded bg-green-100 px-2 py-1 text-xs text-green-800 dark:bg-green-900 dark:text-green-200">PyQt5</li>
+                    <li className="rounded bg-indigo-100 px-2 py-1 text-xs text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200">Laravel 12</li>
+                    <li className="rounded bg-blue-100 px-2 py-1 text-xs text-blue-800 dark:bg-blue-900 dark:text-blue-200">Inertia.js</li>
+                    <li className="rounded bg-sky-100 px-2 py-1 text-xs text-sky-800 dark:bg-sky-900 dark:text-sky-200">React 19</li>
+                    <li className="rounded bg-teal-100 px-2 py-1 text-xs text-teal-800 dark:bg-teal-900 dark:text-teal-200">TailwindCSS 4</li>
+                    <li className="rounded bg-pink-100 px-2 py-1 text-xs text-pink-800 dark:bg-pink-900 dark:text-pink-200">ShadCN UI</li>
                   </ul>
                 </div>
 
-                <div className="mt-4 flex justify-between">
-                  <a href="https://github.com/lethinh73/unit-converter" className="inline-block text-sm font-medium text-blue-600 hover:underline dark:text-blue-400">
-                    View Project
+                <div className="mt-4 flex justify-between gap-2">
+                  <a
+                    href="https://github.com/lethinh73/portfolio"
+                    className="inline-block text-sm font-medium text-blue-600 hover:underline dark:text-blue-400"
+                  >
+                    View Source
                   </a>
-                  <a href="javascript:void(0)" className="inline-block text-sm font-medium text-gray-500 hover:underline opacity-50 pointer-events-none">
-                    Demo
+                  <a href="https://thinhsoft.com" className="inline-block text-sm font-medium text-blue-600 hover:underline dark:text-blue-400">
+                    Live Demo
+                  </a>
+                </div>
+              </div>
+            </SpotlightCard>
+
+            <SpotlightCard
+              className="rounded-lg border bg-white shadow-md dark:border-gray-700 dark:bg-gray-800"
+              spotlightColor="rgba(255, 255, 255, 0.25)"
+            >
+              <img src="https://placehold.co/600x400" alt="Sample Project" className="h-48 w-full rounded-t-lg object-cover" />
+              <div className="p-6">
+                <h4 className="text-lg font-semibold">Sample Project</h4>
+                <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                  A brief showcase project with placeholder content. Replace with your actual project details.
+                </p>
+                <div className="mt-4">
+                  <h5 className="text-sm font-medium text-gray-700 dark:text-gray-300">Tech Stack:</h5>
+                  <ul className="mt-2 flex flex-wrap gap-2">
+                    <li className="rounded bg-gray-100 px-2 py-1 text-xs text-gray-800 dark:bg-gray-900 dark:text-gray-200">Placeholder</li>
+                  </ul>
+                </div>
+                <div className="mt-4 flex justify-between gap-2">
+                  <a href="#" className="inline-block text-sm font-medium text-blue-600 hover:underline dark:text-blue-400">
+                    View Source
+                  </a>
+                  <a href="#" className="inline-block text-sm font-medium text-blue-600 hover:underline dark:text-blue-400">
+                    Live Demo
                   </a>
                 </div>
               </div>
