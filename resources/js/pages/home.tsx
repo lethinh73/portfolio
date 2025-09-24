@@ -2,10 +2,10 @@ import CircularGallery from '@/components/circular-gallery';
 import { ContactForm } from '@/components/contact-form';
 import NavBar from '@/components/nav-bar';
 import Particles from '@/components/particles';
+import SpotlightCard from '@/components/spotlight-card';
 import TechnologyLoop from '@/components/technology-loop';
 import TextType from '@/components/text-type';
 import ThemeToggle from '@/components/theme-toggle';
-import SpotlightCard from '@/components/spotlight-card';
 import ThinhLogo from '@/components/thinh-logo';
 import { Separator } from '@/components/ui/separator';
 import { useAppearance } from '@/hooks/use-appearance';
@@ -84,24 +84,33 @@ export default function Home() {
         <div id="projects" className="relative mt-20 mb-10 flex flex-col items-center">
           <h3 className="mb-5 text-2xl font-bold">Projects</h3>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <SpotlightCard spotlightColor="rgba(0, 229, 255, 0.2)">
-              <img src="https://placehold.co/600x400" alt="Project 2" className="h-48 w-full rounded-lg" />
+            <SpotlightCard spotlightColor='rgba(255, 255, 255, 0.25)'>
+              <img src="/images/unit-converter.png" alt="Unit Converter and Calculator" className="h-48 w-full rounded-t-lg object-cover" />
               <div className="p-6">
-                <h4 className="text-lg font-semibold">Project 2</h4>
+                <h4 className="text-lg font-semibold">Unit Converter and Calculator</h4>
                 <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                  A brief description of the project goes here. Highlight its purpose and key features.
+                  A Python application that combines a number converter and a calculator, supporting Decimal, Binary (32-bit), and Hexadecimal
+                  formats. Built with PyQt5 for the GUI.
                 </p>
+                <div className="mt-4">
+                  <h5 className="text-sm font-medium text-gray-700 dark:text-gray-300">Technologies Used:</h5>
+                  <ul className="mt-2 flex flex-wrap gap-2">
+                    <li className="rounded bg-blue-100 px-2 py-1 text-xs text-blue-800 dark:bg-blue-900 dark:text-blue-200">Python 3</li>
+                    <li className="rounded bg-green-100 px-2 py-1 text-xs text-green-800 dark:bg-green-900 dark:text-green-200">PyQt5</li>
+                  </ul>
+                </div>
 
-                <div className="mt-4 flex gap-2">
-                  <a href="#" className="mt-4 inline-block text-sm font-medium text-blue-600 hover:underline dark:text-blue-400">
+                <div className="mt-4 flex justify-between">
+                  <a href="#" className="inline-block text-sm font-medium text-blue-600 hover:underline dark:text-blue-400">
                     View Project
                   </a>
-                  <a href="#" className="mt-4 inline-block text-sm font-medium text-blue-600 hover:underline dark:text-blue-400">
+                  <a href="#" className="inline-block text-sm font-medium text-blue-600 hover:underline dark:text-blue-400">
                     Demo
                   </a>
                 </div>
               </div>
             </SpotlightCard>
+
           </div>
         </div>
 
