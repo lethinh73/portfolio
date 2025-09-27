@@ -1,8 +1,13 @@
+import { CertificationsSection } from '@/components/certifications-section';
 import CircularGallery from '@/components/circular-gallery';
 import { ContactForm } from '@/components/contact-form';
+import { EducationSection } from '@/components/education-section';
+import { ExperienceSection } from '@/components/experience-section';
+import MagicBento from '@/components/magic-bento';
 import NavBar from '@/components/nav-bar';
 import Particles from '@/components/particles';
 import SpotlightCard from '@/components/spotlight-card';
+import { SummarySection } from '@/components/summary-section';
 import TechnologyLoop from '@/components/technology-loop';
 import TextType from '@/components/text-type';
 import ThemeToggle from '@/components/theme-toggle';
@@ -10,6 +15,7 @@ import ThinhLogo from '@/components/thinh-logo';
 import { Separator } from '@/components/ui/separator';
 import { useAppearance } from '@/hooks/use-appearance';
 import { Head } from '@inertiajs/react';
+import { motion } from 'framer-motion';
 
 export default function Home() {
   const { appearance, updateAppearance, isDarkMode } = useAppearance();
@@ -161,41 +167,167 @@ export default function Home() {
               </div>
             </SpotlightCard>
 
-            {/* <SpotlightCard
+            <SpotlightCard
               className="rounded-lg border bg-white shadow-md dark:border-gray-700 dark:bg-gray-800"
               spotlightColor="rgba(255, 255, 255, 0.25)"
             >
-              <img src="https://placehold.co/600x400" alt="Sample Project" className="h-48 w-full rounded-t-lg object-cover" />
+              <img src="/images/image-3.jpg" alt="ERP System Integration" className="h-48 w-full rounded-t-lg object-cover" />
               <div className="p-6">
-                <h4 className="text-lg font-semibold">Sample Project</h4>
+                <h4 className="text-lg font-semibold">ERP System Integration</h4>
                 <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                  A brief showcase project with placeholder content. Replace with your actual project details.
+                  A SAP S/4HANA Cloud integration solution for manufacturing companies. Enhances data processing efficiency and provides seamless
+                  system administration across departments.
                 </p>
                 <div className="mt-4">
                   <h5 className="text-sm font-medium text-gray-700 dark:text-gray-300">Tech Stack:</h5>
                   <ul className="mt-2 flex flex-wrap gap-2">
-                    <li className="rounded bg-gray-100 px-2 py-1 text-xs text-gray-800 dark:bg-gray-900 dark:text-gray-200">Placeholder</li>
+                    <li className="rounded bg-orange-100 px-2 py-1 text-xs text-orange-800 dark:bg-orange-900 dark:text-orange-200">SAP</li>
+                    <li className="rounded bg-blue-100 px-2 py-1 text-xs text-blue-800 dark:bg-blue-900 dark:text-blue-200">S/4HANA</li>
+                    <li className="rounded bg-green-100 px-2 py-1 text-xs text-green-800 dark:bg-green-900 dark:text-green-200">ABAP Cloud</li>
+                    <li className="rounded bg-red-100 px-2 py-1 text-xs text-red-800 dark:bg-red-900 dark:text-red-200">RESTful APIs</li>
                   </ul>
                 </div>
                 <div className="mt-4 flex justify-between gap-2">
-                  <a href="#" className="inline-block text-sm font-medium text-blue-600 hover:underline dark:text-blue-400">
-                    View Source
+                  <a
+                    href="javascript:void(0)"
+                    className="pointer-events-none inline-block text-sm font-medium text-gray-500 opacity-50 hover:underline"
+                  >
+                    Private Project
                   </a>
-                  <a href="#" className="inline-block text-sm font-medium text-blue-600 hover:underline dark:text-blue-400">
-                    Live Demo
+                  <a
+                    href="javascript:void(0)"
+                    className="pointer-events-none inline-block text-sm font-medium text-gray-500 opacity-50 hover:underline"
+                  >
+                    Client Access Only
                   </a>
                 </div>
               </div>
-            </SpotlightCard> */}
+            </SpotlightCard>
           </div>
         </div>
 
         <Separator className="my-10" />
 
-        <div id="contact" className="relative mt-20 mb-10 flex flex-col items-center">
-          <h3 className="mb-5 text-2xl font-bold">Contact Me</h3>
-          <ContactForm />
-        </div>
+        <motion.div
+          id="resume"
+          className="relative mt-20 mb-10 flex flex-col items-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <h3 className="mb-5 text-2xl font-bold">My Resume</h3>
+
+          <div className="w-full max-w-5xl">
+            <MagicBento enableSpotlight={true} glowColor="66, 99, 235">
+              <SummarySection
+                name="Thinh Le"
+                title="Software Development Professional"
+                summary="Accomplished and detail-oriented Software Development Professional with 3+ years of experience in building scalable applications for real estate, education, finance, and logistics industries. Delivered feature enhancements and RESTful API integrations, improving client satisfaction and operational efficiency. Passionate about creating innovative, efficient digital solutions and bridging communication between technical teams and stakeholders."
+              />
+
+              <EducationSection
+                items={[
+                  {
+                    title: 'Bachelor of Science - BS, Software Engineering',
+                    company: 'Western Governors University',
+                    location: 'Houston, TX',
+                    period: 'Nov 2025 - Present',
+                    description: [],
+                  },
+                  {
+                    title: 'Coursework toward Bachelor of Science - BS, Computer Science',
+                    company: 'University of Houston-Clear Lake',
+                    location: 'Houston, TX',
+                    period: 'Jan 2020 - Dec 2022',
+                    description: [],
+                  },
+                  {
+                    title: 'Associate of Science - AS, Computer Science',
+                    company: 'San Jacinto College',
+                    location: 'Houston, TX',
+                    period: 'Jan 2016 - Dec 2019',
+                    description: [],
+                  },
+                ]}
+              />
+
+              <CertificationsSection
+                certifications={[
+                  {
+                    title: 'SAP Certified Associate - Back-End Developer - ABAP Cloud',
+                    issuer: 'SAP',
+                    year: '2025',
+                  },
+                  {
+                    title: 'Building Full-Stack Apps with React and Spring',
+                    issuer: 'LinkedIn',
+                    year: '2023',
+                  },
+                  {
+                    title: 'Software Engineer',
+                    issuer: 'HackerRank',
+                    year: '2025',
+                  },
+                  {
+                    title: 'Programming Foundations: Fundamentals',
+                    issuer: 'LinkedIn',
+                    year: '2021',
+                  },
+                ]}
+              />
+            </MagicBento>
+
+            <div className="mt-8">
+              <ExperienceSection
+                items={[
+                  {
+                    title: 'Software Developer',
+                    company: 'SOURCE Web Solutions, Inc.',
+                    location: 'Friendswood, Texas, United States',
+                    period: 'May 2022 - Feb 2025',
+                    description: [
+                      'Strategized new feature requests, communicated with clientele and fellow developers, programmed features under strict timelines and budgets.',
+                      'Facilitated direct communication with users to solve problems and assisted management in translating technical terminologies into simple language.',
+                      'Developed and maintained robust web applications for clients across real estate, education, finance, and logistics industries.',
+                      'Integrated APIs for automated communication (Twilio), data retrieval (RETS), payment processing (Stripe), and bank transactions (Plaid).',
+                      'Deployed applications to AWS and Digital Ocean hosts, ensuring reliability and scalability with 99.9% uptime for clients.',
+                    ],
+                  },
+                  {
+                    title: 'Technology Intern',
+                    company: 'Labs196',
+                    location: 'Sugar Land, Texas, United States',
+                    period: 'Aug 2021 - Nov 2021',
+                    description: [
+                      'Built and deployed websites using ReactJS, React Native, and VueJS, improving user experience.',
+                      'Assisted in database management, ensuring data integrity and smooth operational workflows, reducing data retrieval times by 50%.',
+                    ],
+                  },
+                  {
+                    title: 'ERP Specialist',
+                    company: 'Accredo Packaging, Inc.',
+                    location: 'Sugar Land, Texas, United States',
+                    period: 'Jun 2019 - Mar 2021',
+                    description: [
+                      'Provided technical and functional support for ERP systems, improving operational efficiency.',
+                      'Implemented best practices for ERP systems, ensuring scalability and reliability, reducing downtime.',
+                    ],
+                  },
+                ]}
+              />
+            </div>
+          </div>
+        </motion.div>
+
+        <Separator className="my-10" />
+
+        <motion.div>
+          <div id="contact" className="relative mt-20 mb-10 flex flex-col items-center">
+            <h3 className="mb-5 text-2xl font-bold">Contact Me</h3>
+            <ContactForm />
+          </div>
+        </motion.div>
 
         <Separator className="my-5" />
 
