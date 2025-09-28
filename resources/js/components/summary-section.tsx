@@ -1,8 +1,8 @@
 import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
 import React from 'react';
 import { FiDownload, FiUser } from 'react-icons/fi';
 import { BentoCard } from './magic-bento';
-import { motion } from 'framer-motion';
 
 interface SummarySectionProps {
   name: string;

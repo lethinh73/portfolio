@@ -81,8 +81,8 @@ export default function Home() {
 
         <Separator className="my-10" />
 
-        <motion.div 
-          id="gallery" 
+        <motion.div
+          id="gallery"
           className="relative mt-20 mb-10"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -90,29 +90,29 @@ export default function Home() {
           transition={{ duration: 0.5 }}
         >
           <h3 className="mb-5 text-center text-2xl font-bold">Life & Adventures</h3>
-          <p className="mb-8 text-center text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="mx-auto mb-8 max-w-2xl text-center text-gray-600 dark:text-gray-400">
             Capturing moments with friends, family, and places I've explored. Swipe or scroll horizontally to view more photos.
           </p>
           <div className="mt-5" style={{ height: '500px' }}>
-            <CircularGallery 
-              bend={0.5} 
-              textColor="#ffffff" 
-              borderRadius={0.05} 
-              scrollSpeed={1} 
+            <CircularGallery
+              bend={0.5}
+              textColor={isDarkMode ? '#ffffff' : '#000000'}
+              borderRadius={0.05}
+              scrollSpeed={1}
               scrollEase={0.05}
               items={[
-                { 
-                  image: "/images/gallery/southernmost-point.jpg", 
-                  text: "Key West Trip" 
+                {
+                  image: '/images/gallery/southernmost-point.jpg',
+                  text: 'Key West Trip',
                 },
-                { 
-                  image: "/images/gallery/night-view.jpg", 
-                  text: "Evening Drinks" 
+                {
+                  image: '/images/gallery/night-view.jpg',
+                  text: 'Evening Drinks',
                 },
-                { 
-                  image: "/images/gallery/flight-view.jpg", 
-                  text: "Flying Above" 
-                }
+                {
+                  image: '/images/gallery/flight-view.jpg',
+                  text: 'Flying Above',
+                },
               ]}
             />
           </div>
@@ -120,8 +120,8 @@ export default function Home() {
 
         <Separator className="my-10" />
 
-        <motion.div 
-          id="projects" 
+        <motion.div
+          id="projects"
           className="relative mt-20 mb-10"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -133,26 +133,29 @@ export default function Home() {
             <ProjectsSection
               projects={[
                 {
-                  title: "Unit Converter and Calculator",
-                  description: "A Python application that combines a number converter and a calculator, supporting Decimal, 32-bit Binary, and Hexadecimal formats. Built with PyQt5 and the struct module for IEEE 754 breakdown.",
-                  image: "/images/unit-converter.png",
-                  techStack: ["Python 3", "PyQt5", "struct"],
-                  githubUrl: "https://github.com/lethinh73/unit-converter"
+                  title: 'Unit Converter and Calculator',
+                  description:
+                    'A Python application that combines a number converter and a calculator, supporting Decimal, 32-bit Binary, and Hexadecimal formats. Built with PyQt5 and the struct module for IEEE 754 breakdown.',
+                  image: '/images/unit-converter.png',
+                  techStack: ['Python 3', 'PyQt5', 'struct'],
+                  githubUrl: 'https://github.com/lethinh73/unit-converter',
                 },
                 {
-                  title: "Portfolio Project",
-                  description: "A modern web application built with Laravel 12, React 19, and Inertia.js. Features a dynamic contact form, interactive photo gallery, dark mode support, and responsive design.",
-                  image: "https://github.com/user-attachments/assets/d6e2add7-3d7b-4ed0-ba19-eee0ff76c19f",
-                  techStack: ["Laravel 12", "Inertia.js", "React 19", "TailwindCSS 4", "ShadCN UI"],
-                  githubUrl: "https://github.com/lethinh73/portfolio",
-                  demoUrl: "https://thinhsoft.com"
+                  title: 'Portfolio Project',
+                  description:
+                    'A modern web application built with Laravel 12, React 19, and Inertia.js. Features a dynamic contact form, interactive photo gallery, dark mode support, and responsive design.',
+                  image: 'https://github.com/user-attachments/assets/d6e2add7-3d7b-4ed0-ba19-eee0ff76c19f',
+                  techStack: ['Laravel 12', 'Inertia.js', 'React 19', 'TailwindCSS 4', 'ShadCN UI'],
+                  githubUrl: 'https://github.com/lethinh73/portfolio',
+                  demoUrl: 'https://thinhsoft.com',
                 },
                 {
-                  title: "ERP System Integration",
-                  description: "A SAP S/4HANA Cloud integration solution for manufacturing companies. Enhances data processing efficiency and provides seamless system administration across departments.",
-                  image: "/images/image-3.jpg",
-                  techStack: ["SAP", "S/4HANA", "ABAP Cloud", "RESTful APIs"]
-                }
+                  title: 'ERP System Integration',
+                  description:
+                    'A SAP S/4HANA Cloud integration solution for manufacturing companies. Enhances data processing efficiency and provides seamless system administration across departments.',
+                  image: '/images/image-3.jpg',
+                  techStack: ['SAP', 'S/4HANA', 'ABAP Cloud', 'RESTful APIs'],
+                },
               ]}
             />
           </MagicBento>
@@ -233,7 +236,7 @@ export default function Home() {
               />
             </MagicBento>
 
-            <motion.div 
+            <motion.div
               className="mt-8"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -243,44 +246,44 @@ export default function Home() {
               <MagicBento enableSpotlight={true} glowColor="245, 158, 11">
                 <ExperienceSection
                   items={[
-                  {
-                    title: 'Software Developer',
-                    company: 'SOURCE Web Solutions, Inc.',
-                    location: 'Friendswood, Texas, United States',
-                    period: 'May 2022 - Feb 2025',
-                    logo: '/images/logos/source.png',
-                    description: [
-                      'Strategized new feature requests, communicated with clientele and fellow developers, programmed features under strict timelines and budgets.',
-                      'Facilitated direct communication with users to solve problems and assisted management in translating technical terminologies into simple language.',
-                      'Developed and maintained robust web applications for clients across real estate, education, finance, and logistics industries.',
-                      'Integrated APIs for automated communication (Twilio), data retrieval (RETS), payment processing (Stripe), and bank transactions (Plaid).',
-                      'Deployed applications to AWS and Digital Ocean hosts, ensuring reliability and scalability with 99.9% uptime for clients.',
-                    ],
-                  },
-                  {
-                    title: 'Technology Intern',
-                    company: 'Labs196',
-                    location: 'Sugar Land, Texas, United States',
-                    period: 'Aug 2021 - Nov 2021',
-                    logo: '/images/logos/labs196.jpeg',
-                    description: [
-                      'Built and deployed websites using ReactJS, React Native, and VueJS, improving user experience.',
-                      'Assisted in database management, ensuring data integrity and smooth operational workflows, reducing data retrieval times by 50%.',
-                    ],
-                  },
-                  {
-                    title: 'ERP Specialist',
-                    company: 'Accredo Packaging, Inc.',
-                    location: 'Sugar Land, Texas, United States',
-                    period: 'Jun 2019 - Mar 2021',
-                    logo: '/images/logos/accredo.jpeg',
-                    description: [
-                      'Provided technical and functional support for ERP systems, improving operational efficiency.',
-                      'Implemented best practices for ERP systems, ensuring scalability and reliability, reducing downtime.',
-                    ],
-                  },
-                ]}
-              />
+                    {
+                      title: 'Software Developer',
+                      company: 'SOURCE Web Solutions, Inc.',
+                      location: 'Friendswood, Texas, United States',
+                      period: 'May 2022 - Feb 2025',
+                      logo: '/images/logos/source.png',
+                      description: [
+                        'Strategized new feature requests, communicated with clientele and fellow developers, programmed features under strict timelines and budgets.',
+                        'Facilitated direct communication with users to solve problems and assisted management in translating technical terminologies into simple language.',
+                        'Developed and maintained robust web applications for clients across real estate, education, finance, and logistics industries.',
+                        'Integrated APIs for automated communication (Twilio), data retrieval (RETS), payment processing (Stripe), and bank transactions (Plaid).',
+                        'Deployed applications to AWS and Digital Ocean hosts, ensuring reliability and scalability with 99.9% uptime for clients.',
+                      ],
+                    },
+                    {
+                      title: 'Technology Intern',
+                      company: 'Labs196',
+                      location: 'Sugar Land, Texas, United States',
+                      period: 'Aug 2021 - Nov 2021',
+                      logo: '/images/logos/labs196.jpeg',
+                      description: [
+                        'Built and deployed websites using ReactJS, React Native, and VueJS, improving user experience.',
+                        'Assisted in database management, ensuring data integrity and smooth operational workflows, reducing data retrieval times by 50%.',
+                      ],
+                    },
+                    {
+                      title: 'ERP Specialist',
+                      company: 'Accredo Packaging, Inc.',
+                      location: 'Sugar Land, Texas, United States',
+                      period: 'Jun 2019 - Mar 2021',
+                      logo: '/images/logos/accredo.jpeg',
+                      description: [
+                        'Provided technical and functional support for ERP systems, improving operational efficiency.',
+                        'Implemented best practices for ERP systems, ensuring scalability and reliability, reducing downtime.',
+                      ],
+                    },
+                  ]}
+                />
               </MagicBento>
             </motion.div>
           </div>
@@ -289,9 +292,9 @@ export default function Home() {
         <Separator className="my-10" />
 
         <motion.div>
-          <motion.div 
-            id="contact" 
-            className="relative mt-20 mb-10 flex flex-col items-center w-full"
+          <motion.div
+            id="contact"
+            className="relative mt-20 mb-10 flex w-full flex-col items-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -299,7 +302,7 @@ export default function Home() {
           >
             <h3 className="mb-5 text-2xl font-bold">Contact Me</h3>
             <motion.div
-              className="w-full flex justify-center"
+              className="flex w-full justify-center"
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -312,7 +315,7 @@ export default function Home() {
 
         <Separator className="my-5" />
 
-        <motion.footer 
+        <motion.footer
           className="mb-5 text-center text-sm text-gray-500"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

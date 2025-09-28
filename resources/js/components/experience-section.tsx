@@ -33,11 +33,7 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ items }) =
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
-            <BentoCard 
-              className="border-amber-200 dark:border-amber-800" 
-              enableTilt={true} 
-              glowColor="245, 158, 11"
-            >
+            <BentoCard className="border-amber-200 dark:border-amber-800" enableTilt={true} glowColor="245, 158, 11">
               <div className="p-5">
                 <div className="flex items-start gap-4">
                   <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border border-amber-100 bg-white p-0.5 shadow-sm dark:border-amber-900/30 dark:bg-white">
@@ -58,13 +54,13 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ items }) =
                     )}
                     <ul className="mt-3 space-y-2">
                       {item.description.map((desc, i) => (
-                        <motion.li 
-                          key={i} 
+                        <motion.li
+                          key={i}
                           className="text-gray-600 dark:text-gray-400"
                           initial={{ opacity: 0, x: -10 }}
                           whileInView={{ opacity: 1, x: 0 }}
                           viewport={{ once: true }}
-                          transition={{ duration: 0.3, delay: 0.2 + (i * 0.1) }}
+                          transition={{ duration: 0.3, delay: 0.2 + i * 0.1 }}
                         >
                           • {desc}
                         </motion.li>

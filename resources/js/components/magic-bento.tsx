@@ -529,9 +529,13 @@ const MagicBento: React.FC<BentoProps> = ({
             --glow-intensity: 0;
             --glow-radius: 200px;
             --glow-color: ${glowColor};
-            --border-color: rgba(255, 255, 255, 0.1);
+            --border-color: rgba(0, 0, 0, 0.1);
             --background-dark: rgba(255, 255, 255, 0.05);
             --white: hsl(0, 0%, 100%);
+          }
+
+          .dark .bento-section {
+            --border-color: rgba(255, 255, 255, 0.1);
           }
           
           .bento-grid {
