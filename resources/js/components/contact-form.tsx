@@ -19,7 +19,7 @@ export function ContactForm() {
           options={{
             preserveScroll: true,
           }}
-          className="w-2/3 space-y-6 md:w-2/5"
+          className="w-full max-w-md space-y-6"
           onSuccess={() => {
             setSubmitted(true);
             toast.success('Submitted successfully!');
@@ -65,7 +65,7 @@ export function ContactForm() {
           }}
         </Form>
       ) : (
-        <div className="w-2/3 space-y-6 md:w-2/5">
+        <div className="w-full max-w-md space-y-6">
           <div className="rounded-md border p-6 text-center">
             <h3 className="text-lg font-semibold">Thank you for reaching out!</h3>
             <p className="mt-2">I appreciate you taking the time to contact me. I'll get back to you as soon as possible.</p>

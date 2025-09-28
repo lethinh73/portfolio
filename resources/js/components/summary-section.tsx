@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import React from 'react';
 import { FiDownload, FiUser } from 'react-icons/fi';
 import { BentoCard } from './magic-bento';
+import { motion } from 'framer-motion';
 
 interface SummarySectionProps {
   name: string;
@@ -21,12 +22,14 @@ export const SummarySection: React.FC<SummarySectionProps> = ({ name, title, sum
           <p className="text-lg text-gray-600 dark:text-gray-300">{title}</p>
         </div>
 
-        <Button className="bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-500 hover:to-blue-500" size="lg" asChild>
-          <a href="/images/thinh-le-resume.pdf" download="Thinh-Le-Resume.pdf" className="flex items-center gap-2">
-            <FiDownload className="h-5 w-5" />
-            <span>Download Resume</span>
-          </a>
-        </Button>
+        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+          <Button className="bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-500 hover:to-blue-500" size="lg" asChild>
+            <a href="/documents/RESUME.pdf" download="Thinh-Le-Resume.pdf" className="flex items-center gap-2">
+              <FiDownload className="h-5 w-5" />
+              <span>Download Resume</span>
+            </a>
+          </Button>
+        </motion.div>
       </div>
 
       <div className="mt-6">

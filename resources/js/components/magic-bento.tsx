@@ -564,10 +564,10 @@ const MagicBento: React.FC<BentoProps> = ({
           
           @media (min-width: 1280px) {
             .bento-grid {
-              grid-template-columns: repeat(3, 1fr);
+              grid-template-columns: repeat(2, 1fr);
               grid-template-areas: 
-                "summary summary summary"
-                "education education certification";
+                "summary summary"
+                "education certification";
             }
           }
           

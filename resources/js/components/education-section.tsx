@@ -8,6 +8,7 @@ export interface TimelineItem {
   location?: string;
   period: string;
   description: string[];
+  logo?: string;
 }
 
 interface EducationSectionProps {
@@ -25,10 +26,16 @@ export const EducationSection: React.FC<EducationSectionProps> = ({ items }) => 
       <div className="grid grid-cols-1 gap-4">
         {items.map((item, index) => (
           <BentoCard key={index} className="border-emerald-200 p-5 dark:border-emerald-800" enableTilt={true} glowColor="16, 185, 129">
-            <div className="flex items-center gap-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-900/30">
-                <FiCalendar className="text-emerald-600 dark:text-emerald-400" />
-              </div>
+            <div className="flex items-center gap-4">
+              {item.logo ? (
+                <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-white p-1 shadow-sm">
+                  <img src={item.logo} alt={item.company} className="h-full w-full object-contain" />
+                </div>
+              ) : (
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-900/30">
+                  <FiCalendar className="text-emerald-600 dark:text-emerald-400" />
+                </div>
+              )}
               <div>
                 <p className="text-sm font-medium text-emerald-600 dark:text-emerald-400">{item.period}</p>
                 <h3 className="mt-1 text-lg font-bold text-gray-900 dark:text-gray-100">{item.title}</h3>
