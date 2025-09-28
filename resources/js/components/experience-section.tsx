@@ -36,13 +36,11 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ items }) =
             <BentoCard className="border-amber-200 dark:border-amber-800" enableTilt={true} glowColor="245, 158, 11">
               <div className="p-5">
                 <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border border-amber-100 bg-white p-0.5 shadow-sm dark:border-amber-900/30 dark:bg-white">
-                    {item.logo ? (
-                      <img src={item.logo} alt={item.company} className="h-full w-full object-contain" />
-                    ) : (
-                      <div className="h-4 w-4 rounded-full bg-amber-500" />
-                    )}
-                  </div>
+                  {item.logo ? (
+                    <img src={item.logo} alt={item.company} className="h-10 w-10 rounded-full border-2 border-emerald-800 dark:border-emerald-200" />
+                  ) : (
+                    <div className="h-10 w-10 rounded-full border-2 border-emerald-800 dark:border-emerald-200" />
+                  )}
                   <div className="flex-1">
                     <p className="text-sm font-medium text-amber-600 dark:text-amber-400">{item.period}</p>
                     <h3 className="mt-1 text-lg font-bold text-gray-900 dark:text-gray-100">{item.title}</h3>

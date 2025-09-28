@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import React from 'react';
-import { FiCode } from 'react-icons/fi';
 import { BentoCard } from './magic-bento';
 
 export interface ProjectItem {
@@ -19,11 +18,6 @@ interface ProjectsSectionProps {
 export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) => {
   return (
     <div className="flex flex-col gap-4">
-      <h4 className="flex items-center gap-2 text-xl font-bold text-violet-900 dark:text-violet-300">
-        <FiCode className="text-violet-600" size={22} />
-        My Projects
-      </h4>
-
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((project, index) => (
           <motion.div

@@ -6,6 +6,7 @@ export interface Certification {
   title: string;
   issuer: string;
   year: string;
+  logo?: string;
 }
 
 interface CertificationsSectionProps {
@@ -24,9 +25,11 @@ export const CertificationsSection: React.FC<CertificationsSectionProps> = ({ ce
         {certifications.map((cert, index) => (
           <BentoCard key={index} className="border-indigo-200 p-4 dark:border-indigo-800" enableTilt={true} glowColor="66, 99, 235">
             <div className="flex items-start gap-3">
-              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-indigo-100 text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-400">
-                <FiAward size={20} />
-              </div>
+              {cert.logo ? (
+                <img src={cert.logo} alt={cert.title} className="h-10 w-10 rounded-full border-2 border-emerald-800 dark:border-emerald-200" />
+              ) : (
+                <FiAward className="h-10 w-10 border-2 border-emerald-800 text-emerald-600 dark:border-emerald-200 dark:text-emerald-400" />
+              )}
               <div>
                 <h4 className="text-md font-semibold text-gray-900 dark:text-gray-100">{cert.title}</h4>
                 <p className="text-sm text-gray-600 dark:text-gray-400">

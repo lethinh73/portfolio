@@ -89,9 +89,9 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h3 className="mb-5 text-center text-2xl font-bold">Life & Adventures</h3>
+          <h3 className="mb-5 text-center text-2xl font-bold">My Gallery</h3>
           <p className="mx-auto mb-8 max-w-2xl text-center text-gray-600 dark:text-gray-400">
-            Capturing moments with friends, family, and places I've explored. Swipe or scroll horizontally to view more photos.
+            Moments captured from my travels, hobbies, and everyday life that bring me joy and inspiration.
           </p>
           <div className="mt-5" style={{ height: '500px' }}>
             <CircularGallery
@@ -102,16 +102,20 @@ export default function Home() {
               scrollEase={0.05}
               items={[
                 {
-                  image: '/images/gallery/southernmost-point.jpg',
-                  text: 'Key West Trip',
+                  image: '/images/gallery/image1.jpg',
+                  text: '',
                 },
                 {
-                  image: '/images/gallery/night-view.jpg',
-                  text: 'Evening Drinks',
+                  image: '/images/gallery/image2.jpg',
+                  text: '',
                 },
                 {
-                  image: '/images/gallery/flight-view.jpg',
-                  text: 'Flying Above',
+                  image: '/images/gallery/image3.jpg',
+                  text: '',
+                },
+                {
+                  image: '/images/gallery/image4.jpg',
+                  text: '',
                 },
               ]}
             />
@@ -177,33 +181,33 @@ export default function Home() {
             <MagicBento enableSpotlight={true} glowColor="66, 99, 235">
               <SummarySection
                 name="Thinh Le"
-                title="Software Development Professional"
+                title="Software Developer"
                 summary="Accomplished and detail-oriented Software Development Professional with 3+ years of experience in building scalable applications for real estate, education, finance, and logistics industries. Delivered feature enhancements and RESTful API integrations, improving client satisfaction and operational efficiency. Passionate about creating innovative, efficient digital solutions and bridging communication between technical teams and stakeholders."
               />
 
               <EducationSection
                 items={[
                   {
-                    title: 'Bachelor of Science - BS, Software Engineering',
+                    title: 'B.S. in Software Engineering',
                     company: 'Western Governors University',
                     location: 'Houston, TX',
-                    period: 'Nov 2025 - Present',
+                    period: '2025 - Present',
                     description: [],
                     logo: '/images/logos/wgu.jpeg',
                   },
                   {
-                    title: 'Coursework toward Bachelor of Science - BS, Computer Science',
+                    title: 'Coursework toward B.S. in Computer Science',
                     company: 'University of Houston-Clear Lake',
                     location: 'Houston, TX',
-                    period: 'Jan 2020 - Dec 2022',
+                    period: '2020 - 2022',
                     description: [],
                     logo: '/images/logos/uhcl.jpg',
                   },
                   {
-                    title: 'Associate of Science - AS, Computer Science',
+                    title: 'A.S.S. in Computer Science',
                     company: 'San Jacinto College',
                     location: 'Houston, TX',
-                    period: 'Jan 2016 - Dec 2019',
+                    period: '2016 - 2019',
                     description: [],
                     logo: '/images/logos/sanjac.jpeg',
                   },
@@ -216,21 +220,25 @@ export default function Home() {
                     title: 'SAP Certified Associate - Back-End Developer - ABAP Cloud',
                     issuer: 'SAP',
                     year: '2025',
+                    logo: '/images/logos/sap.jpeg',
                   },
                   {
                     title: 'Building Full-Stack Apps with React and Spring',
                     issuer: 'LinkedIn',
                     year: '2023',
+                    logo: '/images/logos/linkedin.jpeg',
                   },
                   {
                     title: 'Software Engineer',
                     issuer: 'HackerRank',
                     year: '2025',
+                    logo: '/images/logos/hackerrank.jpeg',
                   },
                   {
                     title: 'Programming Foundations: Fundamentals',
                     issuer: 'LinkedIn',
                     year: '2021',
+                    logo: '/images/logos/linkedin.jpeg',
                   },
                 ]}
               />
