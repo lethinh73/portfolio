@@ -10,5 +10,13 @@ class Contact extends Model
         'name',
         'email',
         'message',
+        'reported_at',
     ];
+
+    protected function casts(): array
+    {
+        return [
+            'reported_at' => 'datetime',
+        ];
+    }
 }

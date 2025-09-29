@@ -1,11 +1,13 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
-    return Inertia::render('home');
+    return Inertia::render('home', [
+        'recaptchaSiteKey' => config('services.recaptcha.site_key'),
+    ]);
 })->name('home');
 
 Route::post('contact', [ContactController::class, 'store'])

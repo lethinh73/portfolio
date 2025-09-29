@@ -2,8 +2,9 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Rules\RecaptchaRule;
 use Illuminate\Contracts\Validation\ValidationRule;
+use Illuminate\Foundation\Http\FormRequest;
 
 class ContactRequest extends FormRequest
 {
@@ -33,6 +34,7 @@ class ContactRequest extends FormRequest
                 'max:255',
             ],
             'message' => ['required', 'string', 'min:3', 'max:2000'],
+            'recaptcha_token' => ['required', 'string', new RecaptchaRule],
         ];
     }
 }

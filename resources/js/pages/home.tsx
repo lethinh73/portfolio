@@ -17,7 +17,11 @@ import { useAppearance } from '@/hooks/use-appearance';
 import { Head } from '@inertiajs/react';
 import { motion } from 'framer-motion';
 
-export default function Home() {
+interface HomeProps {
+  recaptchaSiteKey: string;
+}
+
+export default function Home({ recaptchaSiteKey }: HomeProps) {
   const { appearance, updateAppearance, isDarkMode } = useAppearance();
 
   return (
@@ -322,7 +326,7 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <ContactForm />
+              <ContactForm recaptchaSiteKey={recaptchaSiteKey} />
             </motion.div>
           </motion.div>
         </motion.div>
