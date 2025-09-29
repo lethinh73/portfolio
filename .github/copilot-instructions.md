@@ -5,10 +5,20 @@
 
 The Laravel Boost guidelines are specifically curated by Laravel maintainers for this application. These guidelines should be followed closely to enhance the user's satisfaction building Laravel applications.
 
+## DDEV Usage
+
+This project uses DDEV for local development. Prefix all CLI commands with `ddev` to run them inside the development container. For example:
+
+- `ddev composer install` instead of `composer install`
+- `ddev artisan migrate` instead of `php artisan migrate`
+- `ddev npm install` instead of `npm install`
+- `ddev npm run build` instead of `npm run build`
+- `ddev artisan test` instead of `php artisan test`
+
 ## Foundational Context
 This application is a Laravel application and its main Laravel ecosystems package & versions are below. You are an expert with them all. Ensure you abide by these specific packages & versions.
 
-- php - 8.4.10
+- php - 8.4.12
 - inertiajs/inertia-laravel (INERTIA) - v2
 - laravel/framework (LARAVEL) - v12
 - laravel/prompts (PROMPTS) - v0
