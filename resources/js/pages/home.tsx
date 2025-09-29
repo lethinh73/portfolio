@@ -168,8 +168,13 @@ export default function Home({ recaptchaSiteKey }: HomeProps) {
               ]}
             />
           </MagicBento>
-          <div className='flex justify-center'>
-            <a href="https://github.com/lethinh73" className='block rounded-lg bg-gradient-to-r from-red-600 to-indigo-600 px-4 py-2 text-center text-white shadow-lg hover:from-purple-500 hover:to-indigo-500 sm:mx-auto sm:inline-block mt-8 max-w-max' target="_blank" rel="noopener noreferrer">
+          <div className="flex justify-center">
+            <a
+              href="https://github.com/lethinh73"
+              className="mt-8 block max-w-max rounded-lg bg-gradient-to-r from-red-600 to-indigo-600 px-4 py-2 text-center text-white shadow-lg hover:from-purple-500 hover:to-indigo-500 sm:mx-auto sm:inline-block"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               More projects can be found on my Github
             </a>
           </div>

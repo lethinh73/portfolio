@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import React from 'react';
-import { BentoCard } from './magic-bento';
 import { FiGithub, FiGlobe } from 'react-icons/fi';
+import { BentoCard } from './magic-bento';
 
 export interface ProjectItem {
   title: string;
@@ -60,23 +60,19 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <FiGithub className="inline-block mr-1" />
+                        <FiGithub className="mr-1 inline-block" />
                         View Source
                       </a>
                     ) : (
                       <span className="pointer-events-none inline-block text-sm font-medium text-gray-500 opacity-50">Private Project</span>
                     )}
                     <a
-                      href={project.demoUrl ? (
-                        project.demoUrl
-                      ) : (
-                        '#'
-                      )}
+                      href={project.demoUrl ? project.demoUrl : '#'}
                       className={`inline-block text-sm font-medium text-violet-600 hover:underline dark:text-violet-400 ${!project.demoUrl ? 'pointer-events-none opacity-50' : ''}`}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <FiGlobe className="inline-block mr-1" />
+                      <FiGlobe className="mr-1 inline-block" />
                       Live Demo
                     </a>
                   </div>

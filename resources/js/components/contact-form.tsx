@@ -6,7 +6,7 @@ import { Label } from '@/components/ui/label';
 import { Toaster } from '@/components/ui/sonner';
 import { Textarea } from '@/components/ui/textarea';
 import { Form } from '@inertiajs/react';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { toast } from 'sonner';
 
 interface ContactFormProps {
@@ -67,7 +67,8 @@ export function ContactForm({ recaptchaSiteKey }: ContactFormProps) {
     return new Promise((resolve, reject) => {
       try {
         window.grecaptcha.ready(() => {
-          window.grecaptcha.execute(recaptchaSiteKey, { action: 'contact_form' })
+          window.grecaptcha
+            .execute(recaptchaSiteKey, { action: 'contact_form' })
             .then((token: string) => {
               if (!token) {
                 reject(new Error('Failed to generate reCaptcha token'));
