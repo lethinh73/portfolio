@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import React from 'react';
 import { BentoCard } from './magic-bento';
+import { FiGithub, FiGlobe } from 'react-icons/fi';
 
 export interface ProjectItem {
   title: string;
@@ -59,24 +60,25 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
                         target="_blank"
                         rel="noopener noreferrer"
                       >
+                        <FiGithub className="inline-block mr-1" />
                         View Source
                       </a>
                     ) : (
                       <span className="pointer-events-none inline-block text-sm font-medium text-gray-500 opacity-50">Private Project</span>
                     )}
-
-                    {project.demoUrl ? (
-                      <a
-                        href={project.demoUrl}
-                        className="inline-block text-sm font-medium text-violet-600 hover:underline dark:text-violet-400"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Live Demo
-                      </a>
-                    ) : (
-                      <span className="pointer-events-none inline-block text-sm font-medium text-gray-500 opacity-50">Demo Unavailable</span>
-                    )}
+                    <a
+                      href={project.demoUrl ? (
+                        project.demoUrl
+                      ) : (
+                        '#'
+                      )}
+                      className={`inline-block text-sm font-medium text-violet-600 hover:underline dark:text-violet-400 ${!project.demoUrl ? 'pointer-events-none opacity-50' : ''}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FiGlobe className="inline-block mr-1" />
+                      Live Demo
+                    </a>
                   </div>
                 </div>
               </div>

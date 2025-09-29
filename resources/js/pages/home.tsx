@@ -137,10 +137,18 @@ export default function Home() {
             <ProjectsSection
               projects={[
                 {
+                  title: 'Grab Easy - Mobile Food Ordering UI',
+                  description:
+                    'A front-end mobile web application built with Vue.js 3 that simulates a food ordering experience. Features user onboarding UI, intuitive navigation, and a mobile-first design optimized for smartphone screens.',
+                  image: 'https://github.com/user-attachments/assets/10f2ab6c-10fd-4082-ac75-e4a156e1e6a6',
+                  techStack: ['Vue.js 3', 'Vue Router 4', 'Axios', 'Node.js', 'Vue CLI 4.x'],
+                  githubUrl: 'https://github.com/lethinh73/grab-easy',
+                },
+                {
                   title: 'Unit Converter and Calculator',
                   description:
                     'A Python application that combines a number converter and a calculator, supporting Decimal, 32-bit Binary, and Hexadecimal formats. Built with PyQt5 and the struct module for IEEE 754 breakdown.',
-                  image: '/images/unit-converter.png',
+                  image: 'https://github.com/user-attachments/assets/3c407ac7-9256-4da0-9fef-7b6b2b419254',
                   techStack: ['Python 3', 'PyQt5', 'struct'],
                   githubUrl: 'https://github.com/lethinh73/unit-converter',
                 },
@@ -153,16 +161,14 @@ export default function Home() {
                   githubUrl: 'https://github.com/lethinh73/portfolio',
                   demoUrl: 'https://thinhsoft.com',
                 },
-                {
-                  title: 'ERP System Integration',
-                  description:
-                    'A SAP S/4HANA Cloud integration solution for manufacturing companies. Enhances data processing efficiency and provides seamless system administration across departments.',
-                  image: '/images/image-3.jpg',
-                  techStack: ['SAP', 'S/4HANA', 'ABAP Cloud', 'RESTful APIs'],
-                },
               ]}
             />
           </MagicBento>
+          <div className='flex justify-center'>
+            <a href="https://github.com/lethinh73" className='block rounded-lg bg-gradient-to-r from-red-600 to-indigo-600 px-4 py-2 text-center text-white shadow-lg hover:from-purple-500 hover:to-indigo-500 sm:mx-auto sm:inline-block mt-8 max-w-max' target="_blank" rel="noopener noreferrer">
+              More projects can be found on my Github
+            </a>
+          </div>
         </motion.div>
 
         <Separator className="my-10" />
