@@ -112,6 +112,8 @@
             <div class="attachment-note">
                 <strong>📎 Attachment:</strong> A CSV file containing all contact messages is attached to this email for your records.
             </div>
+        @else
+            <p>No new contact messages were received yesterday.</p>
         @endif
 
         <div class="footer">

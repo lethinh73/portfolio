@@ -32,6 +32,7 @@ class SendDailyContactReportJob implements ShouldQueue
             ->get();
 
         if ($contacts->isEmpty()) {
+            new DailyContactReportMail(new \Illuminate\Support\Collection(), '');
             return;
         }
 
