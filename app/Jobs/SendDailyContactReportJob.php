@@ -4,7 +4,6 @@ namespace App\Jobs;
 
 use App\Mail\DailyContactReportMail;
 use App\Models\Contact;
-use Carbon\Carbon;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
 use Illuminate\Support\Facades\Mail;
@@ -27,11 +26,9 @@ class SendDailyContactReportJob implements ShouldQueue
      */
     public function handle(): void
     {
-        $yesterday = Carbon::yesterday();
-
         $contacts = Contact::query()
-            ->whereDate('created_at', $yesterday)
             ->whereNull('reported_at')
+            ->limit(50)
             ->get();
 
         if ($contacts->isEmpty()) {
@@ -39,7 +36,7 @@ class SendDailyContactReportJob implements ShouldQueue
         }
 
         $csvContent = $this->generateCsvContent($contacts);
-        $csvFilePath = 'reports/daily-contacts-'.$yesterday->format('Y-m-d').'.csv';
+        $csvFilePath = 'reports/daily-contacts-'.now()->format('Y-m-d').'.csv';
 
         Storage::put($csvFilePath, $csvContent);
 
@@ -55,17 +52,18 @@ class SendDailyContactReportJob implements ShouldQueue
 
     private function generateCsvContent($contacts): string
     {
-        $csvContent = "Name,Email,Message\n";
+        $csvContent = "Name,Email,Message,Created At\n";
 
         foreach ($contacts as $contact) {
             $message = str_replace(['"', "\n", "\r"], ['""', ' ', ' '], $contact->message);
             $message = substr($message, 0, 250);
 
             $csvContent .= sprintf(
-                '"%s","%s","%s"'."\n",
+                '"%s","%s","%s","%s"'."\n",
                 str_replace('"', '""', $contact->name),
                 str_replace('"', '""', $contact->email),
-                $message
+                $message,
+                $contact->created_at->format('Y-m-d H:i:s')
             );
         }
 
