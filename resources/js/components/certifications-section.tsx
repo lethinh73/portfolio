@@ -1,5 +1,5 @@
 import React from 'react';
-import { FiAward } from 'react-icons/fi';
+import { FiAward, FiExternalLink } from 'react-icons/fi';
 import { BentoCard } from './magic-bento';
 
 export interface Certification {
@@ -7,6 +7,7 @@ export interface Certification {
   issuer: string;
   year: string;
   logo?: string;
+  credentialUrl?: string;
 }
 
 interface CertificationsSectionProps {
@@ -24,20 +25,32 @@ export const CertificationsSection: React.FC<CertificationsSectionProps> = ({ ce
       <div className="flex flex-col gap-4">
         {certifications.map((cert, index) => (
           <BentoCard key={index} className="border-indigo-200 p-4 dark:border-indigo-800" enableTilt={true} glowColor="66, 99, 235">
-            <div className="flex items-start gap-3">
-              {cert.logo ? (
-                <img src={cert.logo} alt={cert.title} className="h-10 w-10 rounded-full border-2 border-emerald-800 dark:border-emerald-200" />
-              ) : (
-                <FiAward className="h-10 w-10 border-2 border-emerald-800 text-emerald-600 dark:border-emerald-200 dark:text-emerald-400" />
-              )}
-              <div>
-                <h4 className="text-md font-semibold text-gray-900 dark:text-gray-100">{cert.title}</h4>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
-                  {cert.issuer}
-                  <span className="mx-1">•</span>
-                  {cert.year}
-                </p>
+            <div className="flex items-center justify-between gap-4">
+              <div className="flex items-center gap-2">
+                {cert.logo ? (
+                  <img src={cert.logo} alt={cert.title} className="h-10 w-10 rounded-full border-2 border-emerald-800 dark:border-emerald-200" />
+                ) : (
+                  <FiAward className="h-10 w-10 border-2 border-emerald-800 text-emerald-600 dark:border-emerald-200 dark:text-emerald-400" />
+                )}
+                <div>
+                  <h4 className="text-md font-semibold text-gray-900 dark:text-gray-100">{cert.title}</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    {cert.issuer}
+                    <span className="mx-1">•</span>
+                    {cert.year}
+                  </p>
+                </div>
               </div>
+              {cert.credentialUrl && (
+                <a
+                  href={cert.credentialUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="shrink-0 rounded-md border border-indigo-300 bg-white p-2 text-indigo-600 transition-colors hover:bg-indigo-50 dark:border-indigo-700 dark:bg-gray-800 dark:text-indigo-400 dark:hover:bg-indigo-950"
+                >
+                  <FiExternalLink size={18} />
+                </a>
+              )}
             </div>
           </BentoCard>
         ))}

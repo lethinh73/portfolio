@@ -236,24 +236,30 @@ export default function Home({ recaptchaSiteKey }: HomeProps) {
                     issuer: 'SAP',
                     year: '2025',
                     logo: '/images/logos/sap.jpeg',
+                    credentialUrl: 'https://www.credly.com/badges/619e450a-fcda-47aa-8cec-244f11b99031/linked_in_profile',
                   },
                   {
                     title: 'Building Full-Stack Apps with React and Spring',
                     issuer: 'LinkedIn',
                     year: '2023',
                     logo: '/images/logos/linkedin.jpeg',
+                    credentialUrl:
+                      'https://www.linkedin.com/learning/certificates/af1006fba4d4b7274ffb5f91c3133bbb882ca919a83423e4ec5f6359f5ccb47e',
                   },
                   {
                     title: 'Software Engineer',
                     issuer: 'HackerRank',
                     year: '2025',
                     logo: '/images/logos/hackerrank.jpeg',
+                    credentialUrl: 'https://www.hackerrank.com/certificates/f74c8b7ec890',
                   },
                   {
                     title: 'Programming Foundations: Fundamentals',
                     issuer: 'LinkedIn',
                     year: '2021',
                     logo: '/images/logos/linkedin.jpeg',
+                    credentialUrl:
+                      'https://www.linkedin.com/learning/certificates/3807526bb6d1ff7ad0e549ba434fd02c5c19f1324f55f2ec38db8a7dab1cfa13',
                   },
                 ]}
               />

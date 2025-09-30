@@ -26,7 +26,7 @@ export const EducationSection: React.FC<EducationSectionProps> = ({ items }) => 
       <div className="grid grid-cols-1 gap-4">
         {items.map((item, index) => (
           <BentoCard key={index} className="border-emerald-200 p-5 dark:border-emerald-800" enableTilt={true} glowColor="16, 185, 129">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
               {item.logo ? (
                 <img src={item.logo} alt={item.company} className="h-10 w-10 rounded-full border-2 border-emerald-800 dark:border-emerald-200" />
               ) : (
