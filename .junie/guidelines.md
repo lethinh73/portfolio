@@ -30,15 +30,15 @@ This application is a Laravel application and its main Laravel ecosystems packag
 - This project uses DDEV as the primary local development environment tool, which provides a Docker-based setup for consistent development across machines. DDEV manages services like PHP, database (e.g., MySQL/PostgreSQL), web server (e.g., Nginx/Apache), and more.
 - DDEV configuration is typically stored in a `.ddev/config.yaml` file in the project root. Familiarize yourself with this file for project-specific settings, such as PHP version, database type, and custom commands.
 - Key DDEV commands:
-  - `ddev start`: Starts the development environment and all services.
-  - `ddev stop`: Stops the environment.
-  - `ddev restart`: Restarts the environment.
-  - `ddev ssh`: SSH into the web container for direct access.
-  - `ddev exec <command>`: Runs a command inside the container (e.g., `ddev exec php artisan migrate`).
-  - `ddev composer <command>`: Runs Composer commands (e.g., `ddev composer install`).
-  - `ddev npm <command>`: Runs npm commands (e.g., `ddev npm install` or `ddev npm run dev`).
-  - `ddev artisan <command>`: Runs Laravel Artisan commands (e.g., `ddev artisan migrate`).
-  - `ddev describe`: Shows detailed information about the project's DDEV setup, including URLs, ports, and service status.
+    - `ddev start`: Starts the development environment and all services.
+    - `ddev stop`: Stops the environment.
+    - `ddev restart`: Restarts the environment.
+    - `ddev ssh`: SSH into the web container for direct access.
+    - `ddev exec <command>`: Runs a command inside the container (e.g., `ddev exec php artisan migrate`).
+    - `ddev composer <command>`: Runs Composer commands (e.g., `ddev composer install`).
+    - `ddev npm <command>`: Runs npm commands (e.g., `ddev npm install` or `ddev npm run dev`).
+    - `ddev artisan <command>`: Runs Laravel Artisan commands (e.g., `ddev artisan migrate`).
+    - `ddev describe`: Shows detailed information about the project's DDEV setup, including URLs, ports, and service status.
 - The project URL is typically accessible at `https://<project-name>.ddev.site` (replace `<project-name>` with the actual DDEV project name from `.ddev/config.yaml`).
 - Database access: Use `ddev mysql` or `ddev psql` to enter the database shell. Credentials are usually defined in `.ddev/config.yaml` or `.env` (e.g., DB_HOST=db, DB_PORT=3306 externally maps to host port).
 - If using Laravel Sail alongside DDEV (though DDEV is preferred), note that Sail commands like `sail up` may conflict; prioritize DDEV unless specified otherwise.
@@ -130,7 +130,7 @@ This application is a Laravel application and its main Laravel ecosystems packag
 ### Constructors
 
 - Use PHP 8 constructor property promotion in `__construct()`.
-  - <code-snippet>public function \_\_construct(public GitHub $github) { }</code-snippet>
+    - <code-snippet>public function \_\_construct(public GitHub $github) { }</code-snippet>
 - Do not allow empty `__construct()` methods with zero parameters.
 
 ### Type Declarations
@@ -480,7 +480,7 @@ defaults
 - `corePlugins` is not supported in Tailwind v4.
 - In Tailwind v4, you import Tailwind using a regular CSS `@import` statement, not using the `@tailwind` directives used in v3:
 
-<code-snippet name="Tailwind v4 Import Tailwind Diff" lang="diff"
+<code-snippet name="Tailwind v4 Import Tailwind Diff" lang="diff">
 
 - @tailwind base;
 - @tailwind components;
