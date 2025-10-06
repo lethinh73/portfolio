@@ -106,19 +106,19 @@ export default function Home({ recaptchaSiteKey }: HomeProps) {
               scrollEase={0.05}
               items={[
                 {
-                  image: '/images/gallery/image1.jpg',
+                  image: '//wsrv.nl/?url=thinhsoft.com/images/gallery/image1.jpg',
                   text: '',
                 },
                 {
-                  image: '/images/gallery/image2.jpg',
+                  image: '//wsrv.nl/?url=thinhsoft.com/images/gallery/image2.jpg',
                   text: '',
                 },
                 {
-                  image: '/images/gallery/image3.jpg',
+                  image: '//wsrv.nl/?url=thinhsoft.com/images/gallery/image3.jpg',
                   text: '',
                 },
                 {
-                  image: '/images/gallery/image4.jpg',
+                  image: '//wsrv.nl/?url=thinhsoft.com/images/gallery/image4.jpg',
                   text: '',
                 },
               ]}
@@ -208,7 +208,7 @@ export default function Home({ recaptchaSiteKey }: HomeProps) {
                     location: 'Houston, TX',
                     period: '2025 - Present',
                     description: [],
-                    logo: '/images/logos/wgu.jpeg',
+                    logo: '//wsrv.nl/?url=thinhsoft.com/images/logos/wgu.jpeg',
                   },
                   {
                     title: 'Coursework toward B.S. in Computer Science',
@@ -216,7 +216,7 @@ export default function Home({ recaptchaSiteKey }: HomeProps) {
                     location: 'Houston, TX',
                     period: '2020 - 2022',
                     description: [],
-                    logo: '/images/logos/uhcl.jpg',
+                    logo: '//wsrv.nl/?url=thinhsoft.com/images/logos/uhcl.jpg',
                   },
                   {
                     title: 'A.S.S. in Computer Science',
@@ -224,7 +224,7 @@ export default function Home({ recaptchaSiteKey }: HomeProps) {
                     location: 'Houston, TX',
                     period: '2016 - 2019',
                     description: [],
-                    logo: '/images/logos/sanjac.jpeg',
+                    logo: '//wsrv.nl/?url=thinhsoft.com/images/logos/sanjac.jpeg',
                   },
                 ]}
               />
@@ -235,14 +235,14 @@ export default function Home({ recaptchaSiteKey }: HomeProps) {
                     title: 'SAP Certified Associate - Back-End Developer - ABAP Cloud',
                     issuer: 'SAP',
                     year: '2025',
-                    logo: '/images/logos/sap.jpeg',
+                    logo: '//wsrv.nl/?url=thinhsoft.com/images/logos/sap.jpeg',
                     credentialUrl: 'https://www.credly.com/badges/619e450a-fcda-47aa-8cec-244f11b99031/linked_in_profile',
                   },
                   {
                     title: 'Building Full-Stack Apps with React and Spring',
                     issuer: 'LinkedIn',
                     year: '2023',
-                    logo: '/images/logos/linkedin.jpeg',
+                    logo: '//wsrv.nl/?url=thinhsoft.com/images/logos/linkedin.jpeg',
                     credentialUrl:
                       'https://www.linkedin.com/learning/certificates/af1006fba4d4b7274ffb5f91c3133bbb882ca919a83423e4ec5f6359f5ccb47e',
                   },
@@ -250,14 +250,14 @@ export default function Home({ recaptchaSiteKey }: HomeProps) {
                     title: 'Software Engineer',
                     issuer: 'HackerRank',
                     year: '2025',
-                    logo: '/images/logos/hackerrank.jpeg',
+                    logo: '//wsrv.nl/?url=thinhsoft.com/images/logos/hackerrank.jpeg',
                     credentialUrl: 'https://www.hackerrank.com/certificates/f74c8b7ec890',
                   },
                   {
                     title: 'Programming Foundations: Fundamentals',
                     issuer: 'LinkedIn',
                     year: '2021',
-                    logo: '/images/logos/linkedin.jpeg',
+                    logo: '//wsrv.nl/?url=thinhsoft.com/images/logos/linkedin.jpeg',
                     credentialUrl:
                       'https://www.linkedin.com/learning/certificates/3807526bb6d1ff7ad0e549ba434fd02c5c19f1324f55f2ec38db8a7dab1cfa13',
                   },
@@ -280,7 +280,7 @@ export default function Home({ recaptchaSiteKey }: HomeProps) {
                       company: 'SOURCE Web Solutions, Inc.',
                       location: 'Friendswood, Texas, United States',
                       period: 'May 2022 - Feb 2025',
-                      logo: '/images/logos/source.png',
+                      logo: '//wsrv.nl/?url=thinhsoft.com/images/logos/source.png',
                       description: [
                         'Strategized new feature requests, communicated with clientele and fellow developers, programmed features under strict timelines and budgets.',
                         'Facilitated direct communication with users to solve problems and assisted management in translating technical terminologies into simple language.',
@@ -294,7 +294,7 @@ export default function Home({ recaptchaSiteKey }: HomeProps) {
                       company: 'Labs196',
                       location: 'Sugar Land, Texas, United States',
                       period: 'Aug 2021 - Nov 2021',
-                      logo: '/images/logos/labs196.jpeg',
+                      logo: '//wsrv.nl/?url=thinhsoft.com/images/logos/labs196.jpeg',
                       description: [
                         'Built and deployed websites using ReactJS, React Native, and VueJS, improving user experience.',
                         'Assisted in database management, ensuring data integrity and smooth operational workflows, reducing data retrieval times by 50%.',
@@ -305,7 +305,7 @@ export default function Home({ recaptchaSiteKey }: HomeProps) {
                       company: 'Accredo Packaging, Inc.',
                       location: 'Sugar Land, Texas, United States',
                       period: 'Jun 2019 - Mar 2021',
-                      logo: '/images/logos/accredo.jpeg',
+                      logo: '//wsrv.nl/?url=thinhsoft.com/images/logos/accredo.jpeg',
                       description: [
                         'Provided technical and functional support for ERP systems, improving operational efficiency.',
                         'Implemented best practices for ERP systems, ensuring scalability and reliability, reducing downtime.',

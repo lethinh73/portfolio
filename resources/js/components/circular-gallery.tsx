@@ -439,15 +439,15 @@ class App {
   createMedias(items: { image: string; text: string }[] | undefined, bend: number = 1, textColor: string, borderRadius: number, font: string) {
     const defaultItems = [
       {
-        image: `/images/image-1.jpg`,
+        image: `//wsrv.nl/?url=thinhsoft.com/images/image-1.jpg`,
         text: '',
       },
       {
-        image: `/images/image-2.jpg`,
+        image: `//wsrv.nl/?url=thinhsoft.com/images/image-2.jpg`,
         text: '',
       },
       {
-        image: `/images/image-3.jpg`,
+        image: `//wsrv.nl/?url=thinhsoft.com/images/image-3.jpg`,
         text: '',
       },
     ];
