@@ -28,7 +28,7 @@ export const EducationSection: React.FC<EducationSectionProps> = ({ items }) => 
           <BentoCard key={index} className="border-emerald-200 p-5 dark:border-emerald-800" enableTilt={true} glowColor="16, 185, 129">
             <div className="flex items-center gap-2">
               {item.logo ? (
-                <img src={item.logo} alt={item.company} className="h-10 w-10 rounded-full border-2 border-emerald-800 dark:border-emerald-200" />
+                <img loading="lazy" src={item.logo} alt={item.company} className="h-10 w-10 rounded-full border-2 border-emerald-800 dark:border-emerald-200" />
               ) : (
                 <FiCalendar className="h-10 w-10 border-2 border-emerald-800 text-emerald-600 dark:border-emerald-200 dark:text-emerald-400" />
               )}

@@ -28,7 +28,7 @@ export const CertificationsSection: React.FC<CertificationsSectionProps> = ({ ce
             <div className="flex items-center justify-between gap-4">
               <div className="flex items-center gap-2">
                 {cert.logo ? (
-                  <img src={cert.logo} alt={cert.title} className="h-10 w-10 rounded-full border-2 border-emerald-800 dark:border-emerald-200" />
+                  <img loading="lazy" src={cert.logo} alt={cert.title} className="h-10 w-10 rounded-full border-2 border-emerald-800 dark:border-emerald-200" />
                 ) : (
                   <FiAward className="h-10 w-10 border-2 border-emerald-800 text-emerald-600 dark:border-emerald-200 dark:text-emerald-400" />
                 )}

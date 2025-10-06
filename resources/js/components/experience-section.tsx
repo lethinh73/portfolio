@@ -37,7 +37,7 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ items }) =
               <div className="p-5">
                 <div className="flex items-start gap-4">
                   {item.logo ? (
-                    <img src={item.logo} alt={item.company} className="h-10 w-10 rounded-full border-2 border-emerald-800 dark:border-emerald-200" />
+                    <img loading="lazy" src={item.logo} alt={item.company} className="h-10 w-10 rounded-full border-2 border-emerald-800 dark:border-emerald-200" />
                   ) : (
                     <div className="h-10 w-10 rounded-full border-2 border-emerald-800 dark:border-emerald-200" />
                   )}
