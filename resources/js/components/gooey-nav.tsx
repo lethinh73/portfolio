@@ -1,4 +1,4 @@
-import { Link } from '@inertiajs/react';
+import { router } from '@inertiajs/react';
 import React, { useEffect, useRef, useState } from 'react';
 
 interface GooeyNavItem {
@@ -118,6 +118,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
     const handleClick = (
         e: React.MouseEvent<HTMLAnchorElement>,
         index: number,
+        href: string,
     ) => {
         const liEl = e.currentTarget;
         if (activeIndex === index) return;
@@ -135,10 +136,15 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
         if (filterRef.current) {
             makeParticles(filterRef.current);
         }
+
+        setTimeout(() => {
+            router.visit(href);
+        }, 300);
     };
     const handleKeyDown = (
         e: React.KeyboardEvent<HTMLAnchorElement>,
         index: number,
+        href: string,
     ) => {
         if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
@@ -149,6 +155,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
                         currentTarget: liEl,
                     } as React.MouseEvent<HTMLAnchorElement>,
                     index,
+                    href,
                 );
             }
         }
@@ -335,14 +342,27 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
                                     activeIndex === index ? 'active' : ''
                                 }`}
                             >
-                                <Link
-                                    href={item.href}
-                                    onClick={(e: React.MouseEvent<Element>) => handleClick(e as React.MouseEvent<HTMLAnchorElement>, index)}
-                                    onKeyDown={(e: React.KeyboardEvent<Element>) => handleKeyDown(e as React.KeyboardEvent<HTMLAnchorElement>, index)}
+                                <a
+                                    onClick={(e: React.MouseEvent<Element>) =>
+                                        handleClick(
+                                            e as React.MouseEvent<HTMLAnchorElement>,
+                                            index,
+                                            item.href,
+                                        )
+                                    }
+                                    onKeyDown={(
+                                        e: React.KeyboardEvent<Element>,
+                                    ) =>
+                                        handleKeyDown(
+                                            e as React.KeyboardEvent<HTMLAnchorElement>,
+                                            index,
+                                            item.href,
+                                        )
+                                    }
                                     className="inline-block px-[1em] py-[0.6em] outline-none"
                                 >
                                     {item.label}
-                                </Link>
+                                </a>
                             </li>
                         ))}
                     </ul>
