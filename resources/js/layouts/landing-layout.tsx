@@ -1,21 +1,6 @@
-import DotGrid from '@/components/dot-grid';
-import GooeyNav from '@/components/gooey-nav';
-
-const navItems: { href: string; label: string }[] = [
-    { href: '/', label: 'Home' },
-    { href: '/work', label: 'Work' },
-    { href: '/contact', label: 'Contact' },
-];
-
-function handleCurrentPathIndex(paths: string[]) {
-    if (typeof window === 'undefined') {
-        return 0;
-    }
-
-    const currentPath = window.location.pathname;
-    const index = paths.indexOf(currentPath);
-    return index !== -1 ? index : 0;
-}
+import Logo from '@/assets/logo.svg';
+import { HomeNav } from '@/components/home-nav';
+import LightRays from '@/components/light-rays';
 
 export default function LandingLayout({
     children,
@@ -23,25 +8,29 @@ export default function LandingLayout({
     children: React.ReactNode;
 }) {
     return (
-        <div className="flex min-h-screen flex-col pt-5">
-            <div className="flex w-full justify-center">
-                <GooeyNav
-                    items={navItems}
-                    initialActiveIndex={handleCurrentPathIndex(
-                        navItems.map((item) => item.href),
-                    )}
+        <>
+            <div className="fixed h-full w-full">
+                <LightRays
+                    raysOrigin="top-center"
+                    raysColor="white"
+                    raysSpeed={0.1}
+                    lightSpread={1.0}
+                    rayLength={2.0}
+                    followMouse={false}
+                    noiseAmount={0}
+                    distortion={0.2}
                 />
+
+                <HomeNav logo={Logo} />
             </div>
 
-            <DotGrid className="fixed inset-0 h-full w-full" />
+            <main>{children}</main>
 
-            <main className="flex-1">{children}</main>
-
-            <footer className="p-4 text-center">
+            <footer className="w-full py-10 text-center text-sm text-white/50">
                 <p>
                     © {new Date().getFullYear()} Thinh Le. All rights reserved.
                 </p>
             </footer>
-        </div>
+        </>
     );
 }

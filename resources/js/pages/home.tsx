@@ -5,23 +5,23 @@ export default function Home() {
     return (
         <LandingLayout>
             <Head title="Home" />
-            <div className="flex flex-col items-center justify-center">
+            <div className="flex min-h-screen flex-col items-center pt-[150px]">
                 <div className="mt-4">
-                    <h1 className="text-4xl font-bold">
-                        Hello, I'm Thinh Le
-                    </h1>
-                    <h2 className="text-2xl mt-2">
-                        A Full-Stack Developer
-                    </h2>
+                    <h1 className="text-4xl font-bold">Hello, I'm Thinh Le</h1>
+                    <h2 className="mt-2 text-2xl">A Full-Stack Developer</h2>
                 </div>
                 <div className="mb-4">
-                    <img src="/images/profile.jpg" alt="Profile Picture" className="w-48 h-48 rounded-full mt-4" />
+                    <img
+                        src="/images/profile.jpg"
+                        alt="Profile Picture"
+                        className="mt-4 h-48 w-48 rounded-full"
+                    />
                 </div>
-                <div className="grid w-[80%] grid-cols-1 sm:grid-cols-3 gap-4">
-                    <div className="col-span-1 flex border-2 border-white w-full">
-                        
+                <div className="grid w-[80%] grid-cols-1 gap-4 sm:grid-cols-3">
+                    <div className="col-span-1 flex w-full border-1 border-white">
+                        Thinh
                     </div>
-                    <div className="col-span-1 sm:col-span-2 flex border-2 border-white w-full">
+                    <div className="col-span-1 flex w-full border-1 border-white sm:col-span-2">
                         Yo2
                     </div>
                 </div>
