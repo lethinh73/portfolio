@@ -21,7 +21,6 @@ export function ModeToggle() {
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-                {/* 3. Gọi hàm 'updateAppearance' thay vì 'setTheme' */}
                 <DropdownMenuItem onClick={() => updateAppearance('light')}>
                     Light
                 </DropdownMenuItem>
