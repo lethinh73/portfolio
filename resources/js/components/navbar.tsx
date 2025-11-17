@@ -5,7 +5,7 @@ import AppLogoIcon from './app-logo-icon';
 
 export function Navbar() {
     return (
-        <div className="fixed top-6 right-0 left-0 z-50 px-4">
+        <div className="sticky top-6 right-0 left-0 z-50 px-4">
             <nav className="mx-auto flex max-w-lg items-center justify-between rounded-full border p-2 px-6">
                 <div className="flex items-center gap-6">
                     <Link

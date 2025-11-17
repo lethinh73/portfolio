@@ -12,7 +12,7 @@ export default function PublicLayout({
     return (
         <div className="mx-auto flex min-h-screen max-w-4xl flex-col justify-center px-8">
             <Navbar />
-            <div className="mt-[100px] mb-[50px] flex flex-1 flex-col">
+            <div className="mt-[60px] mb-[50px] flex flex-1 flex-col">
                 {children}
             </div>
             <Footer />
