@@ -12,7 +12,7 @@ export function Navbar() {
                         href="/"
                         className="flex items-center gap-2 font-semibold"
                     >
-                        <AppLogoIcon className="size-8 p-1 rounded-full bg-white text-black dark:text-white" />
+                        <AppLogoIcon className="size-8 rounded-full bg-white p-1 text-black dark:text-white" />
                     </Link>
 
                     <div className="flex items-center gap-4">
