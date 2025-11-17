@@ -1,3 +1,4 @@
+import Footer from '@/components/footer';
 import { Navbar } from '@/components/navbar';
 import { type PropsWithChildren } from 'react';
 
@@ -11,7 +12,10 @@ export default function PublicLayout({
     return (
         <div className="mx-auto flex min-h-screen max-w-4xl flex-col justify-center px-8">
             <Navbar />
-            <div className="mt-[100px] flex flex-1 flex-col">{children}</div>
+            <div className="mt-[100px] mb-[50px] flex flex-1 flex-col">
+                {children}
+            </div>
+            <Footer />
         </div>
     );
 }
