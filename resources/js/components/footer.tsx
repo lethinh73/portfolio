@@ -55,7 +55,7 @@ export function Footer({
         github: 'https://github.com',
         discord: 'https://discord.com',
     },
-    copyright = '© 2024 Smoothui. All rights reserved.',
+    copyright = '© ' + new Date().getFullYear() + ' Thinh Le. All rights reserved.',
 }: FooterProps) {
     return (
         <footer className="border-t border-border bg-background">
